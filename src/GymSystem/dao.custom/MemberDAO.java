@@ -1,4 +1,8 @@
 package GymSystem.dao.custom;
 
-public interface MemberDAO {
+import GymSystem.dao.CrudDAO;
+import GymSystem.entity.Member;
+
+public interface MemberDAO extends CrudDAO<Member, String> {
+
 }

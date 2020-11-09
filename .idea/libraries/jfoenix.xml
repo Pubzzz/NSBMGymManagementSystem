@@ -1,9 +1,14 @@
 <component name="libraryTable">
   <library name="jfoenix">
     <CLASSES>
-      <root url="jar://H:/Soft/IJSE/javafx/jfoenix.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jfoenix.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mysql-connector-java-8.0.15.jar!/" />
+      <root url="file://$PROJECT_DIR$" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/src" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$" recursive="false" />
   </library>
 </component>

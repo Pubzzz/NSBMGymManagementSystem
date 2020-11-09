@@ -36,7 +36,7 @@ public class LoginViewController {
 
 
 
-        if(text.equalsIgnoreCase("") && password.equalsIgnoreCase("")){
+        if(text.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin123")){
             Parent parent= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/DashboardMainView.fxml"));
             Scene scene=new Scene(parent);
             Stage stage = (Stage) this.btn_Login.getScene().getWindow();
@@ -49,14 +49,6 @@ public class LoginViewController {
             Alert a = new Alert(Alert.AlertType.WARNING, "Invalid Login ", ButtonType.OK);
             a.showAndWait();
         }
-
+    }
     }
 
-    public void onaction_Username(ActionEvent actionEvent) {
-        txt_password.requestFocus();
-    }
-
-    public void onaction_Password(ActionEvent actionEvent) {
-        btn_Login.requestFocus();
-    }
-}
