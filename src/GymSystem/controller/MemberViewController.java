@@ -76,7 +76,9 @@ public class MemberViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
     static MemberBO bo = (MemberBO) BOFactory.getInstance().getBO(BOFactory.BOTyepes.MEMBER);
+
     public static boolean addCustomer(MemberDTO ref) throws ClassNotFoundException, SQLException {
         return bo.addCustomer(ref);
     }
@@ -91,33 +93,30 @@ public class MemberViewController implements Initializable {
         String tel = txt_MemTelNo.getText();
         String sex;
         String position;
-        if(radio_male.isSelected()){
-            sex="Male";
+        if (radio_male.isSelected()) {
+            sex = "Male";
+        } else {
+            sex = "Female";
         }
-        else{
-            sex="Female";
-        }
-        if(radio_student.isSelected()){
-             position = "Student";
-        }
-        else {
-             position = "Staff";
+        if (radio_student.isSelected()) {
+            position = "Student";
+        } else {
+            position = "Staff";
         }
         String batch = txt_Batch.getText();
         String degree = txt_Degree.getText();
 
-        MemberDTO cusModel = new MemberDTO(id, name, email, tel,sex,position,batch,degree);
+        MemberDTO cusModel = new MemberDTO(id, name, email, tel, sex, position, batch, degree);
         boolean addCustomer = MemberViewController.addCustomer(cusModel);
 
-        if(addCustomer){
+        if (addCustomer) {
             Alert a = new Alert(Alert.AlertType.INFORMATION, "ADDED SUCCESSFULLY ", ButtonType.OK);
             a.showAndWait();
             setAllClear();
-            getAllCustomers();
+            //getAllCustomers();
 
 
-
-        }else{
+        } else {
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
         }
@@ -134,7 +133,8 @@ public class MemberViewController implements Initializable {
 
     public void onaction_clicked(MouseEvent mouseEvent) {
     }
-    private void setAllClear(){
+
+    private void setAllClear() {
         txt_MemId.clear();
         txt_MemName.clear();
         txt_MemEmail.clear();
@@ -165,4 +165,5 @@ public class MemberViewController implements Initializable {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
 }

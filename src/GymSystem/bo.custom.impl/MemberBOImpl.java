@@ -8,7 +8,7 @@ import GymSystem.entity.Member;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class MemberBOImpl {
+public class MemberBOImpl implements MemberDAO{
     MemberDAO dao = (MemberDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.MEMBER);
 
 
