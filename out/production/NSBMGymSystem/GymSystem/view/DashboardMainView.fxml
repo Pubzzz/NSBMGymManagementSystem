@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="main_pain" prefHeight="750.0" prefWidth="1350.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GymSystem.controller.DashboardMainViewController">
+   <children>
+      <Pane prefHeight="750.0" prefWidth="220.0" style="-fx-background-color: grey;">
+         <children>
+            <JFXButton fx:id="btn_Dashboard" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="129.0" onAction="#action_dashboard" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Dashboard" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="btn_Register" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="235.0" onAction="#action_register" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Register" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="btn_Attendance" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="339.0" onAction="#action_attendance" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Attendance" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btn_Instructor" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="445.0" onAction="#action_instructor" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Instructor" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btn_Accessories" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="552.0" onAction="#action_accessories" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Accessories" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="29.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/icons8_Combo_Chart_104px_1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="33.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/icons8_Add_User_Male_96px_1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="29.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/icons8_Attendance_100px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="29.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/icons8_Personal_Trainer_100px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="27.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/icons8_Dumbbell_104px_1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="main_panel" layoutX="226.0" layoutY="45.0" prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: black;" />
+      <Label layoutX="629.0" layoutY="12.0" text="NSBM GYM Management System">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="close" fitHeight="30.0" fitWidth="47.0" layoutX="1320.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/icons8_Close_Window_96px.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="minimize" fitHeight="30.0" fitWidth="47.0" layoutX="1296.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/icons8_Minimize_Window_96px.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
