@@ -1,0 +1,55 @@
+ 
+create database GYM_DATABASE;
+
+use GYM_DATABASE;
+
+create table MEMBER(
+MID varchar(50) not null primary key,
+Mname varchar(100) not null,
+Memail varchar(100) not null,
+Mtel varchar(20) not null,
+Msex varchar(10) not null,
+Mpos varchar(10) not null, 
+Mbatch varchar(10) not null,
+Mdegree varchar(50) not null
+);
+
+create table INSTRUCTOR(
+IID varchar(50) not null primary key,
+Iname varchar(100) not null,
+NIC varchar(12) not null,
+Isex varchar(10) not null,
+Iemail varchar(100) not null,
+Itel varchar(20) not null
+);
+
+
+create table ACCESSORY(
+AID varchar(50) not null primary key,
+Atype varchar(100) not null,
+Abrand varchar(50) not null,
+AQuan int(20) not null
+);
+
+create table ATTENDENCE(
+ATTID varchar(50) not null,
+MID varchar(50) not null,
+ATname varchar(100) not null,
+ATdate date not null,
+ATtime time(0) not null,
+Apay varchar(10) not null,
+PRIMARY KEY (ATTID),
+FOREIGN KEY (MID) REFERENCES MEMBER(MID)
+);
+
+create table TRACKER(
+TID varchar(50) not null,
+MID varchar(50) not null,
+Tdate date not null,
+Height varchar(10) not null,
+Weight varchar(10) not null,
+BMI varchar(10) not null,
+Cal varchar(10) not null,
+PRIMARY KEY (TID),
+FOREIGN KEY (MID) REFERENCES MEMBER(MID)
+);
