@@ -61,7 +61,7 @@
       <JFXRadioButton fx:id="radio_Payment" layoutX="293.0" layoutY="309.0" text="Done" />
       <Pane layoutX="674.0" layoutY="108.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #c2e7ed;">
          <children>
-            <JFXTextField fx:id="txt_AttendanceSearch" layoutX="16.0" layoutY="21.0" prefHeight="31.0" prefWidth="364.0" promptText="SEARCH">
+            <JFXTextField fx:id="txt_AttendanceSearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="SEARCH">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -73,11 +73,11 @@
             </ImageView>
          </children>
       </Pane>
-      <JFXButton fx:id="btn_Add" layoutX="285.0" layoutY="358.0" text="ADD" />
-      <JFXButton fx:id="btn_Update" layoutX="401.0" layoutY="358.0" text="UPDATE" />
-      <JFXButton fx:id="btn_Remove" layoutX="520.0" layoutY="358.0" text="REMOVE" />
-      <JFXButton fx:id="btn_Clear" layoutX="618.0" layoutY="358.0" text="CLEAR" />
-      <TableView fx:id="table_Attendance" layoutX="112.0" layoutY="451.0" prefHeight="200.0" prefWidth="947.0">
+      <JFXButton fx:id="btn_Add" layoutX="285.0" layoutY="358.0" onAction="#onaction_add" text="ADD" />
+      <JFXButton fx:id="btn_Update" layoutX="401.0" layoutY="358.0" onAction="#onaction_update" text="UPDATE" />
+      <JFXButton fx:id="btn_Remove" layoutX="520.0" layoutY="358.0" onAction="#onaction_remove" text="REMOVE" />
+      <JFXButton fx:id="btn_Clear" layoutX="618.0" layoutY="358.0" onAction="#onaction_clear" text="CLEAR" />
+      <TableView fx:id="table_Attendance" layoutX="112.0" layoutY="451.0" onMouseClicked="#onaction_clicked" prefHeight="200.0" prefWidth="947.0">
         <columns>
           <TableColumn prefWidth="120.0" text="Attendance ID" />
           <TableColumn minWidth="1.0" prefWidth="127.0" text="Member ID" />
