@@ -12,7 +12,7 @@ public interface MemberBO extends SuperBO {
 
     public  boolean updateCustomer(MemberDTO ref) throws SQLException, ClassNotFoundException ;
 
-    public  boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException ;
+    public  boolean removeCustomer(String id) throws SQLException, ClassNotFoundException ;
 
     public  MemberDTO searchCustomer(String id) throws SQLException, ClassNotFoundException;
 

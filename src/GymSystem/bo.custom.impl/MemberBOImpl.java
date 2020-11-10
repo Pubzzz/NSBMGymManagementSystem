@@ -25,7 +25,7 @@ public class MemberBOImpl implements MemberBO {
     }
 
     @Override
-    public boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException {
+    public boolean removeCustomer(String id) throws SQLException, ClassNotFoundException {
         return dao.delete(id);
     }
 
@@ -52,7 +52,6 @@ public class MemberBOImpl implements MemberBO {
             ));
         }
         return dtos;
-
     }
 
 }
