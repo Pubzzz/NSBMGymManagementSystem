@@ -147,23 +147,24 @@ public class MemberViewController implements Initializable {
         radio_student.getUnSelectedColor();
     }
 
-//    private void getAllCustomers() throws Exception {
-//        ArrayList<MemberDTO> customerList;
-//        try {
-//            customerList = bo.getAllCustomers();
-//            ObservableList<MemberDTO> Member = FXCollections.observableArrayList(customerList);
-//            table_Memeber.setItems(Member);
-//            table_Memeber.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
-//            table_Memeber.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
-//            table_Memeber.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("email"));
-//            table_Memeber.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("tel"));
-//            table_Memeber.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("address"));
-//            table_Memeber.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("gender"));
-//            table_Memeber.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("position"));
-//            table_Memeber.getColumns().get(7).setCellValueFactory(new PropertyValueFactory<>("batch"));
-//            table_Memeber.getColumns().get(8).setCellValueFactory(new PropertyValueFactory<>("degree"));
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
+    private void getAllCustomers() throws Exception {
+        ArrayList<MemberDTO> customerList;
+        try {
+            customerList = bo.getAllCustomers();
+            ObservableList<MemberDTO> Member = FXCollections.observableArrayList(customerList);
+            table_Memeber.setItems(Member);
+            table_Memeber.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
+            table_Memeber.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
+            table_Memeber.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("email"));
+            table_Memeber.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("tel"));
+            table_Memeber.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("address"));
+            table_Memeber.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("gender"));
+            table_Memeber.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("position"));
+            table_Memeber.getColumns().get(7).setCellValueFactory(new PropertyValueFactory<>("batch"));
+            table_Memeber.getColumns().get(8).setCellValueFactory(new PropertyValueFactory<>("degree"));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
+}
 

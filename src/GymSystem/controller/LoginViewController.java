@@ -36,7 +36,7 @@ public class LoginViewController {
 
 
 
-        if(text.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin123")){
+        if(text.equalsIgnoreCase("") && password.equalsIgnoreCase("")){
             Parent parent= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/DashboardMainView.fxml"));
             Scene scene=new Scene(parent);
             Stage stage = (Stage) this.btn_Login.getScene().getWindow();

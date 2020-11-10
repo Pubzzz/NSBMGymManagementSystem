@@ -17,31 +17,34 @@ public class MemberDAOImpl implements MemberDAO{
     @Override
     public boolean add(Member ref) throws ClassNotFoundException, SQLException {
 
-       // return CrudUtil.executeUpdate("Insert into Customer values(?,?,?,?,?)", ref.getId(), ref.getName(), ref.getAddress(), ref.getEmail(),ref.getTel());
+        return CrudUtil.executeUpdate("Insert into MEMBER values(?,?,?,?,?,?,?,?)", ref.getId(), ref.getName(), ref.getEmail(), ref.getTel(), ref.getSex(), ref.getPos(), ref.getBatch(), ref.getDeg());
     }
 
     @Override
     public boolean update(Member ref) throws ClassNotFoundException, SQLException {
-        //return CrudUtil.executeUpdate("update Customer set customerName=?,customerAddress=?,customerEmail=? ,customerTel=? where customerId=?",  ref.getName(), ref.getAddress(), ref.getEmail(),ref.getTel(),ref.getId());
+        return CrudUtil.executeUpdate("update MEMBER set Mname=?,Mmail=?,Mtel=?,Msex=?,Mpos=?,Mbatch=?,Mdegree=? where MID=?",  ref.getName(), ref.getEmail(), ref.getTel(), ref.getSex(), ref.getPos(), ref.getBatch(), ref.getDeg(), ref.getId());
     }
 
     @Override
     public boolean delete(String id) throws ClassNotFoundException, SQLException {
-        return CrudUtil.executeUpdate("delete from Customer where CustomerId=?", id);
+        return CrudUtil.executeUpdate("delete from MEMBER where MID=?", id);
     }
 
     @Override
     public Member search1(String id) throws ClassNotFoundException, SQLException {
-//        ResultSet rst = CrudUtil.executeQuery("select * from Customer where CustomerId=?", id);
-//        if (rst.next()){
-//            return new Member(
-//                    rst.getString(1),
-//                    rst.getString(2),
-//                    rst.getString(3),
-//                    rst.getString(4),
-//                    rst.getString(5)
-//            );
-//        }
+        ResultSet rst = CrudUtil.executeQuery("select * from MEMBER where MID=?", id);
+        if (rst.next()){
+            return new Member(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getString(4),
+                    rst.getString(5),
+                    rst.getString(6),
+                    rst.getString(7),
+                    rst.getString(8)
+            );
+        }
         return null;
     }
 
@@ -53,17 +56,20 @@ public class MemberDAOImpl implements MemberDAO{
 
     @Override
     public ArrayList<Member> getAll() throws Exception {
-//        ArrayList<Member> company = new ArrayList<>();
-//        ResultSet rst = CrudUtil.executeQuery("Select * from customer");
-//        while (rst.next()){
-//            company.add(new Member(
-//                    rst.getString(1),
-//                    rst.getString(2),
-//                    rst.getString(3),
-//                    rst.getString(4),
-//                    rst.getString(5)
-//            ));
-//        }
-//        return company;
+        ArrayList<Member> company = new ArrayList<>();
+        ResultSet rst = CrudUtil.executeQuery("Select * from MEMBER");
+        while (rst.next()){
+            company.add(new Member(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getString(4),
+                    rst.getString(5),
+                    rst.getString(6),
+                    rst.getString(7),
+                    rst.getString(8)
+            ));
+        }
+        return company;
     }
 }
