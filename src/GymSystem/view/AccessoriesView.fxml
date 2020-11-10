@@ -48,7 +48,7 @@
       <JFXTextField fx:id="txt_AccessoryQty" layoutX="315.0" layoutY="221.0" prefHeight="25.0" prefWidth="300.0" />
       <Pane layoutX="679.0" layoutY="103.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #c2e7ed;">
          <children>
-            <JFXTextField fx:id="txt_AccessorySearch" layoutX="16.0" layoutY="21.0" prefHeight="31.0" prefWidth="364.0" promptText="SEARCH">
+            <JFXTextField fx:id="txt_AccessorySearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="SEARCH">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -60,11 +60,11 @@
             </ImageView>
          </children>
       </Pane>
-      <JFXButton fx:id="btn_Add11" layoutX="273.0" layoutY="313.0" text="REGISTER" />
-      <JFXButton fx:id="btn_Update11" layoutX="389.0" layoutY="313.0" text="UPDATE" />
-      <JFXButton fx:id="btn_Remove11" layoutX="508.0" layoutY="313.0" text="REMOVE" />
-      <JFXButton fx:id="btn_Clear11" layoutX="606.0" layoutY="313.0" text="CLEAR" />
-      <TableView fx:id="table_Accessories" layoutX="128.0" layoutY="438.0" prefHeight="200.0" prefWidth="611.0">
+      <JFXButton fx:id="btn_Add11" layoutX="273.0" layoutY="313.0" onAction="#onactione_register" text="REGISTER" />
+      <JFXButton fx:id="btn_Update11" layoutX="389.0" layoutY="313.0" onAction="#onaction_update" text="UPDATE" />
+      <JFXButton fx:id="btn_Remove11" layoutX="508.0" layoutY="313.0" onAction="#onaction_remove" text="REMOVE" />
+      <JFXButton fx:id="btn_Clear11" layoutX="606.0" layoutY="313.0" onAction="#onaction_clear" text="CLEAR" />
+      <TableView fx:id="table_Accessories" layoutX="128.0" layoutY="438.0" onMouseClicked="#onaction_clicked" prefHeight="200.0" prefWidth="611.0">
         <columns>
           <TableColumn prefWidth="130.0" text="Accessory ID" />
           <TableColumn prefWidth="140.0" text="Accessory Type" />
