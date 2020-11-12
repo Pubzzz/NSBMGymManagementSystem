@@ -1,6 +1,5 @@
 package GymSystem.bo;
 
-import GymSystem.bo.custom.MemberBO;
 import GymSystem.bo.custom.impl.AccessorieBOImpl;
 import GymSystem.bo.custom.impl.AttendanceBOImpl;
 import GymSystem.bo.custom.impl.InstructorBOImpl;
@@ -30,6 +29,12 @@ public class BOFactory {
 
             case MEMBER:
                 return new MemberBOImpl();
+            case ATTENDANCE:
+//                return new AttendanceBOImpl();
+            case ACCESSORIES:
+//                return new AccessorieBOImpl();
+            case INSTRUCTOR:
+//                return new InstructorBOImpl();
 
 
             default:

@@ -30,7 +30,7 @@ public class DAOFactory {
             case ACCESSORIES:
               //  return new AccessoriesDAOImpl();
             case INSTRUCTOR:
-              //  return new InstructorDAOImpl();
+                return new InstructorDAOImpl();
 
 
 

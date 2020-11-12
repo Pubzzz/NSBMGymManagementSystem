@@ -1,4 +1,7 @@
 package GymSystem.dao.custom;
 
-public interface InstructorDAO {
+import GymSystem.dao.CrudDAO;
+import GymSystem.entity.Instructor;
+
+public interface InstructorDAO extends CrudDAO<Instructor,String> {
 }

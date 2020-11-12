@@ -54,6 +54,7 @@ public class MemberDTO {
     public void setTel(String tel) {
         this.tel = tel;
     }
+
     public String getSex() {
         return sex;
     }
@@ -61,6 +62,7 @@ public class MemberDTO {
     public void setSex(String sex) {
         this.sex = sex;
     }
+
     public String getPos() {
         return pos;
     }
