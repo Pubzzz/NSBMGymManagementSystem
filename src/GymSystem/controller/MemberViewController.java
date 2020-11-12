@@ -77,7 +77,7 @@ public class MemberViewController implements Initializable {
 
     }
 
-    static MemberBO bo = (MemberBO) BOFactory.getInstance().getBO(BOFactory.BOTyepes.MEMBER);
+    static MemberBO bo = (MemberBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.MEMBER);
 
     public static boolean addCustomer(MemberDTO ref) throws ClassNotFoundException, SQLException {
         return bo.addCustomer(ref);
@@ -227,10 +227,18 @@ public class MemberViewController implements Initializable {
             table_Member.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
             table_Member.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("email"));
             table_Member.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("tel"));
+
             /*table_Member.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("gender"));
             table_Member.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("position"));*/
             table_Member.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("batch"));
             table_Member.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("degree"));
+
+            table_Member.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("address"));
+            table_Member.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("gender"));
+            table_Member.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("position"));
+            table_Member.getColumns().get(7).setCellValueFactory(new PropertyValueFactory<>("batch"));
+            table_Member.getColumns().get(8).setCellValueFactory(new PropertyValueFactory<>("degree"));
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

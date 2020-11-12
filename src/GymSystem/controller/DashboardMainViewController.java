@@ -73,4 +73,10 @@ public class DashboardMainViewController implements  Initializable {
         main_panel.getChildren().clear();
         main_panel.getChildren().add(anchorPane1);
     }
+
+    public void action_tracker(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/TrackerView.fxml"));
+        main_panel.getChildren().clear();
+        main_panel.getChildren().add(anchorPane1);
+    }
 }
