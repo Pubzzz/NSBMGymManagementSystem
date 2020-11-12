@@ -82,16 +82,21 @@ public class MemberViewController implements Initializable {
     public static boolean addCustomer(MemberDTO ref) throws ClassNotFoundException, SQLException {
         return bo.addCustomer(ref);
     }
+
     public static boolean updateCustomer(MemberDTO ref) throws SQLException, ClassNotFoundException {
         return bo.updateCustomer(ref);
     }
+
     public static boolean removeCustomer(String id) throws SQLException, ClassNotFoundException {
         return bo.removeCustomer(id);
     }
+
     public static MemberDTO searchCustomer(String id) throws SQLException, ClassNotFoundException {
         return bo.searchCustomer(id);
     }
+
     public void onaction_search(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
         MemberDTO searchCustomer = bo.searchCustomer(txt_MemSearch.getText());
         txt_MemId.setText(searchCustomer.getId());
         txt_MemName.setText(searchCustomer.getName());
@@ -143,19 +148,20 @@ public class MemberViewController implements Initializable {
         String name = txt_MemName.getText();
         String email = txt_MemEmail.getText();
         String tel = txt_MemTelNo.getText();
-        String batch = txt_Batch.getText();
-        String degree = txt_Degree.getText();
-        String sex,position;
+        String sex;
         if (radio_male.isSelected()) {
             sex = "Male";
         } else {
             sex = "Female";
         }
+        String position;
         if (radio_student.isSelected()) {
             position = "Student";
         } else {
             position = "Staff";
         }
+        String batch = txt_Batch.getText();
+        String degree = txt_Degree.getText();
 
         MemberDTO cusModel = new MemberDTO(id, name, email, tel, sex, position, batch, degree);
         boolean updateCustomer = MemberViewController.updateCustomer(cusModel);
@@ -227,17 +233,10 @@ public class MemberViewController implements Initializable {
             table_Member.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
             table_Member.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("email"));
             table_Member.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("tel"));
-
-            /*table_Member.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("gender"));
-            table_Member.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("position"));*/
-            table_Member.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("batch"));
-            table_Member.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("degree"));
-
-            table_Member.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("address"));
-            table_Member.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("gender"));
-            table_Member.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("position"));
-            table_Member.getColumns().get(7).setCellValueFactory(new PropertyValueFactory<>("batch"));
-            table_Member.getColumns().get(8).setCellValueFactory(new PropertyValueFactory<>("degree"));
+            table_Member.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("gender"));
+            table_Member.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("position"));
+            table_Member.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("batch"));
+            table_Member.getColumns().get(7).setCellValueFactory(new PropertyValueFactory<>("degree"));
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

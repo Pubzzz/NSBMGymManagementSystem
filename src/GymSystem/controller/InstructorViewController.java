@@ -3,7 +3,6 @@ package GymSystem.controller;
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.InstructorBO;
 import GymSystem.dto.InstructorDTO;
-import GymSystem.dto.MemberDTO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
@@ -193,7 +192,8 @@ public class InstructorViewController {
         txt_InstructorId.clear();
         txt_InstructorName.clear();
         txt_InstructorNIC.clear();
-//        radio_Female.clear();
+        radio_Female.setSelected(false);
+        radio_Male.setSelected(false);
         txt_InstructorEmail.clear();
         txt_InstructorTelNo.clear();
 

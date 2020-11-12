@@ -22,7 +22,7 @@ public class MemberDAOImpl implements MemberDAO{
 
     @Override
     public boolean update(Member ref) throws ClassNotFoundException, SQLException {
-        return CrudUtil.executeUpdate("update MEMBER set Mname=?,Mmail=?,Mtel=?,Msex=?,Mpos=?,Mbatch=?,Mdegree=? where MID=?",  ref.getName(), ref.getEmail(), ref.getTel(), ref.getSex(), ref.getPos(), ref.getBatch(), ref.getDeg(), ref.getId());
+        return CrudUtil.executeUpdate("update MEMBER set Mname=?,Memail=?,Mtel=?,Msex=?,Mpos=?,Mbatch=?,Mdegree=? where MID=?",  ref.getName(), ref.getEmail(), ref.getTel(), ref.getSex(), ref.getPos(), ref.getBatch(), ref.getDeg(), ref.getId());
     }
 
     @Override
