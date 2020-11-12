@@ -21,11 +21,11 @@ public class BOFactory {
 
     }
 
-    public enum BOTyepes {
+    public enum BOTypes {
         MEMBER, ATTENDANCE, ACCESSORIES ,INSTRUCTOR;
     }
 
-    public SuperBO getBO(BOTyepes types) {
+    public SuperBO getBO(BOTypes types) {
         switch (types) {
 
             case MEMBER:
