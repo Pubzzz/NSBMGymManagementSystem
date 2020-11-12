@@ -8,14 +8,25 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GymSystem.controller.LoginViewController">
    <children>
-      <Pane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: grey;" />
+      <Pane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: grey;">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="634.0" layoutX="-295.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/1.PNG" />
+               </image>
+            </ImageView>
+         </children></Pane>
       <TextField fx:id="txt_username" layoutX="372.0" layoutY="165.0" prefHeight="25.0" prefWidth="175.0" promptText="User Name" />
       <Button fx:id="btn_Login" layoutX="372.0" layoutY="282.0" mnemonicParsing="false" onAction="#login_action" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: #2adbfa;" text="LOGIN" textAlignment="CENTER" />
       <PasswordField fx:id="txt_password" layoutX="372.0" layoutY="219.0" prefHeight="25.0" prefWidth="175.0" promptText="Password" />
-      <Label layoutX="367.0" layoutY="73.0" prefHeight="30.0" prefWidth="185.0" text="GYM MANAGEMENT SYSTEM" textAlignment="CENTER" />
+      <Label layoutX="353.0" layoutY="73.0" prefHeight="30.0" prefWidth="214.0" text="GYM MANAGEMENT SYSTEM" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
       <ImageView fitHeight="51.0" fitWidth="116.0" layoutX="403.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/nsbmn.png" />
