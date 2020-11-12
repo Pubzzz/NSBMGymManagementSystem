@@ -59,7 +59,7 @@ public class InstructorViewController {
     private JFXRadioButton radio_Female;
 
     @FXML
-    private TableView table_Instructor;
+    private TableView<InstructorDTO> table_Instructor;
 
 
     static InstructorBO bo = (InstructorBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.INSTRUCTOR);
@@ -177,15 +177,15 @@ public class InstructorViewController {
     }
 
     public void onaction_clicked(MouseEvent mouseEvent) {
+            
+        InstructorDTO selectedItem = table_Instructor.getSelectionModel().getSelectedItem();
 
-//        InstructorDTO selectedItem = table_Instructor.getSelectionModel().getSelectedItem();
-//
-//        txt_InstructorId.setText(selectedItem.getId());
-//        txt_InstructorName.setText(selectedItem.getName());
-//        txt_InstructorNIC.setText(selectedItem.getNic());
-//        // how to update on gender
-//        txt_InstructorEmail.setText(selectedItem.getEmail());
-//        txt_InstructorTelNo.setText(selectedItem.getTp());
+        txt_InstructorId.setText(selectedItem.getId());
+        txt_InstructorName.setText(selectedItem.getName());
+        txt_InstructorNIC.setText(selectedItem.getNic());
+        // how to update on gender
+        txt_InstructorEmail.setText(selectedItem.getEmail());
+        txt_InstructorTelNo.setText(selectedItem.getTp());
     }
 
 
@@ -193,7 +193,7 @@ public class InstructorViewController {
         txt_InstructorId.clear();
         txt_InstructorName.clear();
         txt_InstructorNIC.clear();
-//        txt_InsEmail.clear();
+//        radio_Female.clear();
         txt_InstructorEmail.clear();
         txt_InstructorTelNo.clear();
 
@@ -204,15 +204,15 @@ public class InstructorViewController {
     private void getAllInstructors() throws Exception {
         ArrayList<InstructorDTO> instructorList;
         try {
-//            instructorList = bo.getAllInstructor();
-//            ObservableList<InstructorDTO> instructor = FXCollections.observableArrayList(instructorList);
-//            table_Instructor.setItems(instructor);
-//            table_Instructor.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
-//            table_Instructor.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
-//            table_Instructor.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("nic"));
-//            table_Instructor.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("gender"));
-//            table_Instructor.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("email"));
-//            table_Instructor.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("tp"));
+            instructorList = bo.getAllInstructor();
+            ObservableList<InstructorDTO> Instructor = FXCollections.observableArrayList(instructorList);
+            table_Instructor.setItems(Instructor);
+            table_Instructor.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
+            table_Instructor.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
+            table_Instructor.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("nic"));
+            table_Instructor.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("gender"));
+            table_Instructor.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("email"));
+            table_Instructor.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("tp"));
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

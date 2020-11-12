@@ -1,11 +1,12 @@
 package GymSystem.bo.custom;
 
+import GymSystem.bo.SuperBO;
 import GymSystem.dto.InstructorDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface InstructorBO {
+public interface InstructorBO extends SuperBO {
     public  boolean addInstructor(InstructorDTO ref) throws ClassNotFoundException, SQLException;
 
     public  boolean updateInstructor(InstructorDTO ref) throws SQLException, ClassNotFoundException ;
