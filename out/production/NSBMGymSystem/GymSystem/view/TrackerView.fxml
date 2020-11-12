@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GymSystem.controller.TrackerViewController">
+<AnchorPane prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GymSystem.controller.TrackerViewController">
    <children>
       <Pane layoutX="2.0" layoutY="3.0" prefHeight="40.0" prefWidth="1116.0" style="-fx-background-color: grey;">
          <children>
@@ -101,17 +101,17 @@
             <TableColumn prefWidth="140.0" text="Calories" />
         </columns>
       </TableView>
-      <JFXRadioButton fx:id="btn_type1" layoutX="275.0" layoutY="307.0" text="Sedentary">
+      <JFXRadioButton fx:id="radio_type1" layoutX="275.0" layoutY="307.0" text="Sedentary">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="btn_type2" layoutX="275.0" layoutY="333.0" text="Lightly Active">
+      <JFXRadioButton fx:id="radio_type2" layoutX="275.0" layoutY="333.0" text="Lightly Active">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="btn_type3" layoutX="275.0" layoutY="362.0" text="Moderately Active">
+      <JFXRadioButton fx:id="radio_type3" layoutX="275.0" layoutY="362.0" text="Moderately Active">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

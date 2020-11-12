@@ -73,12 +73,14 @@
       <JFXButton fx:id="btn_Clear" layoutX="568.0" layoutY="383.0" onAction="#onaction_clear" text="CLEAR" />
       <TableView fx:id="table_Member" layoutX="80.0" layoutY="459.0" onMouseClicked="#onaction_clicked" prefHeight="200.0" prefWidth="975.0">
         <columns>
-          <TableColumn prefWidth="146.0" text="Member ID" />
-            <TableColumn prefWidth="221.0" text="Name" />
-            <TableColumn prefWidth="139.0" text="Email" />
-            <TableColumn prefWidth="195.0" text="Tel No" />
-            <TableColumn prefWidth="132.0" text="Batch" />
-            <TableColumn prefWidth="141.0" text="Degree Program" />
+          <TableColumn prefWidth="104.0" text="Member ID" />
+            <TableColumn prefWidth="147.0" text="Name" />
+            <TableColumn prefWidth="143.0" text="Email" />
+            <TableColumn prefWidth="103.0" text="Tel No" />
+            <TableColumn prefWidth="100.0" text="Gender" />
+            <TableColumn prefWidth="124.0" text="Academic Position" />
+            <TableColumn prefWidth="108.0" text="Batch" />
+            <TableColumn prefWidth="145.0" text="Degree Program" />
         </columns>
       </TableView>
       <Pane layoutX="654.0" layoutY="87.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #c2e7ed;">
