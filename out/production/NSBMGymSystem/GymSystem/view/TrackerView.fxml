@@ -85,10 +85,10 @@
             </JFXTextField>
          </children>
       </Pane>
-      <JFXButton id="button" fx:id="btn_Calculate" layoutX="675.0" layoutY="312.0" onAction="#onaction_calculate" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="CALCULATE" />
-      <JFXButton id="button" fx:id="btn_Update" layoutX="675.0" layoutY="358.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="UPDATE" />
-      <JFXButton id="button" fx:id="btn_Remove" layoutX="905.0" layoutY="312.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="REMOVE" />
-      <JFXButton id="button" fx:id="btn_Clear" layoutX="905.0" layoutY="358.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="CLEAR" />
+      <JFXButton fx:id="btn_Calculate" layoutX="675.0" layoutY="312.0" onAction="#onaction_calculate" prefWidth="98.0" text="CALCULATE" />
+      <JFXButton fx:id="btn_Update" layoutX="685.0" layoutY="358.0" onAction="#onaction_update" text="UPDATE" />
+      <JFXButton fx:id="btn_Remove" layoutX="899.0" layoutY="312.0" onAction="#onaction_remove" text="REMOVE" />
+      <JFXButton fx:id="btn_Clear" layoutX="905.0" layoutY="358.0" onAction="#onaction_clear" text="CLEAR" />
       <TableView fx:id="table_tracker" layoutX="99.0" layoutY="455.0" onMouseClicked="#onaction_Clicked" prefHeight="200.0" prefWidth="975.0">
         <columns>
           <TableColumn prefWidth="87.0" text="Tracker ID" />
