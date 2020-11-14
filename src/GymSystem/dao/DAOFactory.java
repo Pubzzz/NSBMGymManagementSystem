@@ -1,9 +1,6 @@
 package GymSystem.dao;
 
-import GymSystem.dao.custom.impl.AccessoriesDAOImpl;
-import GymSystem.dao.custom.impl.AttendanceDAOImpl;
-import GymSystem.dao.custom.impl.InstructorDAOImpl;
-import GymSystem.dao.custom.impl.MemberDAOImpl;
+import GymSystem.dao.custom.impl.*;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -18,7 +15,7 @@ public class DAOFactory {
         return daoFactory;
     }
     public enum DAOTypes {
-        MEMBER,ATTENDANCE,ACCESSORIES,INSTRUCTOR;
+        MEMBER,ATTENDANCE,ACCESSORIES,INSTRUCTOR,TRACKER;
     }
 
     public  SuperDAO getDAO(DAOTypes types) {
@@ -31,6 +28,8 @@ public class DAOFactory {
               //  return new AccessoriesDAOImpl();
             case INSTRUCTOR:
                 return new InstructorDAOImpl();
+            case TRACKER:
+                return new TrackerDAOImpl();
 
 
 

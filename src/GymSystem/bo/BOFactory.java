@@ -1,9 +1,6 @@
 package GymSystem.bo;
 
-import GymSystem.bo.custom.impl.AccessorieBOImpl;
-import GymSystem.bo.custom.impl.AttendanceBOImpl;
-import GymSystem.bo.custom.impl.InstructorBOImpl;
-import GymSystem.bo.custom.impl.MemberBOImpl;
+import GymSystem.bo.custom.impl.*;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -21,7 +18,7 @@ public class BOFactory {
     }
 
     public enum BOTypes {
-        MEMBER, ATTENDANCE, ACCESSORIES ,INSTRUCTOR;
+        MEMBER, ATTENDANCE, ACCESSORIES ,INSTRUCTOR,TRACKER;
     }
 
     public SuperBO getBO(BOTypes types) {
@@ -35,6 +32,8 @@ public class BOFactory {
 //                return new AccessorieBOImpl();
             case INSTRUCTOR:
                 return new InstructorBOImpl();
+            case TRACKER:
+               return (SuperBO) new TrackerBOImpl();
 
 
             default:
