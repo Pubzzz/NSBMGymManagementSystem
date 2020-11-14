@@ -1,25 +1,34 @@
 package GymSystem.entity;
 
-public class Member {
+public class Attendance {
+
+    private String id;
     private String mid;
     private String name;
-    private String aid;
+    private String date;
     private String time;
     private String payment;
 
-
-    public Member(){
+    public Attendance(){
 
     }
-
-    public Attendance(String mid, String name, String aid, String time, String payment) {
+    public Attendance(String id,String mid,String name,String date,String time, String payment){
+        this.id = id;
         this.mid = mid;
         this.name = name;
-        this.aid = aid;
+        this.date = date;
         this.time = time;
         this.payment = payment;
-
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getMid() {
         return mid;
     }
@@ -36,12 +45,12 @@ public class Member {
         this.name = name;
     }
 
-    public String getAid() {
-        return aid;
+    public String getDate() {
+        return date;
     }
 
-    public void setAid(String aid) {
-        this.aid = aid;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getTime() {
@@ -59,6 +68,4 @@ public class Member {
     public void setPayment(String payment) {
         this.payment = payment;
     }
-
-
 }

@@ -15,14 +15,15 @@ public class AttendanceBOImpl implements AttendanceBO {
 
     @Override
     public boolean addAttendance(AttendanceDTO ref) throws ClassNotFoundException, SQLException {
-        return dao.add(new Attendance(ref.getMid(), ref.getName(), ref.getAid(),ref.getTime(),ref.getPayment()));
+        return dao.add(new Attendance(ref.getId(), ref.getMid(), ref.getName(), ref.getDate(), ref.getTime(), ref.getPayment()));
 
     }
 
     @Override
-    public boolean updateCustomer(AttendanceDTO ref) throws SQLException, ClassNotFoundException {
-        return dao.update(new Attendance(ref.getMid(), ref.getName(),  ref.getAid(),ref.getTime(),ref.getPayment()));
+    public boolean updateAttendance(AttendanceDTO ref) throws SQLException, ClassNotFoundException {
+        return dao.update(new Attendance(ref.getId(), ref.getMid(), ref.getName(), ref.getDate(), ref.getTime(), ref.getPayment()));
     }
+
 
     @Override
     public boolean removeAttendance(String id) throws SQLException, ClassNotFoundException {
@@ -32,7 +33,7 @@ public class AttendanceBOImpl implements AttendanceBO {
     @Override
     public AttendanceDTO searchAttendance(String Mid) throws SQLException, ClassNotFoundException {
         Attendance search = dao.search1(Mid);
-        return new AttendanceDTO(search.getMId(), search.getName(),  search.getAid(),search.getTime(),search.getPayment());
+        return new AttendanceDTO(search.getId(), search.getMid(), search.getName(), search.getDate(), search.getTime(), search.getPayment());
     }
 
     @Override
@@ -41,11 +42,12 @@ public class AttendanceBOImpl implements AttendanceBO {
         ArrayList<Attendance> companies = dao.getAll();
         for (Attendance company : companies) {
             dtos.add(new AttendanceDTO(
-                    company.getMId(),
+                    company.getId(),
+                    company.getMid(),
                     company.getName(),
-                    company.getAid(),
+                    company.getDate(),
                     company.getTime(),
-                    company.getPayment(),
+                    company.getPayment()
             ));
         }
         return dtos;

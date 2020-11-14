@@ -18,29 +18,30 @@ public class AttendanceDAOImpl implements AttendanceDAO{
     @Override
     public boolean add(Attendance ref) throws ClassNotFoundException, SQLException {
 
-        return CrudUtil.executeUpdate("Insert into ATTENDANCE values(?,?,?,?,?)", ref.getMid(), ref.getName(), ref.getAid(), ref.getTime(), ref.getPayment());
+        return CrudUtil.executeUpdate("Insert into ATTENDENCE values(?,?,?,?,?,?)", ref.getId(), ref.getMid(), ref.getName(), ref.getDate(), ref.getTime(),ref.getPayment());
     }
 
     @Override
     public boolean update(Attendance ref) throws ClassNotFoundException, SQLException {
-        return CrudUtil.executeUpdate("update ATTENDANCE set Mname=?,Memail=?,Mtel=?,Msex=?,Mpos=?,Mbatch=?,Mdegree=? where MID=?",  ref.getName(), ref.getEmail(), ref.getTel(), ref.getSex(), ref.getPos(), ref.getBatch(), ref.getDeg(), ref.getId());
+        return CrudUtil.executeUpdate("update ATTENDENCE set MID=?,ATname=?,ATdate=?,ATtime=?,Apay=? where ATTID=?",  ref.getMid(), ref.getName(),ref.getDate(), ref.getTime(), ref.getPayment(), ref.getId());
     }
 
     @Override
     public boolean delete(String id) throws ClassNotFoundException, SQLException {
-        return CrudUtil.executeUpdate("delete from ATTENDANCE where MID=?", id);
+        return CrudUtil.executeUpdate("delete from ATTENDENCE where ATTID=?", id);
     }
 
     @Override
     public Attendance search1(String id) throws ClassNotFoundException, SQLException {
-        ResultSet rst = CrudUtil.executeQuery("select * from ATTENDANCE where MID=?", id);
+        ResultSet rst = CrudUtil.executeQuery("select * from ATTENDENCE where ATTID=?", id);
         if (rst.next()){
             return new Attendance(
                     rst.getString(1),
                     rst.getString(2),
                     rst.getString(3),
                     rst.getString(4),
-                    rst.getString(5)
+                    rst.getString(5),
+                    rst.getString(6)
             );
         }
         return null;
@@ -55,14 +56,15 @@ public class AttendanceDAOImpl implements AttendanceDAO{
     @Override
     public ArrayList<Attendance> getAll() throws Exception {
         ArrayList<Attendance> company = new ArrayList<>();
-        ResultSet rst = CrudUtil.executeQuery("Select * from ATTENDANCE");
+        ResultSet rst = CrudUtil.executeQuery("Select * from ATTENDENCE");
         while (rst.next()){
             company.add(new Attendance(
                     rst.getString(1),
                     rst.getString(2),
                     rst.getString(3),
                     rst.getString(4),
-                    rst.getString(5)
+                    rst.getString(5),
+                    rst.getString(6)
             ));
         }
         return company;

@@ -5,6 +5,7 @@ import GymSystem.bo.custom.AttendanceBO;
 import GymSystem.bo.custom.MemberBO;
 import GymSystem.dto.AttendanceDTO;
 import GymSystem.dto.MemberDTO;
+import GymSystem.entity.Attendance;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
@@ -56,15 +57,11 @@ public class AttendanceViewController {
     private JFXRadioButton radio_Payment;
 
     @FXML
-    private TableView table_Attendance;
+    private TableView<AttendanceDTO> table_Attendance;
 
     @FXML
     private JFXTextField txt_AttendanceSearch;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
 
     static AttendanceBO bo = (AttendanceBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.ATTENDANCE);
 
@@ -85,29 +82,46 @@ public class AttendanceViewController {
     }
 
 
-    public void onaction_add(ActionEvent actionEvent) {
+    public void onaction_add(ActionEvent actionEvent) throws Exception {
+
+        String id = txt_AttendanceId.getText();
+        String mid = txt_MemId.getText();
+        String name = txt_MemName.getText();
+        String date = txt_AttendanceDate.getText();
+        String time = txt_AttendanceTime.getText();
+        String payment = null;
+        if (radio_Payment.isSelected()) {
+            payment = "Done";
+        }
+
+        AttendanceDTO cusModel = new AttendanceDTO(id, mid, name, date, time, payment);
+        boolean addAttendance = AttendanceViewController.addAttendance(cusModel);
+
+        if (addAttendance) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION, "ADDED SUCCESSFULLY ", ButtonType.OK);
+            a.showAndWait();
+            setAllClear();
+            getAllAttendance();
+
+
+        } else {
+            Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
+            a.showAndWait();
+        }
     }
 
     public void onaction_update(ActionEvent actionEvent) throws Exception{
-        String id = txt_MemId.getText();
+        String id = txt_AttendanceId.getText();
+        String mid = txt_MemId.getText();
         String name = txt_MemName.getText();
-        String sex;
-        if (radio_male.isSelected()) {
-            sex = "Male";
-        } else {
-            sex = "Female";
-        }
-        String position;
-        if (radio_student.isSelected()) {
-            position = "Student";
-        } else {
-            position = "Staff";
-        }
-        String aid = txt_AttendanceId.getText();
         String date = txt_AttendanceDate.getText();
         String time = txt_AttendanceTime.getText();
+        String payment = null;
+        if (radio_Payment.isSelected()) {
+            payment = "Done";
+        }
 
-        AttendanceDTO cusModel = new AttendanceDTO(id, name, sex, position,);
+        AttendanceDTO cusModel = new AttendanceDTO(id, mid, name, date, time, payment);
         boolean updateAttendance = AttendanceViewController.updateAttendance(cusModel);
 
 
@@ -123,14 +137,15 @@ public class AttendanceViewController {
     }
 
     public void onaction_remove(ActionEvent actionEvent) throws Exception {
-        String id = txt_MemId.getText();
 
-        boolean removeCustomer = removeCustomer(id);
-        if(removeCustomer){
+        String id = txt_AttendanceId.getText();
+
+        boolean removeAttendance = removeAttendance(id);
+        if(removeAttendance){
             Alert a = new Alert(Alert.AlertType.INFORMATION, "DELETED SUCCSESSFULLY ", ButtonType.OK);
             a.showAndWait();
             setAllClear();
-            getAllCustomers();
+            getAllAttendance();
         }else{
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
@@ -149,32 +164,32 @@ public class AttendanceViewController {
     }
 
     public void onaction_search(ActionEvent actionEvent) throws SQLException, ClassNotFoundException{
-        MemberDTO searchAttendance = bo.searchAttendance(txt_AttendanceSearch.getText());
-        txt_MemId.setText(searchCustomer.getId());
-        txt_MemName.setText(searchCustomer.getName());
-        txt_AttendanceId.setText(searchCustomer.getId());
-        txt_AttendanceDate.setText(searchCustomer.getId());
-        txt_AttendanceTime.setText(searchCustomer.getId());
+
+        AttendanceDTO searchAttendance = bo.searchAttendance(txt_AttendanceSearch.getText());
+        txt_AttendanceId.setText(searchAttendance.getId());
+        txt_MemId.setText(searchAttendance.getMid());
+        txt_MemName.setText(searchAttendance.getName());
+        txt_AttendanceDate.setText(searchAttendance.getId());
+        txt_AttendanceTime.setText(searchAttendance.getId());
+
     }
     private void setAllClear() {
         txt_MemId.clear();
         txt_MemName.clear();
 
     }
-    private void getAllCustomers() throws Exception {
-        ArrayList<MemberDTO> customerList;
+    private void getAllAttendance() throws Exception {
+        ArrayList<AttendanceDTO> attendanceList;
         try {
-            customerList = bo.getAllCustomers();
-            ObservableList<MemberDTO> Member = FXCollections.observableArrayList(customerList);
+            attendanceList = bo.getAllAttendances();
+            ObservableList<AttendanceDTO> Member = FXCollections.observableArrayList(attendanceList);
             table_Attendance.setItems(Member);
             table_Attendance.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
-            table_Attendance.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
-            table_Attendance.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("email"));
-            table_Attendance.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("tel"));
-            table_Attendance.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("gender"));
-            table_Attendance.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("position"));
-            table_Attendance.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("batch"));
-            table_Attendance.getColumns().get(7).setCellValueFactory(new PropertyValueFactory<>("degree"));
+            table_Attendance.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("mid"));
+            table_Attendance.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("name"));
+            table_Attendance.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("date"));
+            table_Attendance.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("time"));
+            table_Attendance.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("payment"));
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

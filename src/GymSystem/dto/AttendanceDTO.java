@@ -2,9 +2,10 @@ package GymSystem.dto;
 
 public class AttendanceDTO {
 
+    private String id;
     private String mid;
-    private String aid;
     private String name;
+    private String date;
     private String time;
     private String payment;
 
@@ -12,13 +13,24 @@ public class AttendanceDTO {
     public AttendanceDTO(){
 
     }
-    public AttendanceDTO(String mid,String name,String aid,String time,String payment){
+    public AttendanceDTO(String id,String mid,String name,String date,String time, String payment){
+        this.id = id;
         this.mid = mid;
         this.name = name;
-        this.aid = aid;
+        this.date = date;
         this.time = time;
         this.payment = payment;
     }
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getMid() {
         return mid;
     }
@@ -35,17 +47,21 @@ public class AttendanceDTO {
         this.name = name;
     }
 
-    public String getAid() {
-        return aid;
+    public String getDate() {
+        return date;
     }
 
-    public void setAid(String aid) { this.aid = aid; }
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getTime() {
         return time;
     }
 
-    public void setTime(String time) { this.time = time; }
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     public String getPayment() {
         return payment;
@@ -54,6 +70,4 @@ public class AttendanceDTO {
     public void setPayment(String payment) {
         this.payment = payment;
     }
-
-
 }
