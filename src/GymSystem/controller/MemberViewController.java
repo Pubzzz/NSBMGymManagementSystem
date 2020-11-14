@@ -2,7 +2,6 @@ package GymSystem.controller;
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.MemberBO;
 import GymSystem.dto.MemberDTO;
-import GymSystem.entity.Member;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;

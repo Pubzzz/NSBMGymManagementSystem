@@ -30,11 +30,11 @@ public class BOFactory {
             case MEMBER:
                 return new MemberBOImpl();
             case ATTENDANCE:
-//                return new AttendanceBOImpl();
+                return new AttendanceBOImpl();
             case ACCESSORIES:
 //                return new AccessorieBOImpl();
             case INSTRUCTOR:
-//                return new InstructorBOImpl();
+                return new InstructorBOImpl();
 
 
             default:

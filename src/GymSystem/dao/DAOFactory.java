@@ -26,7 +26,7 @@ public class DAOFactory {
             case MEMBER:
                 return new MemberDAOImpl();
             case ATTENDANCE:
-               // return new AttendanceDAOImpl();
+                return new AttendanceDAOImpl();
             case ACCESSORIES:
               //  return new AccessoriesDAOImpl();
             case INSTRUCTOR:

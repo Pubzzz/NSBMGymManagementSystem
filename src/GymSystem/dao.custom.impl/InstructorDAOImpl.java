@@ -3,7 +3,6 @@ package GymSystem.dao.custom.impl;
 import GymSystem.dao.CrudUtil;
 import GymSystem.dao.custom.InstructorDAO;
 import GymSystem.entity.Instructor;
-import GymSystem.entity.Member;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
