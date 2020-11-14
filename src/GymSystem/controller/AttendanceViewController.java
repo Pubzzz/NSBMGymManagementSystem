@@ -13,6 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
@@ -21,10 +22,12 @@ import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class AttendanceViewController {
+public class AttendanceViewController implements Initializable {
 
     @FXML
     private JFXButton btn_Add;
@@ -89,9 +92,12 @@ public class AttendanceViewController {
         String name = txt_MemName.getText();
         String date = txt_AttendanceDate.getText();
         String time = txt_AttendanceTime.getText();
-        String payment = null;
+        String payment;
         if (radio_Payment.isSelected()) {
             payment = "Done";
+        }
+        else{
+            payment="Due";
         }
 
         AttendanceDTO cusModel = new AttendanceDTO(id, mid, name, date, time, payment);
@@ -116,9 +122,12 @@ public class AttendanceViewController {
         String name = txt_MemName.getText();
         String date = txt_AttendanceDate.getText();
         String time = txt_AttendanceTime.getText();
-        String payment = null;
+        String payment;
         if (radio_Payment.isSelected()) {
             payment = "Done";
+        }
+        else{
+            payment="Due";
         }
 
         AttendanceDTO cusModel = new AttendanceDTO(id, mid, name, date, time, payment);
@@ -160,7 +169,10 @@ public class AttendanceViewController {
         AttendanceDTO selectedItem = table_Attendance.getSelectionModel().getSelectedItem();
 
         txt_AttendanceId.setText(selectedItem.getId());
+        txt_MemId.setText(selectedItem.getMid());
         txt_MemName.setText(selectedItem.getName());
+        txt_AttendanceDate.setText(selectedItem.getDate());
+        txt_AttendanceTime.setText(selectedItem.getTime());
     }
 
     public void onaction_search(ActionEvent actionEvent) throws SQLException, ClassNotFoundException{
@@ -169,13 +181,17 @@ public class AttendanceViewController {
         txt_AttendanceId.setText(searchAttendance.getId());
         txt_MemId.setText(searchAttendance.getMid());
         txt_MemName.setText(searchAttendance.getName());
-        txt_AttendanceDate.setText(searchAttendance.getId());
-        txt_AttendanceTime.setText(searchAttendance.getId());
+        txt_AttendanceDate.setText(searchAttendance.getDate());
+        txt_AttendanceTime.setText(searchAttendance.getTime());
 
     }
     private void setAllClear() {
         txt_MemId.clear();
         txt_MemName.clear();
+        txt_AttendanceId.clear();
+        txt_AttendanceDate.clear();
+        txt_AttendanceTime.clear();
+        radio_Payment.setSelected(false);
 
     }
     private void getAllAttendance() throws Exception {
@@ -193,6 +209,25 @@ public class AttendanceViewController {
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }
+    }
+    private void setDate() {
+        txt_AttendanceDate.setText(LocalDate.now().toString());
+    }
+
+
+    private void setTime() {
+        txt_AttendanceTime.setText(LocalTime.now().toString());
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            getAllAttendance();
+            setDate();
+            setTime();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

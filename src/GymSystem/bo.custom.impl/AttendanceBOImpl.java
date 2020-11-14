@@ -6,12 +6,14 @@ import GymSystem.dao.custom.AttendanceDAO;
 import GymSystem.dto.AttendanceDTO;
 import GymSystem.entity.Attendance;
 
+import javax.naming.Name;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class AttendanceBOImpl implements AttendanceBO {
 
     AttendanceDAO dao = (AttendanceDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ATTENDANCE);
+    private String mid;
 
     @Override
     public boolean addAttendance(AttendanceDTO ref) throws ClassNotFoundException, SQLException {
@@ -28,6 +30,12 @@ public class AttendanceBOImpl implements AttendanceBO {
     @Override
     public boolean removeAttendance(String id) throws SQLException, ClassNotFoundException {
         return dao.delete(id);
+    }
+
+    @Override
+    public AttendanceDTO searchAttendance(String name) throws SQLException, ClassNotFoundException {
+        Attendance search = dao.search2(name);
+        return new AttendanceDTO(search.getId(), search.getMid(), search.getName(), search.getDate(), search.getTime(), search.getPayment());
     }
 
     @Override

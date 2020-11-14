@@ -10,10 +10,6 @@ import java.util.ArrayList;
 
 public class AttendanceDAOImpl implements AttendanceDAO{
 
-    @Override
-    public void CrudTest() {
-
-    }
 
     @Override
     public boolean add(Attendance ref) throws ClassNotFoundException, SQLException {
@@ -48,7 +44,18 @@ public class AttendanceDAOImpl implements AttendanceDAO{
     }
 
     @Override
-    public Attendance search2(String t) throws ClassNotFoundException, SQLException {
+    public Attendance search2(String name) throws ClassNotFoundException, SQLException {
+        ResultSet rst = CrudUtil.executeQuery("select * from ATTENDENCE where ATname=?",name);
+        if (rst.next()){
+            return new Attendance(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getString(4),
+                    rst.getString(5),
+                    rst.getString(6)
+            );
+        }
         return null;
     }
 
