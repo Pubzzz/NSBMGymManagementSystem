@@ -9,10 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MemberDAOImpl implements MemberDAO{
-    @Override
-    public void CrudTest() {
 
-    }
 
     @Override
     public boolean add(Member ref) throws ClassNotFoundException, SQLException {

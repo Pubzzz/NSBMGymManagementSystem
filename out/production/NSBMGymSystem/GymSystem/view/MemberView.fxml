@@ -67,10 +67,10 @@
       <JFXRadioButton fx:id="radio_female" layoutX="393.0" layoutY="237.0" text="Female" />
       <JFXRadioButton fx:id="radio_student" layoutX="258.0" layoutY="274.0" text="Student" />
       <JFXRadioButton fx:id="radio_staff" layoutX="393.0" layoutY="274.0" text="Staff" />
-      <JFXButton id="button" fx:id="btn_Register" layoutX="235.0" layoutY="383.0" onAction="#onaction_register" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="REGISTER" />
-      <JFXButton id="button" fx:id="btn_Update" layoutX="351.0" layoutY="383.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="UPDATE" />
-      <JFXButton id="button" fx:id="btn_Remove" layoutX="464.0" layoutY="383.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="REMOVE" />
-      <JFXButton id="button" fx:id="btn_Clear" layoutX="568.0" layoutY="383.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="CLEAR" />
+      <JFXButton fx:id="btn_Register" layoutX="235.0" layoutY="383.0" onAction="#onaction_register" text="REGISTER" />
+      <JFXButton fx:id="btn_Update" layoutX="351.0" layoutY="383.0" onAction="#onaction_update" text="UPDATE" />
+      <JFXButton fx:id="btn_Remove" layoutX="470.0" layoutY="383.0" onAction="#onaction_remove" text="REMOVE" />
+      <JFXButton fx:id="btn_Clear" layoutX="568.0" layoutY="383.0" onAction="#onaction_clear" text="CLEAR" />
       <TableView fx:id="table_Member" layoutX="80.0" layoutY="459.0" onMouseClicked="#onaction_clicked" prefHeight="200.0" prefWidth="975.0">
         <columns>
           <TableColumn prefWidth="104.0" text="Member ID" />

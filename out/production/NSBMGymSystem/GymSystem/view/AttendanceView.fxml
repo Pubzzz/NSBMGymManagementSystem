@@ -73,10 +73,10 @@
             </ImageView>
          </children>
       </Pane>
-      <JFXButton id="button" fx:id="btn_Add" layoutX="285.0" layoutY="358.0" onAction="#onaction_add" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="ADD" />
-      <JFXButton id="button" fx:id="btn_Update" layoutX="398.0" layoutY="358.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="UPDATE" />
-      <JFXButton id="button" fx:id="btn_Remove" layoutX="502.0" layoutY="358.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="REMOVE" />
-      <JFXButton id="button" fx:id="btn_Clear" layoutX="613.0" layoutY="358.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="CLEAR" />
+      <JFXButton fx:id="btn_Add" layoutX="285.0" layoutY="358.0" onAction="#onaction_add" text="ADD" />
+      <JFXButton fx:id="btn_Update" layoutX="401.0" layoutY="358.0" onAction="#onaction_update" text="UPDATE" />
+      <JFXButton fx:id="btn_Remove" layoutX="520.0" layoutY="358.0" onAction="#onaction_remove" text="REMOVE" />
+      <JFXButton fx:id="btn_Clear" layoutX="618.0" layoutY="358.0" onAction="#onaction_clear" text="CLEAR" />
       <TableView fx:id="table_Attendance" layoutX="112.0" layoutY="451.0" onMouseClicked="#onaction_clicked" prefHeight="200.0" prefWidth="947.0">
         <columns>
           <TableColumn prefWidth="120.0" text="Attendance ID" />

@@ -9,10 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class InstructorDAOImpl implements InstructorDAO {
-    @Override
-    public void CrudTest() {
 
-    }
 
     @Override
     public boolean add(Instructor ref) throws ClassNotFoundException, SQLException {

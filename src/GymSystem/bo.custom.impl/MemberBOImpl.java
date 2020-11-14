@@ -16,7 +16,6 @@ public class MemberBOImpl implements MemberBO {
     @Override
     public boolean addCustomer(MemberDTO ref) throws ClassNotFoundException, SQLException {
         return dao.add(new Member(ref.getId(), ref.getName(),  ref.getEmail(),ref.getTel(),ref.getSex(),ref.getPos(),ref.getBatch(),ref.getDeg()));
-
     }
 
     @Override

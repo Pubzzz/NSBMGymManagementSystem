@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface CrudDAO<T,ID> extends  SuperDAO {
-    public void CrudTest();
     public boolean add(T t)throws ClassNotFoundException, SQLException;
     public boolean update(T t)throws ClassNotFoundException,SQLException;
     public boolean delete(ID t)throws ClassNotFoundException,SQLException;
