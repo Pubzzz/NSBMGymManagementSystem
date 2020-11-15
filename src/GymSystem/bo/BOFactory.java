@@ -33,7 +33,7 @@ public class BOFactory {
             case INSTRUCTOR:
                 return new InstructorBOImpl();
             case TRACKER:
-               return (SuperBO) new TrackerBOImpl();
+               return new TrackerBOImpl();
 
 
             default:

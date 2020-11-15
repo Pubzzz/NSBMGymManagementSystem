@@ -1,12 +1,13 @@
 package GymSystem.bo.custom;
 
+import GymSystem.bo.SuperBO;
 import GymSystem.dto.InstructorDTO;
 import GymSystem.dto.TrackerDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface TrackerBO {
+public interface TrackerBO extends SuperBO {
     public  boolean addTracker(TrackerDTO ref) throws ClassNotFoundException, SQLException;
 
     public  boolean updateTracker(TrackerDTO ref) throws SQLException, ClassNotFoundException ;
