@@ -1,7 +1,13 @@
 package GymSystem.bo.custom;
 
+import GymSystem.dto.AccessoriesDTO;
+import GymSystem.dto.MemberDTO;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 public interface AccessoriesBO {
-  public  boolean addAccessory(AccessoriesDTO ref) throws ClassNotFoundException, SQLException;
+    public  boolean addAccessory(AccessoriesDTO ref) throws ClassNotFoundException, SQLException;
 
     public  boolean updateAccessory(AccessoriesDTO ref) throws SQLException, ClassNotFoundException ;
 
