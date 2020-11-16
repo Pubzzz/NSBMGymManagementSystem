@@ -1,4 +1,8 @@
-package GymSystem.dao.custom.impl;
+package GymSystem.dao.custom;
 
-public class AccessoriesDAOImpl {
+import GymSystem.dao.CrudDAO;
+import GymSystem.entity.Accessories;
+
+public interface AccessoriesDAO extends CrudDAO<Accessories, String > {
+
 }
