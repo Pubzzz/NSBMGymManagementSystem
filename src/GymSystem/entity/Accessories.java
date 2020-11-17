@@ -10,7 +10,7 @@ public class Accessories {
     public Accessories(){
 
     }
-    public Member(String id,String name,String email,String tel,String sex,String pos,String batch,String deg){
+    public Accessories(String id,String type,String brand,String qty){
         this.id = id;
         this.type = type;
         this.brand = brand;

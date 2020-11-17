@@ -1,5 +1,6 @@
 package GymSystem.bo.custom.impl;
 
+import GymSystem.bo.custom.AccessoriesBO;
 import GymSystem.dao.DAOFactory;
 import GymSystem.dao.custom.AccessoriesDAO;
 import GymSystem.dto.AccessoriesDTO;
@@ -8,7 +9,7 @@ import GymSystem.entity.Accessories;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class AccessorieBOImpl {
+public class AccessorieBOImpl implements AccessoriesBO {
 
 
     AccessoriesDAO dao = (AccessoriesDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ACCESSORIES);
@@ -16,7 +17,6 @@ public class AccessorieBOImpl {
     @Override
     public boolean addAccessory(AccessoriesDTO ref) throws ClassNotFoundException, SQLException {
         return dao.add(new Accessories(ref.getId(), ref.getType(),  ref.getBrand(),ref.getQty()));
-
     }
 
     @Override
@@ -44,11 +44,13 @@ public class AccessorieBOImpl {
                     company.getId(),
                     company.getType(),
                     company.getBrand(),
-                    company.getQty(),
+                    company.getQty()
 
             ));
         }
         return dtos;
     }
+    }
 
-}
+
+

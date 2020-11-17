@@ -16,6 +16,7 @@ public class AccessoriesDTO {
         this.qty = qty;
 
     }
+
     public String getId() {
         return id;
     }
@@ -44,9 +45,7 @@ public class AccessoriesDTO {
         return qty;
     }
 
-    public void setQty(String tel) {
+    public void setQty(String qty) {
         this.qty = qty;
     }
-
-
 }
