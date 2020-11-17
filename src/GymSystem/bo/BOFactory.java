@@ -29,7 +29,7 @@ public class BOFactory {
             case ATTENDANCE:
                 return new AttendanceBOImpl();
             case ACCESSORIES:
-//                return new AccessorieBOImpl();
+                return new AccessorieBOImpl();
             case INSTRUCTOR:
                 return new InstructorBOImpl();
             case TRACKER:

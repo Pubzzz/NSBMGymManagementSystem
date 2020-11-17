@@ -5,8 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,7 +33,10 @@ public class DashboardMainViewController implements  Initializable {
     private JFXButton btn_Instructor;
 
     @FXML
-    private JFXButton btn_Accessoriies;
+    private JFXButton btn_Accessories;
+
+    @FXML
+    private JFXButton btn_Signout;
 
 
 
@@ -78,5 +84,13 @@ public class DashboardMainViewController implements  Initializable {
         AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/TrackerView.fxml"));
         main_panel.getChildren().clear();
         main_panel.getChildren().add(anchorPane1);
+    }
+
+    public void onaction_Signout(ActionEvent actionEvent) throws IOException {
+        Parent parent=FXMLLoader.load(this.getClass().getResource("/GymSystem/view/LoginView.fxml"));
+        Scene scene=new Scene(parent);
+        Stage stage=new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 }

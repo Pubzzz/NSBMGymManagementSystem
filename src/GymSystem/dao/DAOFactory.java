@@ -25,7 +25,7 @@ public class DAOFactory {
             case ATTENDANCE:
                 return new AttendanceDAOImpl();
             case ACCESSORIES:
-              //  return new AccessoriesDAOImpl();
+                return new AccessoriesDAOImpl();
             case INSTRUCTOR:
                 return new InstructorDAOImpl();
             case TRACKER:

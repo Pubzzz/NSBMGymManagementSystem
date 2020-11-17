@@ -9,7 +9,7 @@ public class InstructorDTO {
     private String email;
     private String tp;
 
-    public InstructorDTO(String id, String mid, String date, Double hgt, double wgt, Double bmi, double cal) {
+    public InstructorDTO() {
     }
 
     public InstructorDTO(String id, String name, String nic, String gender, String email, String tp) {
