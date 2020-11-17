@@ -58,7 +58,7 @@ public class AccessoriesViewController implements  Initializable{
 
     }
 
-    static AccessoriesBO bo = (AccessoriesBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.INSTRUCTOR);
+    static AccessoriesBO bo = (AccessoriesBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.ACCESSORIES);
 
     public static boolean addAccessories(AccessoriesDTO ref) throws ClassNotFoundException, SQLException {
         return bo.addAccessory(ref);
