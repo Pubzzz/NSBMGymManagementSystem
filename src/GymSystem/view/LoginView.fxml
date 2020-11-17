@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,16 +20,36 @@
                </image>
             </ImageView>
          </children></Pane>
-      <TextField fx:id="txt_username" layoutX="372.0" layoutY="165.0" prefHeight="25.0" prefWidth="175.0" promptText="User Name" />
-      <Button fx:id="btn_Login" layoutX="372.0" layoutY="282.0" mnemonicParsing="false" onAction="#login_action" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: #2adbfa;" text="LOGIN" textAlignment="CENTER" />
-      <PasswordField fx:id="txt_password" layoutX="372.0" layoutY="219.0" prefHeight="25.0" prefWidth="175.0" promptText="Password" />
-      <Label layoutX="353.0" layoutY="73.0" prefHeight="30.0" prefWidth="214.0" text="GYM MANAGEMENT SYSTEM" textAlignment="CENTER">
+      <Label layoutX="340.0" layoutY="72.0" prefHeight="30.0" prefWidth="239.0" text="GYM MANAGEMENT SYSTEM" textAlignment="CENTER">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="17.0" />
          </font></Label>
       <ImageView fitHeight="51.0" fitWidth="116.0" layoutX="403.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/nsbmn.png" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="txt_Username" layoutX="381.0" layoutY="166.0" onAction="#onaction_Username" prefHeight="25.0" prefWidth="175.0" promptText="User Name">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXTextField>
+      <JFXPasswordField fx:id="txt_Password" layoutX="381.0" layoutY="227.0" onAction="#onaction_Password" prefHeight="25.0" prefWidth="175.0" promptText="Password">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXPasswordField>
+      <JFXButton fx:id="btn_Login" layoutX="381.0" layoutY="296.0" onAction="#onaction_Login" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: grey;" text="LOGIN">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="50.0" fitWidth="25.0" layoutX="347.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/icons8-username-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="25.0" layoutX="347.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/icons8-sign-in-form-password-50.png" />
          </image>
       </ImageView>
    </children>
