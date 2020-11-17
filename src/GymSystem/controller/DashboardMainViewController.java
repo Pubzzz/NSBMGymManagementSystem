@@ -93,4 +93,13 @@ public class DashboardMainViewController implements  Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void onaction_ViewMember(ActionEvent actionEvent) {
+    }
+
+    public void onaction_ViewInstructor(ActionEvent actionEvent) {
+    }
+
+    public void onaction_ViewAccessories(ActionEvent actionEvent) {
+    }
 }
