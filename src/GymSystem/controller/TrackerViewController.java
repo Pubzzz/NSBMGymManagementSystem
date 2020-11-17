@@ -103,7 +103,6 @@ public class TrackerViewController implements Initializable {
 
         //CALCULATE BMR AND CAL
 
-
         TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,BMI,Cal);
         boolean addTracker= TrackerViewController.addTracker(cusModel);
 
@@ -112,9 +111,6 @@ public class TrackerViewController implements Initializable {
             a.showAndWait();
             setAllClear();
             getAllTracker();
-
-
-
         }else{
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
@@ -132,8 +128,6 @@ public class TrackerViewController implements Initializable {
 
         TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,BMI,Cal);
         boolean update = TrackerViewController.updateTracker(cusModel);
-
-
         if(update){
             Alert a = new Alert(Alert.AlertType.INFORMATION, "UPDATED SUCCESSFULLY", ButtonType.OK);
             a.showAndWait();
@@ -154,7 +148,6 @@ public class TrackerViewController implements Initializable {
             a.showAndWait();
             setAllClear();
             getAllTracker();
-
         }else{
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();

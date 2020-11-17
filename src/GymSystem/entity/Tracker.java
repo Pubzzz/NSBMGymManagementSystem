@@ -53,7 +53,7 @@ public class Tracker {
         this.hgt = hgt;
     }
 
-    public double getWgt() {
+    public Double getWgt() {
         return wgt;
     }
 
@@ -67,7 +67,7 @@ public class Tracker {
         this.BMI = BMI;
     }
 
-    public double getCal() {
+    public Double getCal() {
         return Cal;
     }
 

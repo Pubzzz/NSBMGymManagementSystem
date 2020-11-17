@@ -60,10 +60,10 @@
             </ImageView>
          </children>
       </Pane>
-      <JFXButton fx:id="btn_Add" layoutX="273.0" layoutY="313.0" onAction="#onactione_register" text="REGISTER" />
-      <JFXButton fx:id="btn_Update" layoutX="389.0" layoutY="313.0" onAction="#onaction_update" text="UPDATE" />
-      <JFXButton fx:id="btn_Remove" layoutX="508.0" layoutY="313.0" onAction="#onaction_remove" text="REMOVE" />
-      <JFXButton fx:id="btn_Clear" layoutX="606.0" layoutY="313.0" onAction="#onaction_clear" text="CLEAR" />
+      <JFXButton id="button" fx:id="btn_Add" layoutX="257.0" layoutY="313.0" onAction="#onactione_register" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="REGISTER" />
+      <JFXButton id="button" fx:id="btn_Update" layoutX="382.0" layoutY="313.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="UPDATE" />
+      <JFXButton id="button" fx:id="btn_Remove" layoutX="500.0" layoutY="313.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="REMOVE" />
+      <JFXButton id="button" fx:id="btn_Clear" layoutX="614.0" layoutY="313.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="CLEAR" />
       <TableView fx:id="table_Accessories" layoutX="128.0" layoutY="438.0" onMouseClicked="#onaction_clicked" prefHeight="200.0" prefWidth="611.0">
         <columns>
           <TableColumn prefWidth="130.0" text="Accessory ID" />
