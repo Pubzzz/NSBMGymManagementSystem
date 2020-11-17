@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,21 +19,21 @@
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></JFXButton>
-            <JFXButton fx:id="btn_Register" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="235.0" onAction="#action_register" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Register" textFill="WHITE">
+            <JFXButton fx:id="btn_Register" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="228.0" onAction="#action_register" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Register" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></JFXButton>
-            <JFXButton fx:id="btn_Attendance" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="339.0" onAction="#action_attendance" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Attendance" textFill="WHITE">
+            <JFXButton fx:id="btn_Attendance" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="329.0" onAction="#action_attendance" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Attendance" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="btn_Instructor" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="445.0" onAction="#action_instructor" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Instructor" textFill="WHITE">
+            <JFXButton fx:id="btn_Instructor" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="430.0" onAction="#action_instructor" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Instructor" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="btn_Accessories" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="552.0" onAction="#action_accessories" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Accessories" textFill="WHITE">
+            <JFXButton fx:id="btn_Accessories" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="530.0" onAction="#action_accessories" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Accessories" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -40,48 +43,194 @@
                   <Image url="@../../Images/icons8_Combo_Chart_104px_1.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="33.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="33.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/icons8_Add_User_Male_96px_1.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="29.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="29.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/icons8_Attendance_100px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="29.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="29.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/icons8_Personal_Trainer_100px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="27.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="27.0" layoutY="547.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/icons8_Dumbbell_104px_1.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="btn_Tracker" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="633.0" onAction="#action_tracker" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Tracker" textFill="WHITE">
+            <JFXButton fx:id="btn_Tracker" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="626.0" onAction="#action_tracker" prefHeight="81.0" prefWidth="182.0" style="-fx-background-color: grey;" text="Tracker   " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
+            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="27.0" layoutY="643.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/icons8-stepper-50.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="100.0" fitWidth="99.0" layoutX="57.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/icons8-gym-100.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="main_panel" layoutX="226.0" layoutY="45.0" prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: black;" />
+      <Pane fx:id="main_panel" layoutX="226.0" layoutY="45.0" prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: white;">
+         <children>
+            <Pane layoutX="2.0" layoutY="3.0" prefHeight="40.0" prefWidth="1116.0" style="-fx-background-color: grey;">
+               <children>
+                  <Label layoutX="489.0" layoutY="4.0" text="DASHBOARD" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <ImageView fitHeight="684.0" fitWidth="1116.0" layoutX="2.0" layoutY="48.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/gym_1.jpg" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <effect>
+                  <BoxBlur iterations="5" width="0.0" />
+               </effect>
+            </ImageView>
+            <Pane layoutX="38.0" layoutY="78.0" opacity="0.5" prefHeight="200.0" prefWidth="335.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="113.0" layoutY="14.0" text="Member Details">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="40.0" layoutY="65.0" prefHeight="30.0" prefWidth="92.0" text="Student">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="40.0" layoutY="105.0" prefHeight="30.0" prefWidth="92.0" text="Staff">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="btn_ViewMember1" layoutY="155.0" onAction="#onaction_ViewMember" prefHeight="50.0" prefWidth="335.0" style="-fx-background-color: GREY;" text="VIEW MORE" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <Label fx:id="lbl_MemStaff1" layoutX="162.0" layoutY="110.0" prefHeight="17.0" prefWidth="107.0">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_MemStudent1" layoutX="162.0" layoutY="70.0" prefHeight="17.0" prefWidth="107.0">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="432.0" layoutY="78.0" opacity="0.5" prefHeight="200.0" prefWidth="335.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="86.0" layoutY="14.0" text="Instructor Details">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="btn_ViewInstructor1" layoutY="150.0" onAction="#onaction_ViewInstructor" prefHeight="50.0" prefWidth="335.0" style="-fx-background-color: GREY;" text="VIEW MORE" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <Label fx:id="lbl_Instructor1" layoutX="103.0" layoutY="68.0" prefHeight="32.0" prefWidth="128.0">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="818.0" layoutY="78.0" opacity="0.5" prefHeight="200.0" prefWidth="268.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="80.0" layoutY="14.0" text="Accessories">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="btn_ViewAccessory1" layoutY="150.0" onAction="#onaction_ViewAccessories" prefHeight="50.0" prefWidth="268.0" style="-fx-background-color: GREY;" text="VIEW MORE" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <Label fx:id="lbl_Accessories1" layoutX="70.0" layoutY="67.0" prefHeight="32.0" prefWidth="128.0">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="439.0" layoutY="350.0" opacity="0.5" prefHeight="265.0" prefWidth="647.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="23.0" layoutY="15.0" text="About">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="402.0" layoutY="155.0" prefHeight="30.0" prefWidth="202.0" text="NSBM Green University Town,">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="402.0" layoutY="176.0" prefHeight="30.0" prefWidth="202.0" text="Pitipana, Homagama">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="402.0" layoutY="206.0" prefHeight="30.0" prefWidth="202.0" text="Tel - +94 11 000 0000">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="38.0" layoutY="350.0" opacity="0.6" prefHeight="265.0" prefWidth="335.0" style="-fx-background-color: white;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <Label layoutX="78.0" layoutY="14.0" text="Attendance Details">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="btn_ViewAttendance1" layoutY="215.0" prefHeight="50.0" prefWidth="335.0" style="-fx-background-color: GREY;" text="VIEW MORE" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <Label fx:id="lbl_Attendance1" layoutX="108.0" layoutY="116.0" prefHeight="32.0" prefWidth="128.0">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children></Pane>
       <Label layoutX="629.0" layoutY="12.0" text="NSBM GYM Management System">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <ImageView fx:id="close" fitHeight="30.0" fitWidth="47.0" layoutX="1320.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="89.0" layoutX="546.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Images/icons8_Close_Window_96px.png" />
+            <Image url="@../../Images/nsbmn.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="minimize" fitHeight="30.0" fitWidth="47.0" layoutX="1296.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Images/icons8_Minimize_Window_96px.png" />
-         </image>
-      </ImageView>
+      <JFXButton id="button" fx:id="btn_Signout" layoutX="1215.0" layoutY="13.0" onAction="#onaction_Signout" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="SIGN OUT" />
    </children>
 </AnchorPane>
