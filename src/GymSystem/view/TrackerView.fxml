@@ -48,7 +48,7 @@
       <JFXTextField fx:id="txt_TrackerDate" layoutX="288.0" layoutY="162.0" prefHeight="25.0" prefWidth="300.0" />
       <JFXTextField fx:id="txt_Height" layoutX="288.0" layoutY="198.0" prefHeight="25.0" prefWidth="300.0" promptText="centimeters (cm)" />
       <JFXTextField fx:id="txt_Weight" layoutX="288.0" layoutY="233.0" prefHeight="25.0" prefWidth="300.0" promptText="kilograms (kg)" />
-      <JFXTextField fx:id="txt_Weight1" layoutX="287.0" layoutY="268.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_age" layoutX="287.0" layoutY="268.0" prefHeight="25.0" prefWidth="300.0" />
       <Label layoutX="80.0" layoutY="235.0" text="Weight">
          <font>
             <Font name="System Bold" size="15.0" />
