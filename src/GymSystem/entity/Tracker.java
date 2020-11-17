@@ -8,16 +8,18 @@ public class Tracker {
     private Double wgt;
     private Double BMI;
     private Double Cal;
+    private int age;
 
-    public Tracker(String string, String rstString, String s, String string1, String rstString1, String s1) {
+    public Tracker(String string, String rstString, String s, double aDouble, double rstDouble, double v, double aDouble1) {
     }
 
-    public Tracker(String id, String mid, String date, Double hgt, Double wgt, Double BMI,Double Cal) {
+    public Tracker(String id, String mid, String date, Double hgt, Double wgt, Integer age,Double BMI,Double Cal) {
         this.id = id;
         this.mid = mid;
         this.date = date;
         this.hgt = hgt;
         this.wgt = wgt;
+        this.age=age;
         this.BMI = BMI;
         this.Cal=Cal;
     }
@@ -58,6 +60,12 @@ public class Tracker {
     }
 
     public void setWgt(double wgt) { this.wgt = wgt; }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(int age) { this.age = age; }
 
     public Double getBMI() {
         return BMI;

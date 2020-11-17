@@ -34,9 +34,10 @@ public class TrackerDAOImpl implements TrackerDAO {
                     rst.getString(1),
                     rst.getString(2),
                     rst.getString(3),
-                    rst.getString(4),
-                    rst.getString(5),
-                    rst.getString(6)
+                    rst.getDouble(4),
+                    rst.getDouble(5),
+                    rst.getDouble(6),
+                    rst.getDouble(7)
             );
         }
         return null;
@@ -56,9 +57,10 @@ public class TrackerDAOImpl implements TrackerDAO {
                     rst.getString(1),
                     rst.getString(2),
                     rst.getString(3),
-                    rst.getString(4),
-                    rst.getString(5),
-                    rst.getString(6)
+                    rst.getDouble(4),
+                    rst.getDouble(5),
+                    rst.getDouble(6),
+                    rst.getDouble(7)
 
             ));
         }

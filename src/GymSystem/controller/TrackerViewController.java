@@ -63,6 +63,9 @@ public class TrackerViewController implements Initializable {
     private JFXTextField txt_Calories;
 
     @FXML
+    private JFXTextField txt_age;
+
+    @FXML
     private JFXTextField txt_TrackerSearch;
 
     @FXML
@@ -97,13 +100,14 @@ public class TrackerViewController implements Initializable {
         String date=txt_TrackerDate.getText();
         Double hgt=Double.valueOf (txt_Height.getText());
         Double wgt=Double.valueOf(txt_Weight.getText());
+        Integer age = Integer.valueOf(txt_age.getText());
         Double BMI;
         Double Cal=Double.valueOf(txt_Calories.getText());
         BMI=(wgt*wgt)/(hgt/100);
 
         //CALCULATE BMR AND CAL
 
-        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,BMI,Cal);
+        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,age,BMI,Cal);
         boolean addTracker= TrackerViewController.addTracker(cusModel);
 
         if(addTracker){
@@ -123,10 +127,11 @@ public class TrackerViewController implements Initializable {
         String date=txt_TrackerDate.getText();
         Double hgt=Double.valueOf (txt_Height.getText());
         Double wgt=Double.valueOf(txt_Weight.getText());
+        Integer age = Integer.valueOf(txt_age.getText());
         Double BMI=Double.valueOf(txt_BMI.getText());
         Double Cal= Double.valueOf(txt_Calories.getText());
 
-        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,BMI,Cal);
+        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,age,BMI,Cal);
         boolean update = TrackerViewController.updateTracker(cusModel);
         if(update){
             Alert a = new Alert(Alert.AlertType.INFORMATION, "UPDATED SUCCESSFULLY", ButtonType.OK);
@@ -166,6 +171,7 @@ public class TrackerViewController implements Initializable {
         txt_TrackerDate.setText(selectedItem.getDate());
         txt_Height.setText(String.valueOf(selectedItem.getHgt()));
         txt_Weight.setText(String.valueOf(selectedItem.getWgt()));
+        txt_age.setText(String.valueOf(selectedItem.getAge()));
         txt_BMI.setText(String.valueOf(selectedItem.getBMI()));
         txt_Calories.setText(String.valueOf(selectedItem.getCal()));
     }
@@ -187,8 +193,9 @@ public class TrackerViewController implements Initializable {
             table_tracker.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("date"));
             table_tracker.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("hgt"));
             table_tracker.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("wgt"));
-            table_tracker.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("BMI"));
-            table_tracker.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("Cal"));
+            table_tracker.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("age"));
+            table_tracker.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("BMI"));
+            table_tracker.getColumns().get(7).setCellValueFactory(new PropertyValueFactory<>("Cal"));
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -200,6 +207,7 @@ public class TrackerViewController implements Initializable {
        txt_TrackerDate.clear();
         txt_Height.clear();
         txt_Weight.clear();
+        txt_age.clear();
         txt_BMI.clear();
         txt_Calories.clear();
         txt_TrackerSearch.clear();

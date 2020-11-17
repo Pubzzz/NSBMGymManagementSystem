@@ -8,16 +8,18 @@ public class TrackerDTO {
     private Double wgt;
     private Double BMI;
     private Double Cal;
+    private int age;
 
     public TrackerDTO() {
     }
 
-    public TrackerDTO(String id, String mid, String date, Double hgt, Double wgt, Double BMI,Double Cal) {
+    public TrackerDTO(String id, String mid, String date, Double hgt, Double wgt, Integer age,Double BMI,Double Cal) {
         this.id = id;
         this.mid = mid;
         this.date = date;
         this.hgt = hgt;
         this.wgt = wgt;
+        this.age=age;
         this.BMI = BMI;
         this.Cal=Cal;
     }
@@ -59,6 +61,12 @@ public class TrackerDTO {
 
     public void setWgt(double wgt) { this.wgt = wgt; }
 
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(int age) { this.age = age; }
+
     public double getBMI() {
         return BMI;
     }
@@ -72,7 +80,5 @@ public class TrackerDTO {
     }
 
     public void setCal(double Cal) { this.Cal = Cal; }
-
-
 
 }

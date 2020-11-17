@@ -13,44 +13,44 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GymSystem.controller.AccessoriesViewController">
    <children>
-      <Pane layoutX="2.0" layoutY="2.0" prefHeight="40.0" prefWidth="1116.0" style="-fx-background-color: grey;">
+      <Pane layoutX="2.0" layoutY="3.0" prefHeight="40.0" prefWidth="1116.0" style="-fx-background-color: grey;">
          <children>
-            <Label layoutX="486.0" layoutY="4.0" text="Accessories" textFill="WHITE">
+            <Label layoutX="486.0" layoutY="4.0" text="ACCESSORIES" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Label layoutX="129.0" layoutY="117.0" text="Accessory ID">
+      <Label layoutX="80.0" layoutY="131.0" text="Accessory ID">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="128.0" layoutY="151.0" text="Accessory Type">
+      <Label layoutX="80.0" layoutY="165.0" text="Accessory Type">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="128.0" layoutY="187.0" text="Accessory Brand">
+      <Label layoutX="80.0" layoutY="201.0" text="Accessory Brand">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="127.0" layoutY="223.0" text="Quantity">
+      <Label layoutX="80.0" layoutY="237.0" text="Quantity">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txt_AccessoryId" layoutX="315.0" layoutY="115.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_AccessoryType" layoutX="315.0" layoutY="149.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_AccessoryBrand" layoutX="315.0" layoutY="185.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_AccessoryQty" layoutX="315.0" layoutY="221.0" prefHeight="25.0" prefWidth="300.0" />
-      <Pane layoutX="679.0" layoutY="103.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #c2e7ed;">
+      <JFXTextField fx:id="txt_AccessoryId" layoutX="288.0" layoutY="129.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_AccessoryType" layoutX="288.0" layoutY="163.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_AccessoryBrand" layoutX="288.0" layoutY="199.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_AccessoryQty" layoutX="288.0" layoutY="235.0" prefHeight="25.0" prefWidth="300.0" />
+      <Pane layoutX="655.0" layoutY="90.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #c2e7ed;">
          <children>
-            <JFXTextField fx:id="txt_AccessorySearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="SEARCH">
+            <JFXTextField fx:id="txt_AccessorySearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="Accessory ID">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="12.0" />
                </font>
             </JFXTextField>
             <ImageView fitHeight="21.0" fitWidth="29.0" layoutX="362.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
@@ -58,18 +58,23 @@
                   <Image url="@../../Images/icons8_Search_96px.png" />
                </image>
             </ImageView>
+            <Label layoutX="16.0" layoutY="2.0" text="Search">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
-      <JFXButton id="button" fx:id="btn_Add" layoutX="257.0" layoutY="313.0" onAction="#onactione_register" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="REGISTER" />
-      <JFXButton id="button" fx:id="btn_Update" layoutX="382.0" layoutY="313.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="UPDATE" />
-      <JFXButton id="button" fx:id="btn_Remove" layoutX="500.0" layoutY="313.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="REMOVE" />
-      <JFXButton id="button" fx:id="btn_Clear" layoutX="614.0" layoutY="313.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="CLEAR" />
-      <TableView fx:id="table_Accessories" layoutX="128.0" layoutY="438.0" onMouseClicked="#onaction_clicked" prefHeight="200.0" prefWidth="611.0">
+      <JFXButton id="button" fx:id="btn_Add" layoutX="257.0" layoutY="321.0" onAction="#onactione_register" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="REGISTER" />
+      <JFXButton id="button" fx:id="btn_Update" layoutX="382.0" layoutY="321.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="UPDATE" />
+      <JFXButton id="button" fx:id="btn_Remove" layoutX="500.0" layoutY="321.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="REMOVE" />
+      <JFXButton id="button" fx:id="btn_Clear" layoutX="614.0" layoutY="321.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="CLEAR" />
+      <TableView fx:id="table_Accessories" layoutX="80.0" layoutY="450.0" onMouseClicked="#onaction_clicked" prefHeight="200.0" prefWidth="975.0">
         <columns>
-          <TableColumn prefWidth="130.0" text="Accessory ID" />
-          <TableColumn prefWidth="140.0" text="Accessory Type" />
-            <TableColumn prefWidth="168.0" text="Accessory Brand" />
-            <TableColumn prefWidth="172.0" text="Quantity" />
+          <TableColumn prefWidth="185.0" text="Accessory ID" />
+          <TableColumn prefWidth="250.0" text="Accessory Type" />
+            <TableColumn prefWidth="297.0" text="Accessory Brand" />
+            <TableColumn prefWidth="242.0" text="Quantity" />
         </columns>
       </TableView>
    </children>

@@ -14,12 +14,12 @@ public class TrackerBOImpl implements TrackerBO {
     TrackerDAO dao = (TrackerDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.TRACKER);
     @Override
     public boolean addTracker(TrackerDTO ref) throws ClassNotFoundException, SQLException {
-        return dao.add(new Tracker(ref.getId(), ref.getMid(), ref.getDate(), ref.getHgt(),ref.getWgt(),ref.getBMI(),ref.getCal()));
+        return dao.add(new Tracker(ref.getId(), ref.getMid(), ref.getDate(), ref.getHgt(),ref.getWgt(),ref.getAge(),ref.getBMI(),ref.getCal()));
     }
 
     @Override
     public boolean updateTracker(TrackerDTO ref) throws SQLException, ClassNotFoundException {
-        return dao.update(new Tracker(ref.getId(), ref.getMid(), ref.getDate(), ref.getHgt(),ref.getWgt(),ref.getBMI(),ref.getCal()));
+        return dao.update(new Tracker(ref.getId(), ref.getMid(), ref.getDate(), ref.getHgt(),ref.getWgt(),ref.getAge(),ref.getBMI(),ref.getCal()));
     }
 
     @Override
@@ -30,7 +30,7 @@ public class TrackerBOImpl implements TrackerBO {
     @Override
     public TrackerDTO searchTracker(String id) throws SQLException, ClassNotFoundException {
             Tracker search = dao.search1(id);
-        return new TrackerDTO(search.getId(), search.getMid(), search.getDate(), search.getHgt(),search.getWgt(),search.getBMI(),search.getCal());
+        return new TrackerDTO(search.getId(), search.getMid(), search.getDate(), search.getHgt(),search.getWgt(),search.getAge(),search.getBMI(),search.getCal());
 
     }
 
@@ -45,6 +45,7 @@ public class TrackerBOImpl implements TrackerBO {
                     company.getDate(),
                     company.getHgt(),
                     company.getWgt(),
+                    company.getAge(),
                     company.getBMI(),
                     company.getCal()
             ));

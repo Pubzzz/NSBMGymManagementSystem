@@ -47,13 +47,12 @@
       <JFXTextField fx:id="txt_MemberID" layoutX="288.0" layoutY="126.0" prefHeight="25.0" prefWidth="300.0" />
       <JFXTextField fx:id="txt_TrackerDate" layoutX="288.0" layoutY="162.0" prefHeight="25.0" prefWidth="300.0" />
       <JFXTextField fx:id="txt_Height" layoutX="288.0" layoutY="198.0" prefHeight="25.0" prefWidth="300.0" promptText="centimeters (cm)" />
-      <JFXTextField fx:id="txt_Weight" layoutX="288.0" layoutY="233.0" prefHeight="25.0" prefWidth="300.0" promptText="kilograms (kg)" />
-      <JFXTextField fx:id="txt_Weight1" layoutX="287.0" layoutY="268.0" prefHeight="25.0" prefWidth="300.0" />
       <Label layoutX="80.0" layoutY="235.0" text="Weight">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
+      <JFXTextField fx:id="txt_Weight" layoutX="288.0" layoutY="233.0" prefHeight="25.0" prefWidth="300.0" promptText="kilograms (kg)" />
       <Pane layoutX="655.0" layoutY="90.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #c2e7ed;">
          <children>
             <JFXTextField fx:id="txt_TrackerSearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="Tracker ID">
@@ -111,9 +110,10 @@
           <TableColumn prefWidth="116.0" text="Member ID" />
             <TableColumn prefWidth="97.0" text="Date" />
             <TableColumn prefWidth="150.0" text="Height (cm)" />
-            <TableColumn prefWidth="168.0" text="Weight (kg)" />
-            <TableColumn prefWidth="165.0" text="BMI" />
-            <TableColumn prefWidth="191.0" text="Calories" />
+            <TableColumn prefWidth="125.0" text="Weight (kg)" />
+            <TableColumn prefWidth="133.0" text="Type" />
+            <TableColumn prefWidth="137.0" text="BMI" />
+            <TableColumn prefWidth="136.0" text="Calories" />
         </columns>
       </TableView>
       <JFXRadioButton fx:id="radio_type1" layoutX="275.0" layoutY="308.0" text="Sedentary">
@@ -141,5 +141,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
+      <JFXTextField fx:id="txt_age" layoutX="287.0" layoutY="268.0" prefHeight="25.0" prefWidth="300.0" />
    </children>
 </AnchorPane>

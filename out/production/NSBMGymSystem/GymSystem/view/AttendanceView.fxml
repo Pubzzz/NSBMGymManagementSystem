@@ -23,47 +23,47 @@
             </Label>
          </children>
       </Pane>
-      <Label layoutX="112.0" layoutY="122.0" text="Attendace ID">
+      <Label layoutX="80.0" layoutY="122.0" text="Attendace ID">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="111.0" layoutY="156.0" text="Member ID">
+      <Label layoutX="80.0" layoutY="156.0" text="Member ID">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="111.0" layoutY="192.0" text="Name">
+      <Label layoutX="80.0" layoutY="192.0" text="Name">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="110.0" layoutY="228.0" text="Date">
+      <Label layoutX="80.0" layoutY="228.0" text="Date">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txt_AttendanceId" layoutX="298.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_MemId" layoutX="298.0" layoutY="154.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_MemName" layoutX="298.0" layoutY="190.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_AttendanceDate" layoutX="298.0" layoutY="226.0" prefHeight="25.0" prefWidth="300.0" />
-      <Label layoutX="110.0" layoutY="267.0" text="Time Arrived">
+      <JFXTextField fx:id="txt_AttendanceId" layoutX="288.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_MemId" layoutX="288.0" layoutY="154.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_MemName" layoutX="288.0" layoutY="190.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_AttendanceDate" layoutX="288.0" layoutY="226.0" prefHeight="25.0" prefWidth="300.0" />
+      <Label layoutX="80.0" layoutY="267.0" text="Time Arrived">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txt_AttendanceTime" layoutX="299.0" layoutY="265.0" prefHeight="25.0" prefWidth="300.0" />
-      <Label layoutX="110.0" layoutY="307.0" text="Payment">
+      <JFXTextField fx:id="txt_AttendanceTime" layoutX="288.0" layoutY="265.0" prefHeight="25.0" prefWidth="300.0" />
+      <Label layoutX="80.0" layoutY="307.0" text="Payment">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXRadioButton fx:id="radio_Payment" layoutX="293.0" layoutY="309.0" text="Done" />
-      <Pane layoutX="674.0" layoutY="108.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #c2e7ed;">
+      <JFXRadioButton fx:id="radio_Payment" layoutX="288.0" layoutY="309.0" text="Done" />
+      <Pane layoutX="655.0" layoutY="90.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #c2e7ed;">
          <children>
-            <JFXTextField fx:id="txt_AttendanceSearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="SEARCH">
+            <JFXTextField fx:id="txt_AttendanceSearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="Attendance ID">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="12.0" />
                </font>
             </JFXTextField>
             <ImageView fitHeight="21.0" fitWidth="29.0" layoutX="360.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
@@ -71,20 +71,25 @@
                   <Image url="@../../Images/icons8_Search_96px.png" />
                </image>
             </ImageView>
+            <Label layoutX="16.0" layoutY="2.0" text="Search">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <JFXButton id="button" fx:id="btn_Add" layoutX="285.0" layoutY="358.0" onAction="#onaction_add" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="ADD" />
       <JFXButton id="button" fx:id="btn_Update" layoutX="398.0" layoutY="358.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="UPDATE" />
       <JFXButton id="button" fx:id="btn_Remove" layoutX="502.0" layoutY="358.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="REMOVE" />
       <JFXButton id="button" fx:id="btn_Clear" layoutX="613.0" layoutY="358.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="CLEAR" />
-      <TableView fx:id="table_Attendance" layoutX="112.0" layoutY="451.0" onMouseClicked="#onaction_clicked" prefHeight="200.0" prefWidth="947.0">
+      <TableView fx:id="table_Attendance" layoutX="80.0" layoutY="450.0" onMouseClicked="#onaction_clicked" prefHeight="200.0" prefWidth="975.0">
         <columns>
           <TableColumn prefWidth="120.0" text="Attendance ID" />
           <TableColumn minWidth="1.0" prefWidth="127.0" text="Member ID" />
             <TableColumn minWidth="1.0" prefWidth="236.0" text="Name" />
             <TableColumn minWidth="1.0" prefWidth="148.0" text="Date" />
-            <TableColumn minWidth="1.0" prefWidth="145.0" text="Time Arrived" />
-            <TableColumn minWidth="1.0" prefWidth="170.0" text="Payment" />
+            <TableColumn minWidth="1.0" prefWidth="177.0" text="Time Arrived" />
+            <TableColumn minWidth="1.0" prefWidth="166.0" text="Payment" />
         </columns>
       </TableView>
    </children>
