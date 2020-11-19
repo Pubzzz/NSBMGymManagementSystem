@@ -71,13 +71,13 @@ public class TrackerViewController extends MemberDTO implements Initializable {
     private JFXTextField txt_TrackerSearch;
 
     @FXML
-    private JFXRadioButton radio_type1;
+    private JFXRadioButton radio_Type1;
 
     @FXML
-    private JFXRadioButton radio_type2;
+    private JFXRadioButton radio_Type2;
 
     @FXML
-    private JFXRadioButton radio_type3;
+    private JFXRadioButton radio_Type3;
 
     static TrackerBO bo = (TrackerBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.TRACKER);
 
@@ -116,10 +116,10 @@ public class TrackerViewController extends MemberDTO implements Initializable {
             BMR=88.362 + (13.397 * wgt) + (4.799 * hgt) - (5.677 * age);
         }
 
-        if(radio_type1.isSelected()){
+        if(radio_Type1.isSelected()){
             Cal = BMR*1.2;
         }
-        else if(radio_type2.isSelected()){
+        else if(radio_Type2.isSelected()){
             Cal=BMR*1.375;
         }
         else{

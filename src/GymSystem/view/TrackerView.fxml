@@ -111,22 +111,22 @@
             <TableColumn prefWidth="97.0" text="Date" />
             <TableColumn prefWidth="150.0" text="Height (cm)" />
             <TableColumn prefWidth="125.0" text="Weight (kg)" />
-            <TableColumn prefWidth="133.0" text="Type" />
+            <TableColumn prefWidth="133.0" text="Age" />
             <TableColumn prefWidth="137.0" text="BMI" />
             <TableColumn prefWidth="136.0" text="Calories" />
         </columns>
       </TableView>
-      <JFXRadioButton fx:id="radio_type1" layoutX="275.0" layoutY="308.0" text="Sedentary">
+      <JFXRadioButton fx:id="radio_Type1" layoutX="275.0" layoutY="308.0" text="Sedentary">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="radio_type2" layoutX="275.0" layoutY="334.0" text="Lightly Active">
+      <JFXRadioButton fx:id="radio_Type2" layoutX="275.0" layoutY="334.0" text="Lightly Active">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="radio_type3" layoutX="275.0" layoutY="363.0" text="Moderately Active">
+      <JFXRadioButton fx:id="radio_Type3" layoutX="275.0" layoutY="363.0" text="Moderately Active">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
