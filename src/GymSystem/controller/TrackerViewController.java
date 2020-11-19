@@ -2,6 +2,7 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.TrackerBO;
+import GymSystem.dto.MemberDTO;
 import GymSystem.dto.TrackerDTO;
 import GymSystem.entity.Tracker;
 import com.jfoenix.controls.JFXButton;
@@ -17,6 +18,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import sun.util.resources.cldr.sq.CalendarData_sq_AL;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -24,7 +26,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class TrackerViewController implements Initializable {
+public class TrackerViewController extends MemberDTO implements Initializable {
 
     @FXML
     private JFXButton btn_Calculate;
@@ -101,13 +103,30 @@ public class TrackerViewController implements Initializable {
         Double hgt=Double.valueOf (txt_Height.getText());
         Double wgt=Double.valueOf(txt_Weight.getText());
         Integer age = Integer.valueOf(txt_age.getText());
+        Double BMR;
         Double BMI;
-        Double Cal=Double.valueOf(txt_Calories.getText());
+        Double Cal;
+
         BMI=(wgt*wgt)/(hgt/100);
 
-        //CALCULATE BMR AND CAL
+        if(sex=="Female"){
+            BMR=447.593 + (9.247 * wgt) + (3.098 * hgt) - (4.330 * age);
+        }
+        else{
+            BMR=88.362 + (13.397 * wgt) + (4.799 * hgt) - (5.677 * age);
+        }
 
-        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,age,BMI,Cal);
+        if(radio_type1.isSelected()){
+            Cal = BMR*1.2;
+        }
+        else if(radio_type2.isSelected()){
+            Cal=BMR*1.375;
+        }
+        else{
+            Cal=BMR*1.55;
+        }
+
+        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,BMI,Cal);
         boolean addTracker= TrackerViewController.addTracker(cusModel);
 
         if(addTracker){
@@ -131,7 +150,7 @@ public class TrackerViewController implements Initializable {
         Double BMI=Double.valueOf(txt_BMI.getText());
         Double Cal= Double.valueOf(txt_Calories.getText());
 
-        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,age,BMI,Cal);
+        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,BMI,Cal);
         boolean update = TrackerViewController.updateTracker(cusModel);
         if(update){
             Alert a = new Alert(Alert.AlertType.INFORMATION, "UPDATED SUCCESSFULLY", ButtonType.OK);
@@ -171,7 +190,6 @@ public class TrackerViewController implements Initializable {
         txt_TrackerDate.setText(selectedItem.getDate());
         txt_Height.setText(String.valueOf(selectedItem.getHgt()));
         txt_Weight.setText(String.valueOf(selectedItem.getWgt()));
-        txt_age.setText(String.valueOf(selectedItem.getAge()));
         txt_BMI.setText(String.valueOf(selectedItem.getBMI()));
         txt_Calories.setText(String.valueOf(selectedItem.getCal()));
     }

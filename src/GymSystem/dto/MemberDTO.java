@@ -5,7 +5,7 @@ public class MemberDTO {
     private String name;
     private String email;
     private String tel;
-    private String sex;
+    protected String sex;
     private String pos;
     private String batch;
     private String deg;

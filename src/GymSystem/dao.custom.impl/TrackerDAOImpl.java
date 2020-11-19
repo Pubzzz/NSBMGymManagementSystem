@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class TrackerDAOImpl implements TrackerDAO {
     @Override
     public boolean add(Tracker ref) throws ClassNotFoundException, SQLException {
-        return CrudUtil.executeUpdate("Insert into TRACKER values(?,?,?,?,?,?)", ref.getId(), ref.getMid(), ref.getDate(), ref.getHgt(),ref.getWgt(),ref.getBMI(),ref.getCal());
+        return CrudUtil.executeUpdate("Insert into TRACKER values(?,?,?,?,?,?,?)", ref.getId(), ref.getMid(), ref.getDate(), ref.getHgt(),ref.getWgt(),ref.getBMI(),ref.getCal());
     }
 
     @Override

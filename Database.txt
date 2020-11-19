@@ -48,8 +48,8 @@ MID varchar(50) not null,
 Tdate date not null,
 Height varchar(10) not null,
 Weight varchar(10) not null,
-BMI varchar(10) not null,
-Cal varchar(10) not null,
+BMI varchar(50) not null,
+Cal varchar(50) not null,
 PRIMARY KEY (TID),
 FOREIGN KEY (MID) REFERENCES MEMBER(MID)
 );
