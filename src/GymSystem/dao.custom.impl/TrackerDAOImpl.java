@@ -12,12 +12,12 @@ import java.util.ArrayList;
 public class TrackerDAOImpl implements TrackerDAO {
     @Override
     public boolean add(Tracker ref) throws ClassNotFoundException, SQLException {
-        return CrudUtil.executeUpdate("Insert into TRACKER values(?,?,?,?,?,?,?)", ref.getId(), ref.getMid(), ref.getDate(), ref.getHgt(),ref.getWgt(),ref.getBMI(),ref.getCal());
+        return CrudUtil.executeUpdate("Insert into TRACKER values(?,?,?,?,?,?,?)", ref.getId(), ref.getMid(), ref.getDate(), ref.getHgt(),ref.getWgt(),ref.getAge(),ref.getBMI(),ref.getCal());
     }
 
     @Override
     public boolean update(Tracker ref) throws ClassNotFoundException, SQLException {
-        return CrudUtil.executeUpdate("update TRACKER set TID=?,TDate=?,Height=?, Weight=?,BMI=?, Cal=? where MID=?",  ref.getId(), ref.getDate(), ref.getHgt(), ref.getWgt(), ref.getBMI(), ref.getCal(),ref.getId());
+        return CrudUtil.executeUpdate("update TRACKER set TID=?,TDate=?,Height=?, Weight=?,BMI=?, Cal=? where MID=?",  ref.getId(), ref.getDate(), ref.getHgt(), ref.getWgt(),ref.getAge(), ref.getBMI(), ref.getCal(),ref.getId());
     }
 
 
@@ -36,8 +36,9 @@ public class TrackerDAOImpl implements TrackerDAO {
                     rst.getString(3),
                     rst.getDouble(4),
                     rst.getDouble(5),
-                    rst.getDouble(6),
-                    rst.getDouble(7)
+                    rst.getInt(6),
+                    rst.getDouble(7),
+                    rst.getDouble(8)
             );
         }
         return null;
@@ -59,8 +60,9 @@ public class TrackerDAOImpl implements TrackerDAO {
                     rst.getString(3),
                     rst.getDouble(4),
                     rst.getDouble(5),
-                    rst.getDouble(6),
-                    rst.getDouble(7)
+                    rst.getInt(6),
+                    rst.getDouble(7),
+                    rst.getDouble(8)
 
             ));
         }

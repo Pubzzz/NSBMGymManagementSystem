@@ -129,7 +129,7 @@ public class TrackerViewController extends MemberDTO implements Initializable {
         txt_BMI.setText(String.valueOf(BMI));
         txt_Calories.setText(String.valueOf(Cal));
 
-        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,BMI,Cal);
+        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,age,BMI,Cal);
         boolean addTracker= TrackerViewController.addTracker(cusModel);
 
         if(addTracker){
@@ -154,7 +154,7 @@ public class TrackerViewController extends MemberDTO implements Initializable {
         Double BMI=Double.valueOf(txt_BMI.getText());
         Double Cal= Double.valueOf(txt_Calories.getText());
 
-        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,BMI,Cal);
+        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,age,BMI,Cal);
         boolean update = TrackerViewController.updateTracker(cusModel);
         if(update){
             Alert a = new Alert(Alert.AlertType.INFORMATION, "UPDATED SUCCESSFULLY", ButtonType.OK);
@@ -194,11 +194,21 @@ public class TrackerViewController extends MemberDTO implements Initializable {
         txt_TrackerDate.setText(selectedItem.getDate());
         txt_Height.setText(String.valueOf(selectedItem.getHgt()));
         txt_Weight.setText(String.valueOf(selectedItem.getWgt()));
+        txt_age.setText(String.valueOf(selectedItem.getAge()));
         txt_BMI.setText(String.valueOf(selectedItem.getBMI()));
         txt_Calories.setText(String.valueOf(selectedItem.getCal()));
     }
 
-    public void onaction_search(ActionEvent actionEvent) {
+    public void onaction_search(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        TrackerDTO searchTracker = bo.searchTracker(txt_MemberID.getText());
+        txt_TrackerID.setText(searchTracker.getId());
+        txt_MemberID.setText(searchTracker.getMid());
+        txt_TrackerDate.setText(searchTracker.getDate());
+        txt_Height.setText(String.valueOf(searchTracker.getHgt()));
+        txt_Weight.setText(String.valueOf(searchTracker.getWgt()));
+        txt_age.setText(String.valueOf(searchTracker.getAge()));
+        txt_BMI.setText(String.valueOf(searchTracker.getBMI()));
+        txt_Calories.setText(String.valueOf(searchTracker.getCal()));
     }
     private void setDate() {
         txt_TrackerDate.setText(LocalDate.now().toString());
