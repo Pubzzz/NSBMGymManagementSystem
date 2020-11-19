@@ -55,7 +55,11 @@ public class AccessoriesViewController implements  Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+            try {
+                getAllAccessories();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     }
 
     static AccessoriesBO bo = (AccessoriesBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.ACCESSORIES);

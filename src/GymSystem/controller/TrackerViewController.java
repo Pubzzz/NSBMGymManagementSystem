@@ -5,7 +5,6 @@ import GymSystem.bo.custom.TrackerBO;
 import GymSystem.dao.CrudUtil;
 import GymSystem.dto.MemberDTO;
 import GymSystem.dto.TrackerDTO;
-import GymSystem.entity.Tracker;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
@@ -110,8 +109,8 @@ public class TrackerViewController extends MemberDTO implements Initializable {
 
         BMI=(wgt*wgt)/(hgt/100);
 
-        if(sex =="Female"){
-            BMR=(447.593)+(9.247*wgt)+(3.098*hgt)-(4.330*age);
+        if(getGender()=="Female") {
+            BMR = (447.593) + (9.247 * wgt) + (3.098 * hgt) - (4.330 * age);
         }
         else{
             BMR=(88.362)+(13.397*wgt)+(4.799*hgt)-(5.677*age);
@@ -243,5 +242,10 @@ public class TrackerViewController extends MemberDTO implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public String getGender() throws ClassNotFoundException, SQLException {
+        ResultSet rst = CrudUtil.executeQuery("select sex from MEMBER where MID=?", txt_MemberID);
+        final String gender = rst.getString(5);
+        return gender;
     }
 }

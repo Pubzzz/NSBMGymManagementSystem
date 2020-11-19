@@ -10,16 +10,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class InstructorViewController {
+public class InstructorViewController implements Initializable {
 
     @FXML
     private JFXButton btn_Register;
@@ -218,5 +221,13 @@ public class InstructorViewController {
             System.out.println(e.getMessage());
         }
 
+    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            getAllInstructors();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

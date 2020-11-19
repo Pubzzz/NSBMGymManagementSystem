@@ -13,7 +13,7 @@ public class Tracker {
     public Tracker(String string, String rstString, String s, double aDouble, double rstDouble, double v, double aDouble1) {
     }
 
-    public Tracker(String id, String mid, String date, Double hgt, Double wgt, Integer age,Double BMI,Double Cal) {
+    public Tracker(String id) {
         this.id = id;
         this.mid = mid;
         this.date = date;
