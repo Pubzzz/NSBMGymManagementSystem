@@ -73,7 +73,11 @@ public class MemberViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        try {
+            getAllCustomers();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     static MemberBO bo = (MemberBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.MEMBER);

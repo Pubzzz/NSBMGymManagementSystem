@@ -2,6 +2,7 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.TrackerBO;
+import GymSystem.dao.CrudUtil;
 import GymSystem.dto.MemberDTO;
 import GymSystem.dto.TrackerDTO;
 import GymSystem.entity.Tracker;
@@ -18,9 +19,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import sun.util.resources.cldr.sq.CalendarData_sq_AL;
 
 import java.net.URL;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -109,22 +110,25 @@ public class TrackerViewController extends MemberDTO implements Initializable {
 
         BMI=(wgt*wgt)/(hgt/100);
 
-        if(sex=="Female"){
-            BMR=447.593 + (9.247 * wgt) + (3.098 * hgt) - (4.330 * age);
+        if(sex =="Female"){
+            BMR=(447.593)+(9.247*wgt)+(3.098*hgt)-(4.330*age);
         }
         else{
-            BMR=88.362 + (13.397 * wgt) + (4.799 * hgt) - (5.677 * age);
+            BMR=(88.362)+(13.397*wgt)+(4.799*hgt)-(5.677*age);
         }
 
         if(radio_Type1.isSelected()){
-            Cal = BMR*1.2;
+            Cal = (BMR) * 1.2;
         }
         else if(radio_Type2.isSelected()){
-            Cal=BMR*1.375;
+            Cal=(BMR) * 1.375;
         }
         else{
-            Cal=BMR*1.55;
+            Cal=(BMR) *1.55;
         }
+
+        txt_BMI.setText(String.valueOf(BMI));
+        txt_Calories.setText(String.valueOf(Cal));
 
         TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,BMI,Cal);
         boolean addTracker= TrackerViewController.addTracker(cusModel);
@@ -134,6 +138,7 @@ public class TrackerViewController extends MemberDTO implements Initializable {
             a.showAndWait();
             setAllClear();
             getAllTracker();
+
         }else{
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
@@ -222,7 +227,6 @@ public class TrackerViewController extends MemberDTO implements Initializable {
     private void setAllClear(){
         txt_TrackerID.clear();
         txt_MemberID.clear();
-       txt_TrackerDate.clear();
         txt_Height.clear();
         txt_Weight.clear();
         txt_age.clear();

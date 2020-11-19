@@ -187,8 +187,6 @@ public class AttendanceViewController implements Initializable {
         txt_MemId.clear();
         txt_MemName.clear();
         txt_AttendanceId.clear();
-        txt_AttendanceDate.clear();
-        txt_AttendanceTime.clear();
         radio_Payment.setSelected(false);
 
     }

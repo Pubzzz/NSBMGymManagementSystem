@@ -11,7 +11,7 @@ Mtel varchar(20) not null,
 Msex varchar(10) not null,
 Mpos varchar(10) not null, 
 Mbatch varchar(10) not null,
-Mdegree varchar(50) not null
+Mdegree varchar(100) not null
 );
 
 create table INSTRUCTOR(
