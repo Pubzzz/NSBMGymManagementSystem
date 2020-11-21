@@ -173,7 +173,6 @@ public class InstructorViewController implements Initializable {
         txt_InstructorId.setText(searchInstructor.getId());
         txt_InstructorName.setText(searchInstructor.getName());
         txt_InstructorNIC.setText(searchInstructor.getNic());
-        // how to update on gender
         txt_InstructorEmail.setText(searchInstructor.getEmail());
         txt_InstructorTelNo.setText(searchInstructor.getTp());
     }
@@ -185,7 +184,6 @@ public class InstructorViewController implements Initializable {
         txt_InstructorId.setText(selectedItem.getId());
         txt_InstructorName.setText(selectedItem.getName());
         txt_InstructorNIC.setText(selectedItem.getNic());
-        // how to update on gender
         txt_InstructorEmail.setText(selectedItem.getEmail());
         txt_InstructorTelNo.setText(selectedItem.getTp());
     }
@@ -199,6 +197,7 @@ public class InstructorViewController implements Initializable {
         radio_Male.setSelected(false);
         txt_InstructorEmail.clear();
         txt_InstructorTelNo.clear();
+        txt_InstructorSearch.clear();
 
 
 

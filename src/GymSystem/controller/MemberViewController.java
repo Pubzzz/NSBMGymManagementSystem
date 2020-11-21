@@ -105,7 +105,6 @@ public class MemberViewController implements Initializable {
         txt_MemName.setText(searchCustomer.getName());
         txt_MemEmail.setText(searchCustomer.getEmail());
         txt_MemTelNo.setText(searchCustomer.getTel());
-        // how to update on sex and position
         txt_Batch.setText(searchCustomer.getBatch());
         txt_Degree.setText(searchCustomer.getDeg());
     }

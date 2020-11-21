@@ -19,6 +19,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +27,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class TrackerViewController extends MemberDTO implements Initializable {
+public class TrackerViewController extends MemberDTO implements Initializable, Serializable {
 
     @FXML
     private JFXButton btn_Calculate;
@@ -109,7 +110,7 @@ public class TrackerViewController extends MemberDTO implements Initializable {
 
         BMI=(wgt*wgt)/(hgt/100);
 
-        if(getGender()=="Female") {
+        if(getGender() =="Female") {
             BMR = (447.593) + (9.247 * wgt) + (3.098 * hgt) - (4.330 * age);
         }
         else{
@@ -254,8 +255,9 @@ public class TrackerViewController extends MemberDTO implements Initializable {
         }
     }
     public String getGender() throws ClassNotFoundException, SQLException {
-        ResultSet rst = CrudUtil.executeQuery("select sex from MEMBER where MID=?", txt_MemberID);
-        final String gender = rst.getString(5);
+        ResultSet rst = CrudUtil.executeQuery("Select Msex from MEMBER where MID=?", txt_MemberID.getText());
+        rst.next();
+        String gender = rst.getString(1);
         return gender;
     }
 }
