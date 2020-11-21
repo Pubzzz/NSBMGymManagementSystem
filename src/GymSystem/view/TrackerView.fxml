@@ -53,6 +53,26 @@
          </font>
       </Label>
       <JFXTextField fx:id="txt_Weight" layoutX="288.0" layoutY="233.0" prefHeight="25.0" prefWidth="300.0" promptText="kilograms (kg)" />
+      <JFXTextField fx:id="txt_age" layoutX="287.0" layoutY="268.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXRadioButton fx:id="radio_Type1" layoutX="275.0" layoutY="308.0" text="Sedentary">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="radio_Type2" layoutX="275.0" layoutY="334.0" text="Lightly Active">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="radio_Type3" layoutX="275.0" layoutY="363.0" text="Moderately Active">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXButton id="button" fx:id="btn_Calculate" layoutX="675.0" layoutY="312.0" onAction="#onaction_calculate" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="CALCULATE" />
+      <JFXButton id="button" fx:id="btn_Update" layoutX="675.0" layoutY="358.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="UPDATE" />
+      <JFXButton id="button" fx:id="btn_Remove" layoutX="905.0" layoutY="312.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="REMOVE" />
+      <JFXButton id="button" fx:id="btn_Clear" layoutX="905.0" layoutY="358.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="CLEAR" />
       <Pane layoutX="655.0" layoutY="90.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #c2e7ed;">
          <children>
             <JFXTextField fx:id="txt_TrackerSearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="Tracker ID">
@@ -100,10 +120,6 @@
             </Label>
          </children>
       </Pane>
-      <JFXButton id="button" fx:id="btn_Calculate" layoutX="675.0" layoutY="312.0" onAction="#onaction_calculate" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="CALCULATE" />
-      <JFXButton id="button" fx:id="btn_Update" layoutX="675.0" layoutY="358.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="UPDATE" />
-      <JFXButton id="button" fx:id="btn_Remove" layoutX="905.0" layoutY="312.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="REMOVE" />
-      <JFXButton id="button" fx:id="btn_Clear" layoutX="905.0" layoutY="358.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="CLEAR" />
       <TableView fx:id="table_tracker" layoutX="80.0" layoutY="450.0" onMouseClicked="#onaction_Clicked" prefHeight="200.0" prefWidth="975.0">
         <columns>
           <TableColumn prefWidth="87.0" text="Tracker ID" />
@@ -116,21 +132,6 @@
             <TableColumn prefWidth="136.0" text="Calories" />
         </columns>
       </TableView>
-      <JFXRadioButton fx:id="radio_Type1" layoutX="275.0" layoutY="308.0" text="Sedentary">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXRadioButton>
-      <JFXRadioButton fx:id="radio_Type2" layoutX="275.0" layoutY="334.0" text="Lightly Active">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXRadioButton>
-      <JFXRadioButton fx:id="radio_Type3" layoutX="275.0" layoutY="363.0" text="Moderately Active">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXRadioButton>
       <Label layoutX="80.0" layoutY="324.0" text="Type">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -141,6 +142,5 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txt_age" layoutX="287.0" layoutY="268.0" prefHeight="25.0" prefWidth="300.0" />
    </children>
 </AnchorPane>

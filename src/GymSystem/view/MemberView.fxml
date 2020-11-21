@@ -62,27 +62,16 @@
       <JFXTextField fx:id="txt_MemName" layoutX="265.0" layoutY="126.0" prefHeight="25.0" prefWidth="300.0" />
       <JFXTextField fx:id="txt_MemEmail" layoutX="265.0" layoutY="162.0" prefHeight="25.0" prefWidth="300.0" />
       <JFXTextField fx:id="txt_MemTelNo" layoutX="265.0" layoutY="198.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_Batch" layoutX="265.0" layoutY="308.0" prefHeight="25.0" prefWidth="300.0" />
       <JFXRadioButton fx:id="radio_male" layoutX="265.0" layoutY="235.0" text="Male" />
       <JFXRadioButton fx:id="radio_female" layoutX="393.0" layoutY="235.0" text="Female" />
       <JFXRadioButton fx:id="radio_student" layoutX="265.0" layoutY="272.0" text="Student" />
       <JFXRadioButton fx:id="radio_staff" layoutX="393.0" layoutY="272.0" text="Staff" />
+      <JFXTextField fx:id="txt_Batch" layoutX="265.0" layoutY="308.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_Degree" layoutX="265.0" layoutY="341.0" prefHeight="25.0" prefWidth="300.0" />
       <JFXButton id="button" fx:id="btn_Register" layoutX="235.0" layoutY="391.0" onAction="#onaction_register" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="REGISTER" />
       <JFXButton id="button" fx:id="btn_Update" layoutX="351.0" layoutY="391.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="UPDATE" />
       <JFXButton id="button" fx:id="btn_Remove" layoutX="464.0" layoutY="391.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="REMOVE" />
       <JFXButton id="button" fx:id="btn_Clear" layoutX="568.0" layoutY="391.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="CLEAR" />
-      <TableView fx:id="table_Member" layoutX="80.0" layoutY="450.0" onMouseClicked="#onaction_clicked" prefHeight="200.0" prefWidth="975.0">
-        <columns>
-          <TableColumn prefWidth="104.0" text="Member ID" />
-            <TableColumn prefWidth="147.0" text="Name" />
-            <TableColumn prefWidth="143.0" text="Email" />
-            <TableColumn prefWidth="103.0" text="Tel No" />
-            <TableColumn prefWidth="100.0" text="Gender" />
-            <TableColumn prefWidth="124.0" text="Academic Position" />
-            <TableColumn prefWidth="108.0" text="Batch" />
-            <TableColumn prefWidth="145.0" text="Degree Program" />
-        </columns>
-      </TableView>
       <Pane layoutX="655.0" layoutY="90.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #c2e7ed;">
          <children>
             <JFXTextField fx:id="txt_MemSearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="Member ID">
@@ -102,11 +91,22 @@
             </Label>
          </children>
       </Pane>
+      <TableView fx:id="table_Member" layoutX="80.0" layoutY="450.0" onMouseClicked="#onaction_clicked" prefHeight="200.0" prefWidth="975.0">
+        <columns>
+          <TableColumn prefWidth="104.0" text="Member ID" />
+            <TableColumn prefWidth="147.0" text="Name" />
+            <TableColumn prefWidth="143.0" text="Email" />
+            <TableColumn prefWidth="103.0" text="Tel No" />
+            <TableColumn prefWidth="100.0" text="Gender" />
+            <TableColumn prefWidth="124.0" text="Academic Position" />
+            <TableColumn prefWidth="108.0" text="Batch" />
+            <TableColumn prefWidth="145.0" text="Degree Program" />
+        </columns>
+      </TableView>
       <Label layoutX="80.0" layoutY="341.0" text="Degree Program">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txt_Degree" layoutX="265.0" layoutY="341.0" prefHeight="25.0" prefWidth="300.0" />
    </children>
 </AnchorPane>
