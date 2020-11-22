@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GymSystem.controller.DashboardMainViewController">
+<AnchorPane prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GymSystem.controller.DashboardViewController">
    <children>
-      <Pane layoutX="2.0" layoutY="3.0" prefHeight="40.0" prefWidth="1116.0" style="-fx-background-color: grey;">
+      <Pane layoutX="2.0" layoutY="3.0" prefHeight="40.0" prefWidth="1116.0" style="-fx-background-color: #1b579f;">
          <children>
             <Label layoutX="489.0" layoutY="4.0" text="DASHBOARD" textFill="WHITE">
                <font>
@@ -22,20 +19,9 @@
             </Label>
          </children>
       </Pane>
-      <ImageView fitHeight="684.0" fitWidth="1116.0" layoutX="2.0" layoutY="48.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Images/gym_1.jpg" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-         <effect>
-            <BoxBlur iterations="5" width="0.0" />
-         </effect>
-      </ImageView>
-      <Pane layoutX="38.0" layoutY="78.0" opacity="0.5" prefHeight="200.0" prefWidth="335.0" style="-fx-background-color: white;">
+      <Pane layoutX="38.0" layoutY="78.0" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #d1dbe0;">
          <children>
-            <Label layoutX="113.0" layoutY="14.0" text="Member Details">
+            <Label layoutX="75.0" layoutY="14.0" text="Member Details">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -50,7 +36,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <JFXButton fx:id="btn_ViewMember" layoutY="155.0" onAction="#onaction_ViewMember" prefHeight="50.0" prefWidth="335.0" style="-fx-background-color: GREY;" text="VIEW MORE" textFill="WHITE">
+            <JFXButton fx:id="btn_ViewMember" layoutY="155.0" onAction="#onaction_ViewMember" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #1b579f;" text="VIEW MORE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -66,85 +52,70 @@
                </font>
             </Label>
          </children></Pane>
-      <Pane layoutX="432.0" layoutY="78.0" opacity="0.5" prefHeight="200.0" prefWidth="335.0" style="-fx-background-color: white;">
+      <Pane layoutX="408.0" layoutY="78.0" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #d1dbe0;">
          <children>
-            <Label layoutX="86.0" layoutY="14.0" text="Instructor Details">
+            <Label layoutX="96.0" layoutY="14.0" text="Attendance">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <JFXButton fx:id="btn_ViewInstructor" layoutY="150.0" onAction="#onaction_ViewInstructor" prefHeight="50.0" prefWidth="335.0" style="-fx-background-color: GREY;" text="VIEW MORE" textFill="WHITE">
+            <JFXButton fx:id="btn_Viewattendance" layoutY="150.0" onAction="#onaction_Viewattendance" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #1b579f;" text="VIEW MORE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </JFXButton>
-            <Label fx:id="lbl_Instructor" layoutX="103.0" layoutY="68.0" prefHeight="32.0" prefWidth="128.0">
+            <Label fx:id="lbl_attendance" layoutX="86.0" layoutY="68.0" prefHeight="32.0" prefWidth="128.0">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
          </children></Pane>
-      <Pane layoutX="818.0" layoutY="78.0" opacity="0.5" prefHeight="200.0" prefWidth="268.0" style="-fx-background-color: white;">
+      <Pane layoutX="779.0" layoutY="78.0" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #d1dbe0;">
          <children>
-            <Label layoutX="80.0" layoutY="14.0" text="Accessories">
+            <Label layoutX="69.0" layoutY="14.0" text="Instructor Details">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <JFXButton fx:id="btn_ViewAccessory" layoutY="150.0" onAction="#onaction_ViewAccessories" prefHeight="50.0" prefWidth="268.0" style="-fx-background-color: GREY;" text="VIEW MORE" textFill="WHITE">
+            <JFXButton fx:id="btn_Viewinstructor" layoutY="150.0" onAction="#onaction_Viewinstructor" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #1b579f;" text="VIEW MORE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </JFXButton>
-            <Label fx:id="lbl_Accessories" layoutX="70.0" layoutY="67.0" prefHeight="32.0" prefWidth="128.0">
+            <Label fx:id="lbl_instructor" layoutX="86.0" layoutY="68.0" prefHeight="32.0" prefWidth="128.0">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
          </children></Pane>
-      <Pane layoutX="38.0" layoutY="350.0" opacity="0.6" prefHeight="265.0" prefWidth="335.0" style="-fx-background-color: white;">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
+      <ImageView fitHeight="421.0" fitWidth="636.0" layoutX="482.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/Capturedf.PNG" />
+         </image>
+      </ImageView>
+      <Pane layoutX="38.0" layoutY="384.0" prefHeight="275.0" prefWidth="300.0" style="-fx-background-color: #d1dbe0;">
          <children>
-            <Label layoutX="78.0" layoutY="14.0" text="Attendance Details">
+            <Label layoutX="82.0" layoutY="155.0" prefHeight="30.0" prefWidth="202.0" text="NSBM Green University Town,">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="82.0" layoutY="176.0" prefHeight="30.0" prefWidth="202.0" text="Pitipana, Homagama">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="82.0" layoutY="206.0" prefHeight="30.0" prefWidth="202.0" text="Tel - +94 11 000 0000">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="20.0" text="About">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <JFXButton fx:id="btn_ViewAttendance" layoutY="215.0" prefHeight="50.0" prefWidth="335.0" style="-fx-background-color: GREY;" text="VIEW MORE" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </JFXButton>
-            <Label fx:id="lbl_Attendance" layoutX="108.0" layoutY="116.0" prefHeight="32.0" prefWidth="128.0">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-         </children></Pane>
-      <Pane layoutX="439.0" layoutY="350.0" opacity="0.5" prefHeight="265.0" prefWidth="647.0" style="-fx-background-color: white;" AnchorPane.topAnchor="350.0">
-         <children>
-            <Label layoutX="23.0" layoutY="15.0" text="About">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="402.0" layoutY="155.0" prefHeight="30.0" prefWidth="202.0" text="NSBM Green University Town,">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="402.0" layoutY="176.0" prefHeight="30.0" prefWidth="202.0" text="Pitipana, Homagama">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="402.0" layoutY="206.0" prefHeight="30.0" prefWidth="202.0" text="Tel - +94 11 000 0000">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-         </children></Pane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

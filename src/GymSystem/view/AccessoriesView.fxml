@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GymSystem.controller.AccessoriesViewController">
    <children>
-      <Pane layoutX="2.0" layoutY="3.0" prefHeight="40.0" prefWidth="1116.0" style="-fx-background-color: grey;">
+      <Pane layoutX="2.0" layoutY="3.0" prefHeight="40.0" prefWidth="1116.0" style="-fx-background-color: #1b579f;">
          <children>
             <Label layoutX="486.0" layoutY="4.0" text="ACCESSORIES" textFill="WHITE">
                <font>
@@ -50,7 +50,7 @@
       <JFXButton id="button" fx:id="btn_Update" layoutX="382.0" layoutY="321.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="UPDATE" />
       <JFXButton id="button" fx:id="btn_Remove" layoutX="500.0" layoutY="321.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="REMOVE" />
       <JFXButton id="button" fx:id="btn_Clear" layoutX="614.0" layoutY="321.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Accessories.css" text="CLEAR" />
-      <Pane layoutX="655.0" layoutY="90.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #c2e7ed;">
+      <Pane layoutX="655.0" layoutY="90.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #d1dbe0;">
          <children>
             <JFXTextField fx:id="txt_AccessorySearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="Accessory ID">
                <font>
