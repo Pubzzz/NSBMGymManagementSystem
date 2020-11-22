@@ -1,6 +1,7 @@
 package GymSystem.controller;
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.MemberBO;
+import GymSystem.dto.InstructorDTO;
 import GymSystem.dto.MemberDTO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -226,19 +227,19 @@ public class MemberViewController implements Initializable {
     }
 
     private void getAllCustomers() throws Exception {
-        ArrayList<MemberDTO> customerList;
+        ArrayList<MemberDTO> MemberList;
         try {
-            customerList = bo.getAllCustomers();
-            ObservableList<MemberDTO> Member = FXCollections.observableArrayList(customerList);
+            MemberList = bo.getAllCustomers();
+            ObservableList<MemberDTO> Member = FXCollections.observableArrayList(MemberList);
             table_Member.setItems(Member);
             table_Member.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
             table_Member.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
             table_Member.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("email"));
             table_Member.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("tel"));
-            table_Member.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("gender"));
-            table_Member.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("position"));
+            table_Member.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("sex"));
+            table_Member.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("pos"));
             table_Member.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("batch"));
-            table_Member.getColumns().get(7).setCellValueFactory(new PropertyValueFactory<>("degree"));
+            table_Member.getColumns().get(7).setCellValueFactory(new PropertyValueFactory<>("deg"));
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

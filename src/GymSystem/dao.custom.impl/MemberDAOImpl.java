@@ -2,6 +2,7 @@ package GymSystem.dao.custom.impl;
 
 import GymSystem.dao.CrudUtil;
 import GymSystem.dao.custom.MemberDAO;
+import GymSystem.entity.Instructor;
 import GymSystem.entity.Member;
 
 import java.sql.ResultSet;
@@ -52,9 +53,9 @@ public class MemberDAOImpl implements MemberDAO{
 
 
     @Override
-    public ArrayList<Member> getAll() throws Exception {
+    public ArrayList<Member> getAll() throws ClassNotFoundException, SQLException, Exception {
         ArrayList<Member> company = new ArrayList<>();
-        ResultSet rst = CrudUtil.executeQuery("Select * from MEMBER");
+        ResultSet rst = CrudUtil.executeQuery("Select * from Member");
         while (rst.next()){
             company.add(new Member(
                     rst.getString(1),
@@ -65,6 +66,7 @@ public class MemberDAOImpl implements MemberDAO{
                     rst.getString(6),
                     rst.getString(7),
                     rst.getString(8)
+
             ));
         }
         return company;
