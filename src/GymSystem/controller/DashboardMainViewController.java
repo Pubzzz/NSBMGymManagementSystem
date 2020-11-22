@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,6 +38,16 @@ public class DashboardMainViewController implements  Initializable {
 
     @FXML
     private JFXButton btn_Signout;
+
+    @FXML
+    private JFXButton btn_ViewMember;
+
+    @FXML
+    private JFXButton btn_Viewattendance;
+
+    @FXML
+    private JFXButton btn_Viewinstructor;
+
 
 
 
@@ -94,12 +105,22 @@ public class DashboardMainViewController implements  Initializable {
         stage.show();
     }
 
-    public void onaction_ViewMember(ActionEvent actionEvent) {
+
+    public void onaction_ViewMember(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/MemberView.fxml"));
+        main_panel.getChildren().clear();
+        main_panel.getChildren().add(anchorPane1);
     }
 
-    public void onaction_ViewInstructor(ActionEvent actionEvent) {
+    public void onaction_Viewattendance(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/AttendanceView.fxml"));
+        main_panel.getChildren().clear();
+        main_panel.getChildren().add(anchorPane1);
     }
 
-    public void onaction_ViewAccessories(ActionEvent actionEvent) {
+    public void onaction_Viewinstructor(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/InstructorView.fxml"));
+        main_panel.getChildren().clear();
+        main_panel.getChildren().add(anchorPane1);
     }
 }

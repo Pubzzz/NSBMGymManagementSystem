@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GymSystem.controller.InstructorViewController">
    <children>
-      <Pane layoutX="2.0" layoutY="3.0" prefHeight="40.0" prefWidth="1116.0" style="-fx-background-color: grey;">
+      <Pane layoutX="2.0" layoutY="3.0" prefHeight="40.0" prefWidth="1116.0" style="-fx-background-color: #1b579f;">
          <children>
             <Label layoutX="486.0" layoutY="4.0" text="INSTRUCUTOR" textFill="WHITE">
                <font>
@@ -43,21 +43,23 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txt_InstructorId" layoutX="265.0" layoutY="140.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_InstructorName" layoutX="265.0" layoutY="174.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_InstructorNIC" layoutX="265.0" layoutY="210.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_InstructorEmail" layoutX="265.0" layoutY="275.0" prefHeight="25.0" prefWidth="300.0" />
       <Label layoutX="80.0" layoutY="316.0" text="Tel.No">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
+      <JFXTextField fx:id="txt_InstructorId" layoutX="265.0" layoutY="140.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_InstructorName" layoutX="265.0" layoutY="174.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_InstructorNIC" layoutX="265.0" layoutY="210.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXRadioButton fx:id="radio_Male" layoutX="265.0" layoutY="256.0" text="Male" />
+      <JFXRadioButton fx:id="radio_Female" layoutX="414.0" layoutY="256.0" text="Female" />
+      <JFXTextField fx:id="txt_InstructorEmail" layoutX="265.0" layoutY="275.0" prefHeight="25.0" prefWidth="300.0" />
       <JFXTextField fx:id="txt_InstructorTelNo" layoutX="265.0" layoutY="314.0" prefHeight="25.0" prefWidth="300.0" />
       <JFXButton id="button" fx:id="btn_Register" layoutX="288.0" layoutY="363.0" onAction="#onaction_register" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Instructor.css" text="REGISTER" />
       <JFXButton id="button" fx:id="btn_Update" layoutX="401.0" layoutY="363.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Instructor.css" text="UPDATE" />
       <JFXButton id="button" fx:id="btn_Remove" layoutX="511.0" layoutY="363.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Instructor.css" text="REMOVE" />
       <JFXButton id="button" fx:id="btn_Clear" layoutX="616.0" layoutY="363.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Instructor.css" text="CLEAR" />
-      <Pane layoutX="655.0" layoutY="90.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #c2e7ed;">
+      <Pane layoutX="655.0" layoutY="90.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #d1dbe0;">
          <children>
             <JFXTextField fx:id="txt_InstructorSearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="Instructor ID">
                <font>
@@ -91,7 +93,5 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXRadioButton fx:id="radio_Male" layoutX="265.0" layoutY="256.0" text="Male" />
-      <JFXRadioButton fx:id="radio_Female" layoutX="414.0" layoutY="256.0" text="Female" />
    </children>
 </AnchorPane>
