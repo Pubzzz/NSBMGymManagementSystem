@@ -1,7 +1,6 @@
 package GymSystem.bo.custom;
 
 import GymSystem.bo.SuperBO;
-import GymSystem.dto.InstructorDTO;
 import GymSystem.dto.TrackerDTO;
 
 import java.sql.SQLException;

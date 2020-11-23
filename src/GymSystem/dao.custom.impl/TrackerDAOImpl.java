@@ -2,7 +2,6 @@ package GymSystem.dao.custom.impl;
 
 import GymSystem.dao.CrudUtil;
 import GymSystem.dao.custom.TrackerDAO;
-import GymSystem.entity.Instructor;
 import GymSystem.entity.Tracker;
 
 import java.sql.ResultSet;
@@ -12,12 +11,12 @@ import java.util.ArrayList;
 public class TrackerDAOImpl implements TrackerDAO {
     @Override
     public boolean add(Tracker ref) throws ClassNotFoundException, SQLException {
-        return CrudUtil.executeUpdate("Insert into TRACKER values(?,?,?,?,?,?,?)", ref.getId(), ref.getMid(), ref.getDate(), ref.getHgt(),ref.getWgt(),ref.getAge(),ref.getBMI(),ref.getCal());
+        return CrudUtil.executeUpdate("Insert into TRACKER values(?,?,?,?,?,?,?,?)", ref.getId(), ref.getMid(), ref.getDate(), ref.getHgt(),ref.getWgt(),ref.getAge(),ref.getBMI(),ref.getCal());
     }
 
     @Override
     public boolean update(Tracker ref) throws ClassNotFoundException, SQLException {
-        return CrudUtil.executeUpdate("update TRACKER set TID=?,TDate=?,Height=?, Weight=?,BMI=?, Cal=? where MID=?",  ref.getId(), ref.getDate(), ref.getHgt(), ref.getWgt(),ref.getAge(), ref.getBMI(), ref.getCal(),ref.getId());
+        return CrudUtil.executeUpdate("update TRACKER set TID=?,TDate=?,Height=?, Weight=?,age=?,BMI=?, Cal=? where MID=?",  ref.getId(), ref.getDate(), ref.getHgt(), ref.getWgt(),ref.getAge(), ref.getBMI(), ref.getCal(),ref.getMid());
     }
 
 

@@ -109,6 +109,7 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         Double Cal;
 
         BMI=(wgt*wgt)/(hgt/100);
+        txt_BMI.setText(String.valueOf(BMI));
 
         if(getGender() =="Female") {
             BMR = (447.593) + (9.247 * wgt) + (3.098 * hgt) - (4.330 * age);
@@ -126,8 +127,6 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         else{
             Cal=(BMR) *1.55;
         }
-
-        txt_BMI.setText(String.valueOf(BMI));
         txt_Calories.setText(String.valueOf(Cal));
 
         TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,age,BMI,Cal);
