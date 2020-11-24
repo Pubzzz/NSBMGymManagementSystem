@@ -75,4 +75,15 @@ public class InstructorDAOImpl implements InstructorDAO {
 
         return idcnt;
     }
+    
+    public static String getidcountMem() throws Exception {
+        int count=0;
+        ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from MEMBER");
+        while (rst.next()){
+            count=rst.getInt(1);
+        }
+        String idcntM=Integer.toString(count);
+
+        return idcntM;
+    }
 }
