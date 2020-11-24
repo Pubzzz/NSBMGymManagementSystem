@@ -65,4 +65,14 @@ public class InstructorDAOImpl implements InstructorDAO {
         }
         return company;
     }
+    public static String getidcountstaff() throws Exception {
+        int count=0;
+        ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from INSTRUCTOR");
+        while (rst.next()){
+            count=rst.getInt(1);
+        }
+        String idcnt=Integer.toString(count);
+
+        return idcnt;
+    }
 }
