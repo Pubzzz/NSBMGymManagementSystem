@@ -17,10 +17,6 @@ public class TrackerBOImpl implements TrackerBO {
         return dao.add(new Tracker(ref.getId(), ref.getMid(), ref.getDate(), ref.getHgt(),ref.getWgt(),ref.getAge(),ref.getBMI(),ref.getCal()));
     }
 
-    @Override
-    public boolean updateTracker(TrackerDTO ref) throws SQLException, ClassNotFoundException {
-        return dao.update(new Tracker(ref.getId(), ref.getMid(), ref.getDate(), ref.getHgt(),ref.getWgt(),ref.getAge(),ref.getBMI(),ref.getCal()));
-    }
 
     @Override
     public boolean deleteTracker(String id) throws SQLException, ClassNotFoundException {

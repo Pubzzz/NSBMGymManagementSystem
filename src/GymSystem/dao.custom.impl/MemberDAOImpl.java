@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class MemberDAOImpl implements MemberDAO{
 
 
+
     @Override
     public boolean add(Member ref) throws ClassNotFoundException, SQLException {
 
@@ -70,5 +71,26 @@ public class MemberDAOImpl implements MemberDAO{
             ));
         }
         return company;
+    }
+    public static String getidcountstaff() throws Exception {
+        int count=0;
+        ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from MEMBER where Mpos='Staff'");
+        while (rst.next()){
+            count=rst.getInt(1);
+        }
+        String idcnt=Integer.toString(count);
+
+        return idcnt;
+    }
+
+    public static String getidcountStudent() throws Exception {
+        int count=0;
+        ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from MEMBER where Mpos='Student' ");
+        while (rst.next()){
+            count=rst.getInt(1);
+        }
+        String idcntM=Integer.toString(count);
+
+        return idcntM;
     }
 }

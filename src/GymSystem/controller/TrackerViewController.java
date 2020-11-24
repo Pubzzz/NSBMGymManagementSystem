@@ -2,9 +2,11 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.TrackerBO;
-import GymSystem.dao.CrudUtil;
+import GymSystem.dao.custom.impl.MemberDAOImpl;
+import GymSystem.dao.custom.impl.TrackerDAOImpl;
 import GymSystem.dto.MemberDTO;
 import GymSystem.dto.TrackerDTO;
+import GymSystem.entity.Tracker;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
@@ -21,7 +23,6 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.Serializable;
 import java.net.URL;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -86,9 +87,6 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         return bo.addTracker(ref);
     }
 
-    public static boolean updateTracker(TrackerDTO ref) throws SQLException, ClassNotFoundException {
-        return bo.updateTracker(ref);
-    }
 
     public static boolean deleteTracker(String id) throws SQLException, ClassNotFoundException {
         return bo.deleteTracker(id);
@@ -111,7 +109,7 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         BMI=(wgt*wgt)/(hgt/100);
         txt_BMI.setText(String.valueOf(BMI));
 
-        if(getGender() =="Female") {
+        if(getGender(mid) =="Female") {
             BMR = (447.593) + (9.247 * wgt) + (3.098 * hgt) - (4.330 * age);
         }
         else{
@@ -144,31 +142,8 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         }
     }
 
-    public void onaction_update(ActionEvent actionEvent) throws Exception {
-        String id = txt_TrackerID.getText();
-        String mid=txt_MemberID.getText();
-        String date=txt_TrackerDate.getText();
-        Double hgt=Double.valueOf (txt_Height.getText());
-        Double wgt=Double.valueOf(txt_Weight.getText());
-        Integer age = Integer.valueOf(txt_age.getText());
-        Double BMI=Double.valueOf(txt_BMI.getText());
-        Double Cal= Double.valueOf(txt_Calories.getText());
-
-        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,age,BMI,Cal);
-        boolean update = TrackerViewController.updateTracker(cusModel);
-        if(update){
-            Alert a = new Alert(Alert.AlertType.INFORMATION, "UPDATED SUCCESSFULLY", ButtonType.OK);
-            a.showAndWait();
-            setAllClear();
-            getAllTracker();
-        }else{
-            Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
-            a.showAndWait();
-        }
-    }
-
     public void onaction_remove(ActionEvent actionEvent) throws Exception {
-        String id = txt_TrackerDate.getText();
+        String id = txt_TrackerID.getText();
 
         boolean remove = deleteTracker(id);
         if(remove){
@@ -200,7 +175,7 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
     }
 
     public void onaction_search(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        TrackerDTO searchTracker = bo.searchTracker(txt_MemberID.getText());
+        TrackerDTO searchTracker = bo.searchTracker(txt_TrackerID.getText());
         txt_TrackerID.setText(searchTracker.getId());
         txt_MemberID.setText(searchTracker.getMid());
         txt_TrackerDate.setText(searchTracker.getDate());
@@ -243,6 +218,16 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         txt_Calories.clear();
         txt_TrackerSearch.clear();
     }
+    private String getGender(String mid)
+    {
+        String ans = null;
+        try {
+            ans=TrackerDAOImpl.getGender(mid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -253,10 +238,5 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
             e.printStackTrace();
         }
     }
-    public String getGender() throws ClassNotFoundException, SQLException {
-        ResultSet rst = CrudUtil.executeQuery("Select Msex from MEMBER where MID=?", txt_MemberID.getText());
-        rst.next();
-        String gender = rst.getString(1);
-        return gender;
-    }
+
 }

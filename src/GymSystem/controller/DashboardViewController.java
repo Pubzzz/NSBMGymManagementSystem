@@ -57,7 +57,7 @@ public class DashboardViewController implements Initializable {
     private void getstaffcount()
     {
         try {
-            lbl_MemStaff.setText(InstructorDAOImpl.getidcountstaff());
+            lbl_MemStaff.setText(MemberDAOImpl.getidcountstaff());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -66,7 +66,7 @@ public class DashboardViewController implements Initializable {
     private void getMemcount()
     {
         try {
-            lbl_MemStudent.setText(MemberDAOImpl.getidcountMem());
+            lbl_MemStudent.setText(MemberDAOImpl.getidcountStudent());
         } catch (Exception e) {
             e.printStackTrace();
         }

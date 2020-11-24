@@ -29,14 +29,14 @@ public class LoginViewController {
         String password=txt_Password.getText();
 
 
-
+        Parent parent= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/DashboardMainView.fxml"));
+        Scene scene=new Scene(parent);
+        Stage stage = (Stage) this.btn_Login.getScene().getWindow();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
         if(text.equalsIgnoreCase("") && password.equalsIgnoreCase("")){
-            Parent parent= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/DashboardMainView.fxml"));
-            Scene scene=new Scene(parent);
-            Stage stage = (Stage) this.btn_Login.getScene().getWindow();
-            stage.setScene(scene);
-            stage.centerOnScreen();
-            stage.show();
+
 
         }else
         {

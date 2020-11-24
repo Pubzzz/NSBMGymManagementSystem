@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TrackerDAOImpl implements TrackerDAO {
+
+
     @Override
     public boolean add(Tracker ref) throws ClassNotFoundException, SQLException {
         return CrudUtil.executeUpdate("Insert into TRACKER values(?,?,?,?,?,?,?,?)", ref.getId(), ref.getMid(), ref.getDate(), ref.getHgt(),ref.getWgt(),ref.getAge(),ref.getBMI(),ref.getCal());
@@ -16,7 +18,7 @@ public class TrackerDAOImpl implements TrackerDAO {
 
     @Override
     public boolean update(Tracker ref) throws ClassNotFoundException, SQLException {
-        return CrudUtil.executeUpdate("update TRACKER set TID=?,TDate=?,Height=?, Weight=?,age=?,BMI=?, Cal=? where MID=?",  ref.getId(), ref.getDate(), ref.getHgt(), ref.getWgt(),ref.getAge(), ref.getBMI(), ref.getCal(),ref.getMid());
+        return CrudUtil.executeUpdate("update TRACKER set TDate=?,Height=?, Weight=?,age=?,BMI=?, Cal=? where MID=? AND TID=?",  ref.getDate(), ref.getHgt(), ref.getWgt(),ref.getAge(), ref.getBMI(), ref.getCal(),ref.getMid(), ref.getId());
     }
 
 
@@ -67,4 +69,14 @@ public class TrackerDAOImpl implements TrackerDAO {
         }
         return company;
     }
+
+    public static String getGender(String id) throws Exception {
+        String gender = null;
+        ResultSet rst = CrudUtil.executeQuery("Select Msex from MEMBER where MID=?",id);
+        while (rst.next()) {
+            gender = rst.getString(1);
+        }
+        return gender;
+    }
+
 }
