@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.scene.control.Label;
 
 import java.awt.*;
 import java.io.IOException;
@@ -47,6 +48,12 @@ public class DashboardMainViewController implements  Initializable {
 
     @FXML
     private JFXButton btn_Viewinstructor;
+    
+    @FXML
+    private Label lbl_MemStaff;
+
+    @FXML
+    private Label lbl_MemStudent;
 
 
 
@@ -69,6 +76,8 @@ public class DashboardMainViewController implements  Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        getMemcount();
+        getstaffcount();
 
     }
 
@@ -122,5 +131,23 @@ public class DashboardMainViewController implements  Initializable {
         AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/InstructorView.fxml"));
         main_panel.getChildren().clear();
         main_panel.getChildren().add(anchorPane1);
+    }
+    
+    private void getstaffcount()
+    {
+        try {
+            lbl_MemStaff.setText(InstructorDAOImpl.getidcountstaff());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getMemcount()
+    {
+        try {
+            lbl_MemStudent.setText(MemberDAOImpl.getidcountMem());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
