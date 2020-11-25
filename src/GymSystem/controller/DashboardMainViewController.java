@@ -12,11 +12,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
+import javafx.stage.StageStyle;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static com.sun.deploy.uitoolkit.ToolkitStore.dispose;
 
 public class DashboardMainViewController implements  Initializable {
 
@@ -107,11 +111,13 @@ public class DashboardMainViewController implements  Initializable {
         main_panel.getChildren().add(anchorPane1);
     }
 
-    public void onaction_Signout(ActionEvent actionEvent) throws IOException {
+    public void onaction_Signout(ActionEvent actionEvent) throws Exception {
+
         Parent parent=FXMLLoader.load(this.getClass().getResource("/GymSystem/view/LoginView.fxml"));
         Scene scene=new Scene(parent);
         Stage stage=new Stage();
         stage.setScene(scene);
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
     }
 
