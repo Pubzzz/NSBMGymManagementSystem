@@ -173,6 +173,14 @@ public class InstructorViewController implements Initializable {
         txt_InstructorId.setText(searchInstructor.getId());
         txt_InstructorName.setText(searchInstructor.getName());
         txt_InstructorNIC.setText(searchInstructor.getNic());
+        if(searchInstructor.getGender().contentEquals("Female")){
+            radio_Female.setSelected(true);
+            radio_Male.setSelected(false);
+        }
+        else{
+            radio_Female.setSelected(false);
+            radio_Male.setSelected(true);
+        }
         txt_InstructorEmail.setText(searchInstructor.getEmail());
         txt_InstructorTelNo.setText(searchInstructor.getTp());
     }
@@ -184,6 +192,14 @@ public class InstructorViewController implements Initializable {
         txt_InstructorId.setText(selectedItem.getId());
         txt_InstructorName.setText(selectedItem.getName());
         txt_InstructorNIC.setText(selectedItem.getNic());
+        if(selectedItem.getGender().contentEquals("Female")){
+            radio_Female.setSelected(true);
+            radio_Male.setSelected(false);
+        }
+        else{
+            radio_Female.setSelected(false);
+            radio_Male.setSelected(true);
+        }
         txt_InstructorEmail.setText(selectedItem.getEmail());
         txt_InstructorTelNo.setText(selectedItem.getTp());
     }

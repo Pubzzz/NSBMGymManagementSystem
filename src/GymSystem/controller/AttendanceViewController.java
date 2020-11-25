@@ -2,6 +2,8 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.AttendanceBO;
+import GymSystem.dao.custom.impl.MemberDAOImpl;
+import GymSystem.dao.custom.impl.TrackerDAOImpl;
 import GymSystem.dto.AttendanceDTO;
 import GymSystem.entity.Attendance;
 import com.jfoenix.controls.JFXButton;
@@ -85,6 +87,7 @@ public class AttendanceViewController implements Initializable {
 
     public void onaction_add(ActionEvent actionEvent) throws Exception {
 
+
         String id = txt_AttendanceId.getText();
         String mid = txt_MemId.getText();
         String name = txt_MemName.getText();
@@ -100,16 +103,20 @@ public class AttendanceViewController implements Initializable {
 
         AttendanceDTO cusModel = new AttendanceDTO(id, mid, name, date, time, payment);
         boolean addAttendance = AttendanceViewController.addAttendance(cusModel);
+        if(getID(mid).contentEquals("1")){
+            if (addAttendance) {
 
-        if (addAttendance) {
-            Alert a = new Alert(Alert.AlertType.INFORMATION, "ADDED SUCCESSFULLY ", ButtonType.OK);
-            a.showAndWait();
-            setAllClear();
-            getAllAttendance();
-
-
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "ADDED SUCCESSFULLY ", ButtonType.OK);
+                a.showAndWait();
+                setAllClear();
+                getAllAttendance();
+            }
+            else{
+                Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
+                a.showAndWait();
+            }
         } else {
-            Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
+            Alert a = new Alert(Alert.AlertType.WARNING, "The member doesn't exist ", ButtonType.OK);
             a.showAndWait();
         }
     }
@@ -171,6 +178,12 @@ public class AttendanceViewController implements Initializable {
         txt_MemName.setText(selectedItem.getName());
         txt_AttendanceDate.setText(selectedItem.getDate());
         txt_AttendanceTime.setText(selectedItem.getTime());
+        if(selectedItem.getPayment().contentEquals("Done")){
+            radio_Payment.setSelected(true);
+        }
+        else{
+            radio_Payment.setSelected(false);
+        }
     }
 
     public void onaction_search(ActionEvent actionEvent) throws SQLException, ClassNotFoundException{
@@ -181,7 +194,12 @@ public class AttendanceViewController implements Initializable {
         txt_MemName.setText(searchAttendance.getName());
         txt_AttendanceDate.setText(searchAttendance.getDate());
         txt_AttendanceTime.setText(searchAttendance.getTime());
-
+        if(searchAttendance.getPayment().contentEquals("Done")){
+            radio_Payment.setSelected(true);
+        }
+        else{
+            radio_Payment.setSelected(false);
+        }
     }
     private void setAllClear() {
         txt_MemId.clear();
@@ -225,5 +243,15 @@ public class AttendanceViewController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    private String getID(String mid)
+    {
+        String ans = null;
+        try {
+            ans= MemberDAOImpl.getIndex(mid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
     }
 }

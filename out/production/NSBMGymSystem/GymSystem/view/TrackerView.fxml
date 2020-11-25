@@ -70,7 +70,7 @@
          </font>
       </JFXRadioButton>
       <JFXButton id="button" fx:id="btn_Calculate" layoutX="675.0" layoutY="312.0" onAction="#onaction_calculate" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="CALCULATE" />
-      <JFXButton id="button" fx:id="btn_Update" layoutX="675.0" layoutY="358.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="UPDATE" />
+      
       <JFXButton id="button" fx:id="btn_Remove" layoutX="905.0" layoutY="312.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="REMOVE" />
       <JFXButton id="button" fx:id="btn_Clear" layoutX="905.0" layoutY="358.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/Tracker.css" text="CLEAR" />
       <Pane layoutX="655.0" layoutY="90.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #d1dbe0;">

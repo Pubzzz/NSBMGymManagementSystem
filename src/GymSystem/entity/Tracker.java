@@ -10,6 +10,7 @@ public class Tracker {
     private Double Cal;
     private int age;
 
+
     public Tracker(String string, String rstString, String s, double aDouble, double rstDouble, double v, double aDouble1) {
     }
 
@@ -22,6 +23,7 @@ public class Tracker {
         this.age=age;
         this.BMI = BMI;
         this.Cal=Cal;
+
     }
     public String getId() {
         return id;
@@ -80,4 +82,5 @@ public class Tracker {
     }
 
     public void setCal(double Cal) { this.Cal = Cal; }
+
 }

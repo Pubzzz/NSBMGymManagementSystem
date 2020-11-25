@@ -10,10 +10,11 @@ public class TrackerDTO {
     private Double Cal;
     private int age;
 
+
     public TrackerDTO() {
     }
 
-    public TrackerDTO(String id, String mid, String date, Double hgt, Double wgt,Integer age,Double BMI,Double Cal) {
+    public TrackerDTO(String id, String mid, String date, Double hgt, Double wgt,Integer age,Double BMI,Double Cal ) {
         this.id = id;
         this.mid = mid;
         this.date = date;
@@ -22,6 +23,7 @@ public class TrackerDTO {
         this.age=age;
         this.BMI = BMI;
         this.Cal=Cal;
+
     }
     public String getId() {
         return id;
@@ -80,5 +82,7 @@ public class TrackerDTO {
     }
 
     public void setCal(double Cal) { this.Cal = Cal; }
+
+
 
 }

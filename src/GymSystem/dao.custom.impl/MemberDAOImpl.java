@@ -93,4 +93,14 @@ public class MemberDAOImpl implements MemberDAO{
 
         return idcntM;
     }
+    public static String getIndex(String id) throws Exception {
+        int count=0;
+        ResultSet rst = CrudUtil.executeQuery("Select MID from MEMBER where MID=?",id);
+        while (rst.next()){
+            count=rst.getInt(1);
+        }
+        String idcntM=Integer.toString(count);
+
+        return idcntM;
+    }
 }

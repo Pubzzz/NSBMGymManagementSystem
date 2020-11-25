@@ -40,6 +40,7 @@ public class TrackerDAOImpl implements TrackerDAO {
                     rst.getInt(6),
                     rst.getDouble(7),
                     rst.getDouble(8)
+
             );
         }
         return null;
@@ -64,7 +65,6 @@ public class TrackerDAOImpl implements TrackerDAO {
                     rst.getInt(6),
                     rst.getDouble(7),
                     rst.getDouble(8)
-
             ));
         }
         return company;

@@ -106,10 +106,11 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         Double BMI;
         Double Cal;
 
+
         BMI=(wgt*wgt)/(hgt/100);
         txt_BMI.setText(String.valueOf(BMI));
 
-        if(getGender(mid) =="Female") {
+        if(getGender(mid).contentEquals("Female")) {
             BMR = (447.593) + (9.247 * wgt) + (3.098 * hgt) - (4.330 * age);
         }
         else{
@@ -117,12 +118,15 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         }
 
         if(radio_Type1.isSelected()){
+
             Cal = (BMR) * 1.2;
         }
         else if(radio_Type2.isSelected()){
+
             Cal=(BMR) * 1.375;
         }
         else{
+
             Cal=(BMR) *1.55;
         }
         txt_Calories.setText(String.valueOf(Cal));
@@ -172,10 +176,13 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         txt_age.setText(String.valueOf(selectedItem.getAge()));
         txt_BMI.setText(String.valueOf(selectedItem.getBMI()));
         txt_Calories.setText(String.valueOf(selectedItem.getCal()));
+        radio_Type2.setSelected(false);
+        radio_Type1.setSelected(false);
+        radio_Type3.setSelected(false);
     }
 
     public void onaction_search(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        TrackerDTO searchTracker = bo.searchTracker(txt_TrackerID.getText());
+        TrackerDTO searchTracker = bo.searchTracker(txt_TrackerSearch.getText());
         txt_TrackerID.setText(searchTracker.getId());
         txt_MemberID.setText(searchTracker.getMid());
         txt_TrackerDate.setText(searchTracker.getDate());
@@ -184,6 +191,10 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         txt_age.setText(String.valueOf(searchTracker.getAge()));
         txt_BMI.setText(String.valueOf(searchTracker.getBMI()));
         txt_Calories.setText(String.valueOf(searchTracker.getCal()));
+        radio_Type2.setSelected(false);
+        radio_Type1.setSelected(false);
+        radio_Type3.setSelected(false);
+
     }
     private void setDate() {
         txt_TrackerDate.setText(LocalDate.now().toString());

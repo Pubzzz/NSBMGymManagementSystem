@@ -1,6 +1,7 @@
 package GymSystem.controller;
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.MemberBO;
+import GymSystem.dao.custom.impl.TrackerDAOImpl;
 import GymSystem.dto.InstructorDTO;
 import GymSystem.dto.MemberDTO;
 import com.jfoenix.controls.JFXButton;
@@ -106,6 +107,22 @@ public class MemberViewController implements Initializable {
         txt_MemName.setText(searchCustomer.getName());
         txt_MemEmail.setText(searchCustomer.getEmail());
         txt_MemTelNo.setText(searchCustomer.getTel());
+        if(searchCustomer.getSex().contentEquals("Female")){
+            radio_male.setSelected(false);
+            radio_female.setSelected(true);
+        }
+        else{
+            radio_male.setSelected(true);
+            radio_female.setSelected(false);
+        }
+        if(searchCustomer.getPos().contentEquals("Student")){
+            radio_student.setSelected(true);
+            radio_staff.setSelected(false);
+        }
+        else{
+            radio_staff.setSelected(true);
+            radio_student.setSelected(false);
+        }
         txt_Batch.setText(searchCustomer.getBatch());
         txt_Degree.setText(searchCustomer.getDeg());
     }
@@ -207,7 +224,22 @@ public class MemberViewController implements Initializable {
         txt_MemName.setText(selectedItem.getName());
         txt_MemEmail.setText(selectedItem.getEmail());
         txt_MemTelNo.setText(selectedItem.getTel());
-        // how to update on sex and position
+        if(selectedItem.getSex().contentEquals("Female")){
+            radio_male.setSelected(false);
+            radio_female.setSelected(true);
+        }
+        else{
+            radio_male.setSelected(true);
+            radio_female.setSelected(false);
+        }
+        if(selectedItem.getPos().contentEquals("Student")){
+            radio_student.setSelected(true);
+            radio_staff.setSelected(false);
+        }
+        else{
+            radio_staff.setSelected(true);
+            radio_student.setSelected(false);
+        }
         txt_Batch.setText(selectedItem.getBatch());
         txt_Degree.setText(selectedItem.getDeg());
     }
@@ -245,5 +277,6 @@ public class MemberViewController implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+
 }
 
