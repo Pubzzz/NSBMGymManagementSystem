@@ -32,8 +32,8 @@ public class AttendanceBOImpl implements AttendanceBO {
     }
 
     @Override
-    public AttendanceDTO searchAttendance(String name) throws SQLException, ClassNotFoundException {
-        Attendance search = dao.search2(name);
+    public AttendanceDTO searchAttendance(String id) throws SQLException, ClassNotFoundException {
+        Attendance search = dao.search1(id);
         return new AttendanceDTO(search.getId(), search.getMid(), search.getName(), search.getDate(), search.getTime(), search.getPayment());
     }
 
