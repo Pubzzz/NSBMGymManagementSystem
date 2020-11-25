@@ -107,8 +107,9 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         Double Cal;
 
 
-        BMI=(wgt*wgt)/(hgt/100);
-        txt_BMI.setText(String.valueOf(BMI));
+        BMI=(wgt)/((hgt/100)*(hgt/100));
+        txt_BMI.setText(String.valueOf(BMI).format("%.3f",BMI));
+
 
         if(getGender(mid).contentEquals("Female")) {
             BMR = (447.593) + (9.247 * wgt) + (3.098 * hgt) - (4.330 * age);
@@ -129,7 +130,7 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
 
             Cal=(BMR) *1.55;
         }
-        txt_Calories.setText(String.valueOf(Cal));
+        txt_Calories.setText(String.valueOf(Cal).format("%.3f",Cal));
 
         TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,age,BMI,Cal);
         boolean addTracker= TrackerViewController.addTracker(cusModel);

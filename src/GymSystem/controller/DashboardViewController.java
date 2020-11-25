@@ -37,21 +37,15 @@ public class DashboardViewController implements Initializable {
 
 
     public void onaction_ViewMember(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/MemberView.fxml"));
-        main_panel.getChildren().clear();
-        main_panel.getChildren().add(anchorPane1);
+
     }
 
     public void onaction_Viewattendance(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/AttendanceView.fxml"));
-        main_panel.getChildren().clear();
-        main_panel.getChildren().add(anchorPane1);
+
     }
 
     public void onaction_Viewinstructor(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/InstructorView.fxml"));
-        main_panel.getChildren().clear();
-        main_panel.getChildren().add(anchorPane1);
+
     }
 
 
