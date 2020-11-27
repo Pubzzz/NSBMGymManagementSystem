@@ -2,6 +2,9 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.InstructorBO;
+import GymSystem.dao.CrudUtil;
+import GymSystem.dao.custom.impl.InstructorDAOImpl;
+import GymSystem.dao.custom.impl.TrackerDAOImpl;
 import GymSystem.dto.InstructorDTO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -18,6 +21,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -88,31 +92,35 @@ public class InstructorViewController implements Initializable {
     public void onaction_register(ActionEvent actionEvent) throws Exception {
 
         String id=txt_InstructorId.getText();
-        String name=txt_InstructorName.getText();
-        String nic=txt_InstructorNIC.getText();
-        String gender;
-        if (radio_Male.isSelected()) {
-            gender = "Male";
-        } else {
-            gender = "Female";
-        }
-        String email=txt_InstructorEmail.getText();
-        String tp=txt_InstructorTelNo.getText();
+        if (!(ifMemberExists(id))) {
+            String name = txt_InstructorName.getText();
+            String nic = txt_InstructorNIC.getText();
+            String gender;
+            if (radio_Male.isSelected()) {
+                gender = "Male";
+            } else {
+                gender = "Female";
+            }
+            String email = txt_InstructorEmail.getText();
+            String tp = txt_InstructorTelNo.getText();
 
 
-        InstructorDTO cusModel = new InstructorDTO(id, name, nic, gender, email,tp);
-        boolean addCustomer = InstructorViewController.addInstructor(cusModel);
+            InstructorDTO cusModel = new InstructorDTO(id, name, nic, gender, email, tp);
+            boolean addCustomer = InstructorViewController.addInstructor(cusModel);
 
-        if(addCustomer){
-            Alert a = new Alert(Alert.AlertType.INFORMATION, "ADDED SUCCESSFULLY ", ButtonType.OK);
-            a.showAndWait();
-            setAllClear();
-            getAllInstructors();
+            if (addCustomer) {
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "ADDED SUCCESSFULLY", ButtonType.OK);
+                a.showAndWait();
+                setAllClear();
+                getAllInstructors();
 
 
-
+            } else {
+                Alert a = new Alert(Alert.AlertType.WARNING, "FAILED", ButtonType.OK);
+                a.showAndWait();
+            }
         }else{
-            Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
+            Alert a = new Alert(Alert.AlertType.WARNING, "INSTRUCTOR ALREADY EXISTS", ButtonType.OK);
             a.showAndWait();
         }
 
@@ -243,6 +251,14 @@ public class InstructorViewController implements Initializable {
             getAllInstructors();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    private boolean ifMemberExists(String mid) {
+        try {
+            return InstructorDAOImpl.checkIfMemberExist(mid);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }

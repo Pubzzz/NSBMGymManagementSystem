@@ -2,6 +2,7 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.AttendanceBO;
+import GymSystem.dao.custom.impl.AttendanceDAOImpl;
 import GymSystem.dao.custom.impl.MemberDAOImpl;
 import GymSystem.dao.custom.impl.TrackerDAOImpl;
 import GymSystem.dto.AttendanceDTO;
@@ -89,6 +90,7 @@ public class AttendanceViewController implements Initializable {
 
 
         String id = txt_AttendanceId.getText();
+        if (ifMemberExists(id)) {
         String mid = txt_MemId.getText();
         String name = txt_MemName.getText();
         String date = txt_AttendanceDate.getText();
@@ -114,6 +116,11 @@ public class AttendanceViewController implements Initializable {
                 Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
                 a.showAndWait();
             }
+        }else{
+            Alert a = new Alert(Alert.AlertType.WARNING, "MEMBER DOES NOT EXIST ", ButtonType.OK);
+            a.showAndWait();
+        }
+
     }
 
     public void onaction_update(ActionEvent actionEvent) throws Exception{
@@ -227,6 +234,14 @@ public class AttendanceViewController implements Initializable {
 
     private void setTime() {
         txt_AttendanceTime.setText(LocalTime.now().toString());
+    }
+    private boolean ifMemberExists(String mid) {
+        try {
+            return AttendanceDAOImpl.checkIfMemberExist(mid);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override

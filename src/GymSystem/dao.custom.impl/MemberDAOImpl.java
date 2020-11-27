@@ -93,14 +93,16 @@ public class MemberDAOImpl implements MemberDAO {
         return idcntM;
     }
 
-    public static boolean getIndex(String id) throws Exception {
-        int count = 0;
-        ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from MEMBER where MID =?",id);
-        while (rst.next()) {
-            count = rst.getInt(1);
-        }
-        boolean idcntM = Boolean.parseBoolean(Integer.toBinaryString(count));
+    public static boolean checkIfMemberExist(String id) throws Exception {
+        boolean recordExist = false;
+        ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from MEMBER where MID=?",id);
 
-        return idcntM;
+        while(rst.next()) {
+            if(rst.getInt(1) == 1) {
+                recordExist = true;
+                break;
+            }
+        }
+        return recordExist;
     }
 }

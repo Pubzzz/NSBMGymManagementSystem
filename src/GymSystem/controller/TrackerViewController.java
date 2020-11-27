@@ -119,13 +119,13 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
 
             if (radio_Type1.isSelected()) {
 
-                Cal = (BMR) * 1.2;
+                Cal = Math.round((BMR) * 1.2* 100.00) / 100.00;
             } else if (radio_Type2.isSelected()) {
 
-                Cal = (BMR) * 1.375;
+                Cal = Math.round((BMR) * 1.375* 100.00) / 100.00;
             } else {
 
-                Cal = (BMR) * 1.55;
+                Cal = Math.round((BMR) * 1.55* 100.00) / 100.00;
             }
             txt_Calories.setText(String.valueOf(Cal).format("%.3f", Cal));
 
@@ -137,6 +137,7 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
                 a.showAndWait();
                 setAllClear();
                 getAllTracker();
+                setAllClear();
 
             } else {
                 Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
@@ -230,6 +231,9 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         txt_BMI.clear();
         txt_Calories.clear();
         txt_TrackerSearch.clear();
+        radio_Type2.setSelected(false);
+        radio_Type1.setSelected(false);
+        radio_Type3.setSelected(false);
     }
     private String getGender(String mid)
     {

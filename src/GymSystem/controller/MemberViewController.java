@@ -129,6 +129,7 @@ public class MemberViewController implements Initializable {
     public void onaction_register(ActionEvent actionEvent) throws Exception {
 
         String id = txt_MemId.getText();
+        if (!(ifMemberExists(id))) {
         String name = txt_MemName.getText();
         String email = txt_MemEmail.getText();
         String tel = txt_MemTelNo.getText();
@@ -149,7 +150,7 @@ public class MemberViewController implements Initializable {
 
         MemberDTO cusModel = new MemberDTO(id, name, email, tel, sex, position, batch, degree);
         boolean addCustomer = MemberViewController.addCustomer(cusModel);
-        if (getID(txt_MemId.getText()) == false) {
+
             if (addCustomer) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "ADDED SUCCESSFULLY ", ButtonType.OK);
                 a.showAndWait();
@@ -159,15 +160,19 @@ public class MemberViewController implements Initializable {
                 Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
                 a.showAndWait();
             }
-        } else {
-            Alert a = new Alert(Alert.AlertType.WARNING, "THIS MEMBER ALREADY EXISTS ", ButtonType.OK);
-            a.showAndWait();
+        }
+            else{
+                Alert a = new Alert(Alert.AlertType.WARNING, "MEMBER ALREADY EXISTS ", ButtonType.OK);
+                a.showAndWait();
+            }
         }
 
-    }
+
 
     public void onaction_update(ActionEvent actionEvent) throws Exception {
+
         String id = txt_MemId.getText();
+
         String name = txt_MemName.getText();
         String email = txt_MemEmail.getText();
         String tel = txt_MemTelNo.getText();
@@ -188,17 +193,15 @@ public class MemberViewController implements Initializable {
 
         MemberDTO cusModel = new MemberDTO(id, name, email, tel, sex, position, batch, degree);
         boolean updateCustomer = MemberViewController.updateCustomer(cusModel);
-
-
-        if (updateCustomer) {
-            Alert a = new Alert(Alert.AlertType.INFORMATION, "UPDATED SUCCESSFULLY", ButtonType.OK);
-            a.showAndWait();
-            setAllClear();
-            getAllCustomers();
-        } else {
-            Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
-            a.showAndWait();
-        }
+            if (updateCustomer) {
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "UPDATED SUCCESSFULLY", ButtonType.OK);
+                a.showAndWait();
+                setAllClear();
+                getAllCustomers();
+            } else {
+                Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
+                a.showAndWait();
+            }
     }
 
     public void onaction_remove(ActionEvent actionEvent) throws Exception {
@@ -279,14 +282,14 @@ public class MemberViewController implements Initializable {
         }
     }
 
-    private boolean getID(String mid) {
-        boolean ans = false;
+    private boolean ifMemberExists(String mid) {
         try {
-            ans = MemberDAOImpl.getIndex(mid);
+            return TrackerDAOImpl.checkIfMemberExist(mid);
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
-        return ans;
     }
+
 }
 
