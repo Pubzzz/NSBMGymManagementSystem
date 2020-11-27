@@ -2,15 +2,13 @@ package GymSystem.dao.custom.impl;
 
 import GymSystem.dao.CrudUtil;
 import GymSystem.dao.custom.MemberDAO;
-import GymSystem.entity.Instructor;
 import GymSystem.entity.Member;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class MemberDAOImpl implements MemberDAO{
-
+public class MemberDAOImpl implements MemberDAO {
 
 
     @Override
@@ -21,7 +19,7 @@ public class MemberDAOImpl implements MemberDAO{
 
     @Override
     public boolean update(Member ref) throws ClassNotFoundException, SQLException {
-        return CrudUtil.executeUpdate("update MEMBER set Mname=?,Memail=?,Mtel=?,Msex=?,Mpos=?,Mbatch=?,Mdegree=? where MID=?",  ref.getName(), ref.getEmail(), ref.getTel(), ref.getSex(), ref.getPos(), ref.getBatch(), ref.getDeg(), ref.getId());
+        return CrudUtil.executeUpdate("update MEMBER set Mname=?,Memail=?,Mtel=?,Msex=?,Mpos=?,Mbatch=?,Mdegree=? where MID=?", ref.getName(), ref.getEmail(), ref.getTel(), ref.getSex(), ref.getPos(), ref.getBatch(), ref.getDeg(), ref.getId());
     }
 
     @Override
@@ -32,7 +30,7 @@ public class MemberDAOImpl implements MemberDAO{
     @Override
     public Member search1(String id) throws ClassNotFoundException, SQLException {
         ResultSet rst = CrudUtil.executeQuery("select * from MEMBER where MID=?", id);
-        if (rst.next()){
+        if (rst.next()) {
             return new Member(
                     rst.getString(1),
                     rst.getString(2),
@@ -57,7 +55,7 @@ public class MemberDAOImpl implements MemberDAO{
     public ArrayList<Member> getAll() throws ClassNotFoundException, SQLException, Exception {
         ArrayList<Member> company = new ArrayList<>();
         ResultSet rst = CrudUtil.executeQuery("Select * from Member");
-        while (rst.next()){
+        while (rst.next()) {
             company.add(new Member(
                     rst.getString(1),
                     rst.getString(2),
@@ -72,34 +70,36 @@ public class MemberDAOImpl implements MemberDAO{
         }
         return company;
     }
+
     public static String getidcountstaff() throws Exception {
-        int count=0;
+        int count = 0;
         ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from MEMBER where Mpos='Staff'");
-        while (rst.next()){
-            count=rst.getInt(1);
+        while (rst.next()) {
+            count = rst.getInt(1);
         }
-        String idcnt=Integer.toString(count);
+        String idcnt = Integer.toString(count);
 
         return idcnt;
     }
 
     public static String getidcountStudent() throws Exception {
-        int count=0;
+        int count = 0;
         ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from MEMBER where Mpos='Student' ");
-        while (rst.next()){
-            count=rst.getInt(1);
+        while (rst.next()) {
+            count = rst.getInt(1);
         }
-        String idcntM=Integer.toString(count);
+        String idcntM = Integer.toString(count);
 
         return idcntM;
     }
-    public static String getIndex(String id) throws Exception {
-        int count=0;
-        ResultSet rst = CrudUtil.executeQuery("Select MID from MEMBER where MID=?",id);
-        while (rst.next()){
-            count=rst.getInt(1);
+
+    public static boolean getIndex(String id) throws Exception {
+        int count = 0;
+        ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from MEMBER where MID =?",id);
+        while (rst.next()) {
+            count = rst.getInt(1);
         }
-        String idcntM=Integer.toString(count);
+        boolean idcntM = Boolean.parseBoolean(Integer.toBinaryString(count));
 
         return idcntM;
     }

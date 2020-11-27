@@ -1,8 +1,9 @@
 package GymSystem.controller;
+
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.MemberBO;
+import GymSystem.dao.custom.impl.MemberDAOImpl;
 import GymSystem.dao.custom.impl.TrackerDAOImpl;
-import GymSystem.dto.InstructorDTO;
 import GymSystem.dto.MemberDTO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -107,19 +108,17 @@ public class MemberViewController implements Initializable {
         txt_MemName.setText(searchCustomer.getName());
         txt_MemEmail.setText(searchCustomer.getEmail());
         txt_MemTelNo.setText(searchCustomer.getTel());
-        if(searchCustomer.getSex().contentEquals("Female")){
+        if (searchCustomer.getSex().contentEquals("Female")) {
             radio_male.setSelected(false);
             radio_female.setSelected(true);
-        }
-        else{
+        } else {
             radio_male.setSelected(true);
             radio_female.setSelected(false);
         }
-        if(searchCustomer.getPos().contentEquals("Student")){
+        if (searchCustomer.getPos().contentEquals("Student")) {
             radio_student.setSelected(true);
             radio_staff.setSelected(false);
-        }
-        else{
+        } else {
             radio_staff.setSelected(true);
             radio_student.setSelected(false);
         }
@@ -128,6 +127,7 @@ public class MemberViewController implements Initializable {
     }
 
     public void onaction_register(ActionEvent actionEvent) throws Exception {
+
         String id = txt_MemId.getText();
         String name = txt_MemName.getText();
         String email = txt_MemEmail.getText();
@@ -149,18 +149,21 @@ public class MemberViewController implements Initializable {
 
         MemberDTO cusModel = new MemberDTO(id, name, email, tel, sex, position, batch, degree);
         boolean addCustomer = MemberViewController.addCustomer(cusModel);
-
-        if (addCustomer) {
-            Alert a = new Alert(Alert.AlertType.INFORMATION, "ADDED SUCCESSFULLY ", ButtonType.OK);
-            a.showAndWait();
-            setAllClear();
-            getAllCustomers();
-
-
+        if (getID(txt_MemId.getText()) == false) {
+            if (addCustomer) {
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "ADDED SUCCESSFULLY ", ButtonType.OK);
+                a.showAndWait();
+                setAllClear();
+                getAllCustomers();
+            } else {
+                Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
+                a.showAndWait();
+            }
         } else {
-            Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
+            Alert a = new Alert(Alert.AlertType.WARNING, "THIS MEMBER ALREADY EXISTS ", ButtonType.OK);
             a.showAndWait();
         }
+
     }
 
     public void onaction_update(ActionEvent actionEvent) throws Exception {
@@ -187,12 +190,12 @@ public class MemberViewController implements Initializable {
         boolean updateCustomer = MemberViewController.updateCustomer(cusModel);
 
 
-        if(updateCustomer){
+        if (updateCustomer) {
             Alert a = new Alert(Alert.AlertType.INFORMATION, "UPDATED SUCCESSFULLY", ButtonType.OK);
             a.showAndWait();
             setAllClear();
             getAllCustomers();
-        }else{
+        } else {
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
         }
@@ -202,12 +205,12 @@ public class MemberViewController implements Initializable {
         String id = txt_MemId.getText();
 
         boolean removeCustomer = removeCustomer(id);
-        if(removeCustomer){
+        if (removeCustomer) {
             Alert a = new Alert(Alert.AlertType.INFORMATION, "DELETED SUCCSESSFULLY ", ButtonType.OK);
             a.showAndWait();
             setAllClear();
             getAllCustomers();
-        }else{
+        } else {
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
         }
@@ -224,19 +227,17 @@ public class MemberViewController implements Initializable {
         txt_MemName.setText(selectedItem.getName());
         txt_MemEmail.setText(selectedItem.getEmail());
         txt_MemTelNo.setText(selectedItem.getTel());
-        if(selectedItem.getSex().contentEquals("Female")){
+        if (selectedItem.getSex().contentEquals("Female")) {
             radio_male.setSelected(false);
             radio_female.setSelected(true);
-        }
-        else{
+        } else {
             radio_male.setSelected(true);
             radio_female.setSelected(false);
         }
-        if(selectedItem.getPos().contentEquals("Student")){
+        if (selectedItem.getPos().contentEquals("Student")) {
             radio_student.setSelected(true);
             radio_staff.setSelected(false);
-        }
-        else{
+        } else {
             radio_staff.setSelected(true);
             radio_student.setSelected(false);
         }
@@ -278,5 +279,14 @@ public class MemberViewController implements Initializable {
         }
     }
 
+    private boolean getID(String mid) {
+        boolean ans = false;
+        try {
+            ans = MemberDAOImpl.getIndex(mid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
 }
 

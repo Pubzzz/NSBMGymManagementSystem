@@ -10,4 +10,5 @@ public interface CrudDAO<T,ID> extends  SuperDAO {
     public T search1(ID t)throws ClassNotFoundException,SQLException;
     public T search2(ID t)throws ClassNotFoundException,SQLException;
     public ArrayList<T> getAll()throws ClassNotFoundException,SQLException, Exception;
+
 }

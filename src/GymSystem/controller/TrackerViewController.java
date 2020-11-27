@@ -106,43 +106,44 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         Double BMI;
         Double Cal;
 
+        if (ifMemberExists(mid)) {
+            BMI = Math.round((wgt) / ((hgt / 100) * (hgt / 100)) * 100.00) / 100.00;
+            txt_BMI.setText(String.valueOf(BMI).format("%.3f", BMI));
 
-        BMI=(wgt)/((hgt/100)*(hgt/100));
-        txt_BMI.setText(String.valueOf(BMI).format("%.3f",BMI));
 
+            if (getGender(mid).contentEquals("Female")) {
+                BMR = (447.593) + (9.247 * wgt) + (3.098 * hgt) - (4.330 * age);
+            } else {
+                BMR = (88.362) + (13.397 * wgt) + (4.799 * hgt) - (5.677 * age);
+            }
 
-        if(getGender(mid).contentEquals("Female")) {
-            BMR = (447.593) + (9.247 * wgt) + (3.098 * hgt) - (4.330 * age);
-        }
-        else{
-            BMR=(88.362)+(13.397*wgt)+(4.799*hgt)-(5.677*age);
-        }
+            if (radio_Type1.isSelected()) {
 
-        if(radio_Type1.isSelected()){
+                Cal = (BMR) * 1.2;
+            } else if (radio_Type2.isSelected()) {
 
-            Cal = (BMR) * 1.2;
-        }
-        else if(radio_Type2.isSelected()){
+                Cal = (BMR) * 1.375;
+            } else {
 
-            Cal=(BMR) * 1.375;
-        }
-        else{
+                Cal = (BMR) * 1.55;
+            }
+            txt_Calories.setText(String.valueOf(Cal).format("%.3f", Cal));
 
-            Cal=(BMR) *1.55;
-        }
-        txt_Calories.setText(String.valueOf(Cal).format("%.3f",Cal));
+            TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt, age, BMI, Cal);
+            boolean addTracker = TrackerViewController.addTracker(cusModel);
 
-        TrackerDTO cusModel = new TrackerDTO(id, mid, date, hgt, wgt,age,BMI,Cal);
-        boolean addTracker= TrackerViewController.addTracker(cusModel);
+            if (addTracker) {
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "ADDED SUCCESSFULLY ", ButtonType.OK);
+                a.showAndWait();
+                setAllClear();
+                getAllTracker();
 
-        if(addTracker){
-            Alert a = new Alert(Alert.AlertType.INFORMATION, "ADDED SUCCESSFULLY ", ButtonType.OK);
-            a.showAndWait();
-            setAllClear();
-            getAllTracker();
-
-        }else{
-            Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
+            } else {
+                Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
+                a.showAndWait();
+            }
+        } else {
+            Alert a = new Alert(Alert.AlertType.WARNING, "MEMBER DOES NOT EXIST", ButtonType.OK);
             a.showAndWait();
         }
     }
@@ -239,6 +240,15 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
             e.printStackTrace();
         }
         return ans;
+    }
+
+    private boolean ifMemberExists(String mid) {
+        try {
+            return TrackerDAOImpl.checkIfMemberExist(mid);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override

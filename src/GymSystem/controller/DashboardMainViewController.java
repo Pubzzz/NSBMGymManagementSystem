@@ -20,9 +20,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
 import static com.sun.deploy.uitoolkit.ToolkitStore.dispose;
 
-public class DashboardMainViewController implements  Initializable {
+public class DashboardMainViewController  implements  Initializable {
+
+    @FXML
+    private Pane main_pain;
 
     @FXML
     private Pane main_panel;
@@ -53,7 +57,7 @@ public class DashboardMainViewController implements  Initializable {
 
     @FXML
     private JFXButton btn_Viewinstructor;
-    
+
     @FXML
     private Label lbl_MemStaff;
 
@@ -61,22 +65,19 @@ public class DashboardMainViewController implements  Initializable {
     private Label lbl_MemStudent;
 
 
-
-
     public void action_register(ActionEvent actionEvent) throws IOException {
 
-        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/MemberView.fxml"));
+        AnchorPane anchorPane1 = FXMLLoader.load(this.getClass().getResource("/GymSystem/view/MemberView.fxml"));
         main_panel.getChildren().clear();
         main_panel.getChildren().add(anchorPane1);
     }
 
     public void action_dashboard(ActionEvent actionEvent) throws IOException {
 
-        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/DashboardView.fxml"));
+        AnchorPane anchorPane1 = FXMLLoader.load(this.getClass().getResource("/GymSystem/view/DashboardView.fxml"));
         main_panel.getChildren().clear();
         main_panel.getChildren().add(anchorPane1);
     }
-
 
 
     @Override
@@ -88,34 +89,34 @@ public class DashboardMainViewController implements  Initializable {
 
 
     public void action_attendance(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/AttendanceView.fxml"));
+        AnchorPane anchorPane1 = FXMLLoader.load(this.getClass().getResource("/GymSystem/view/AttendanceView.fxml"));
         main_panel.getChildren().clear();
         main_panel.getChildren().add(anchorPane1);
     }
 
     public void action_instructor(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/InstructorView.fxml"));
+        AnchorPane anchorPane1 = FXMLLoader.load(this.getClass().getResource("/GymSystem/view/InstructorView.fxml"));
         main_panel.getChildren().clear();
         main_panel.getChildren().add(anchorPane1);
     }
 
     public void action_accessories(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/AccessoriesView.fxml"));
+        AnchorPane anchorPane1 = FXMLLoader.load(this.getClass().getResource("/GymSystem/view/AccessoriesView.fxml"));
         main_panel.getChildren().clear();
         main_panel.getChildren().add(anchorPane1);
     }
 
     public void action_tracker(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/TrackerView.fxml"));
+        AnchorPane anchorPane1 = FXMLLoader.load(this.getClass().getResource("/GymSystem/view/TrackerView.fxml"));
         main_panel.getChildren().clear();
         main_panel.getChildren().add(anchorPane1);
     }
 
     public void onaction_Signout(ActionEvent actionEvent) throws Exception {
 
-        Parent parent=FXMLLoader.load(this.getClass().getResource("/GymSystem/view/LoginView.fxml"));
-        Scene scene=new Scene(parent);
-        Stage stage=new Stage();
+        Parent parent = FXMLLoader.load(this.getClass().getResource("/GymSystem/view/LoginView.fxml"));
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
         stage.setScene(scene);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
@@ -123,25 +124,24 @@ public class DashboardMainViewController implements  Initializable {
 
 
     public void onaction_ViewMember(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/MemberView.fxml"));
+        AnchorPane anchorPane1 = FXMLLoader.load(this.getClass().getResource("/GymSystem/view/MemberView.fxml"));
         main_panel.getChildren().clear();
         main_panel.getChildren().add(anchorPane1);
     }
 
     public void onaction_Viewattendance(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/AttendanceView.fxml"));
+        AnchorPane anchorPane1 = FXMLLoader.load(this.getClass().getResource("/GymSystem/view/AttendanceView.fxml"));
         main_panel.getChildren().clear();
         main_panel.getChildren().add(anchorPane1);
     }
 
     public void onaction_Viewinstructor(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane1= FXMLLoader.load(this.getClass().getResource("/GymSystem/view/InstructorView.fxml"));
+        AnchorPane anchorPane1 = FXMLLoader.load(this.getClass().getResource("/GymSystem/view/InstructorView.fxml"));
         main_panel.getChildren().clear();
         main_panel.getChildren().add(anchorPane1);
     }
-    
-    private void getstaffcount()
-    {
+
+    private void getstaffcount() {
         try {
             lbl_MemStaff.setText(MemberDAOImpl.getidcountstaff());
         } catch (Exception e) {
@@ -149,8 +149,7 @@ public class DashboardMainViewController implements  Initializable {
         }
     }
 
-    private void getMemcount()
-    {
+    private void getMemcount() {
         try {
             lbl_MemStudent.setText(MemberDAOImpl.getidcountStudent());
         } catch (Exception e) {

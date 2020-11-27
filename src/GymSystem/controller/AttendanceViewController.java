@@ -103,7 +103,6 @@ public class AttendanceViewController implements Initializable {
 
         AttendanceDTO cusModel = new AttendanceDTO(id, mid, name, date, time, payment);
         boolean addAttendance = AttendanceViewController.addAttendance(cusModel);
-        if(getID(mid).contentEquals("1")){
             if (addAttendance) {
 
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "ADDED SUCCESSFULLY ", ButtonType.OK);
@@ -111,14 +110,10 @@ public class AttendanceViewController implements Initializable {
                 setAllClear();
                 getAllAttendance();
             }
-            else{
+            else {
                 Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
                 a.showAndWait();
             }
-        } else {
-            Alert a = new Alert(Alert.AlertType.WARNING, "The member doesn't exist ", ButtonType.OK);
-            a.showAndWait();
-        }
     }
 
     public void onaction_update(ActionEvent actionEvent) throws Exception{
@@ -244,14 +239,5 @@ public class AttendanceViewController implements Initializable {
             e.printStackTrace();
         }
     }
-    private String getID(String mid)
-    {
-        String ans = null;
-        try {
-            ans= MemberDAOImpl.getIndex(mid);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return ans;
-    }
+
 }

@@ -189,7 +189,9 @@
                   <Image url="@../../Images/Capturedf.PNG" />
                </image>
             </ImageView>
-         </children></Pane>
+         </children>
+
+      </Pane>
       <Label layoutX="629.0" layoutY="12.0" text="NSBM GYM Management System">
          <font>
             <Font name="System Bold" size="20.0" />
