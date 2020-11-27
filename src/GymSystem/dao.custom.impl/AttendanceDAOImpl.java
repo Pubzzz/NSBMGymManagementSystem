@@ -78,7 +78,7 @@ public class AttendanceDAOImpl implements AttendanceDAO{
     }
     public static boolean checkIfMemberExist(String id) throws Exception {
         boolean recordExist = false;
-        ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from MEMBER where MID=?",id);
+        ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from Member where MID=?",id);
 
         while(rst.next()) {
             if(rst.getInt(1) == 1) {

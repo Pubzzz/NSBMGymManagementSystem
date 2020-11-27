@@ -27,6 +27,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.time.format.DateTimeFormatter;
 
 public class AttendanceViewController implements Initializable {
 
@@ -90,8 +91,8 @@ public class AttendanceViewController implements Initializable {
 
 
         String id = txt_AttendanceId.getText();
-        if (ifMemberExists(id)) {
         String mid = txt_MemId.getText();
+        if (ifMemberExists(mid)) {
         String name = txt_MemName.getText();
         String date = txt_AttendanceDate.getText();
         String time = txt_AttendanceTime.getText();
@@ -116,7 +117,8 @@ public class AttendanceViewController implements Initializable {
                 Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
                 a.showAndWait();
             }
-        }else{
+        }
+        else{
             Alert a = new Alert(Alert.AlertType.WARNING, "MEMBER DOES NOT EXIST ", ButtonType.OK);
             a.showAndWait();
         }
@@ -229,11 +231,15 @@ public class AttendanceViewController implements Initializable {
     }
     private void setDate() {
         txt_AttendanceDate.setText(LocalDate.now().toString());
+
     }
 
 
     private void setTime() {
-        txt_AttendanceTime.setText(LocalTime.now().toString());
+        LocalTime myDateObj = LocalTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String formattedDate = myDateObj.format(myFormatObj);
+        txt_AttendanceTime.setText(formattedDate.toString());
     }
     private boolean ifMemberExists(String mid) {
         try {
