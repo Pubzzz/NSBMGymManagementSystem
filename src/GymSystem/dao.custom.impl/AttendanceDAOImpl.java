@@ -6,6 +6,7 @@ import GymSystem.entity.Attendance;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class AttendanceDAOImpl implements AttendanceDAO{
@@ -99,6 +100,17 @@ public class AttendanceDAOImpl implements AttendanceDAO{
             }
         }
         return recordExist;
+    }
+    public static String getidcount() throws Exception {
+        int count = 0;
+        String date =LocalDate.now().toString();
+        ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from ATTENDENCE where ATDATE=?",date);
+        while (rst.next()) {
+            count = rst.getInt(1);
+        }
+        String idcntM = Integer.toString(count);
+
+        return idcntM;
     }
 
 }

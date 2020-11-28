@@ -1,5 +1,7 @@
 package GymSystem.controller;
 
+import GymSystem.dao.custom.impl.AttendanceDAOImpl;
+import GymSystem.dao.custom.impl.InstructorDAOImpl;
 import GymSystem.dao.custom.impl.MemberDAOImpl;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
@@ -66,11 +68,12 @@ public class DashboardViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         getstaffcount();
         getMemcount();
+        getAttendencecount();
+        getInstructorcount();
 
     }
 
-    private void getstaffcount()
-    {
+    private void getstaffcount() {
         try {
             lbl_MemStaff.setText(MemberDAOImpl.getidcountstaff());
         } catch (Exception e) {
@@ -78,8 +81,7 @@ public class DashboardViewController implements Initializable {
         }
     }
 
-    private void getMemcount()
-    {
+    private void getMemcount() {
         try {
             lbl_MemStudent.setText(MemberDAOImpl.getidcountStudent());
         } catch (Exception e) {
@@ -88,19 +90,19 @@ public class DashboardViewController implements Initializable {
     }
 
 
-//    private void getAttendancecount(){
-//        try {
-//            lbl_attendance.setText(*******());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    private void getAttendencecount() {
+        try {
+            lbl_attendance.setText(AttendanceDAOImpl.getidcount());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-//    private void getInstructorcont(){
-//        try {
-//            lbl_instructor.setText(********());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    private void getInstructorcount() {
+        try {
+            lbl_instructor.setText(InstructorDAOImpl.getidcount());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -10,127 +10,114 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GymSystem.controller.DashboardViewController">
    <children>
-      <Pane fx:id="main_panel" layoutX="6.0" layoutY="5.0" prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: white;">
+      <Pane fx:id="main_panel" prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: white;">
          <children>
-            <Pane layoutX="2.0" layoutY="3.0" prefHeight="40.0" prefWidth="1116.0"
-                  style="-fx-background-color: #1b579f;">
+            <Pane layoutX="2.0" layoutY="3.0" prefHeight="40.0" prefWidth="1116.0" style="-fx-background-color: #1b579f;">
                <children>
                   <Label layoutX="489.0" layoutY="4.0" text="DASHBOARD" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="22.0"/>
+                        <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="38.0" layoutY="78.0" prefHeight="200.0" prefWidth="300.0"
-                  style="-fx-background-color: #d1dbe0;">
+            <Pane layoutX="38.0" layoutY="78.0" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #d1dbe0;">
                <children>
                   <Label layoutX="75.0" layoutY="14.0" text="Member Details">
                      <font>
-                        <Font name="System Bold" size="20.0"/>
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="40.0" layoutY="65.0" prefHeight="30.0" prefWidth="92.0" text="Student">
+                  <Label layoutX="40.0" layoutY="65.0" prefHeight="30.0" prefWidth="92.0" text="Student  -">
                      <font>
-                        <Font name="System Bold" size="15.0"/>
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="40.0" layoutY="105.0" prefHeight="30.0" prefWidth="92.0" text="Staff">
+                  <Label layoutX="40.0" layoutY="105.0" prefHeight="30.0" prefWidth="92.0" text="Staff       -">
                      <font>
-                        <Font name="System Bold" size="15.0"/>
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <JFXButton fx:id="btn_ViewMember" layoutY="155.0" onAction="#onaction_ViewMember" prefHeight="50.0"
-                             prefWidth="300.0" style="-fx-background-color: #1b579f;" text="VIEW MORE" textFill="WHITE">
+                  <JFXButton fx:id="btn_ViewMember" layoutY="155.0" onAction="#onaction_ViewMember" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #1b579f;" text="VIEW MORE" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="16.0"/>
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </JFXButton>
                   <Label fx:id="lbl_MemStaff" layoutX="162.0" layoutY="110.0" prefHeight="17.0" prefWidth="107.0">
                      <font>
-                        <Font name="System Bold" size="15.0"/>
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                   <Label fx:id="lbl_MemStudent" layoutX="162.0" layoutY="70.0" prefHeight="17.0" prefWidth="107.0">
                      <font>
-                        <Font name="System Bold" size="15.0"/>
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="408.0" layoutY="78.0" prefHeight="200.0" prefWidth="300.0"
-                  style="-fx-background-color: #d1dbe0;">
+            <Pane layoutX="408.0" layoutY="78.0" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #d1dbe0;">
                <children>
-                  <Label layoutX="96.0" layoutY="14.0" text="Attendance">
+                  <Label layoutX="91.0" layoutY="14.0" text="Attendances">
                      <font>
-                        <Font name="System Bold" size="20.0"/>
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <JFXButton fx:id="btn_Viewattendance" layoutY="150.0" onAction="#onaction_Viewattendance"
-                             prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #1b579f;" text="VIEW MORE"
-                             textFill="WHITE">
+                  <JFXButton fx:id="btn_Viewattendance" layoutY="150.0" onAction="#onaction_Viewattendance" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #1b579f;" text="VIEW MORE" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="16.0"/>
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </JFXButton>
-                  <Label fx:id="lbl_attendance" layoutX="86.0" layoutY="68.0" prefHeight="32.0" prefWidth="128.0">
+                  <Label fx:id="lbl_attendance" layoutX="92.0" layoutY="69.0" prefHeight="32.0" prefWidth="128.0">
                      <font>
-                        <Font name="System Bold" size="16.0"/>
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="779.0" layoutY="78.0" prefHeight="200.0" prefWidth="300.0"
-                  style="-fx-background-color: #d1dbe0;">
+            <Pane layoutX="779.0" layoutY="78.0" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #d1dbe0;">
                <children>
                   <Label layoutX="69.0" layoutY="14.0" text="Instructor Details">
                      <font>
-                        <Font name="System Bold" size="20.0"/>
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <JFXButton fx:id="btn_Viewinstructor" layoutY="150.0" onAction="#onaction_Viewinstructor"
-                             prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #1b579f;" text="VIEW MORE"
-                             textFill="WHITE">
+                  <JFXButton fx:id="btn_Viewinstructor" layoutY="150.0" onAction="#onaction_Viewinstructor" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #1b579f;" text="VIEW MORE" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="16.0"/>
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </JFXButton>
                   <Label fx:id="lbl_instructor" layoutX="86.0" layoutY="68.0" prefHeight="32.0" prefWidth="128.0">
                      <font>
-                        <Font name="System Bold" size="16.0"/>
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <ImageView fitHeight="421.0" fitWidth="636.0" layoutX="482.0" layoutY="278.0" pickOnBounds="true"
-                       preserveRatio="true">
+            <ImageView fitHeight="421.0" fitWidth="636.0" layoutX="482.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Images/Capturedf.PNG"/>
+                  <Image url="@../../Images/Capturedf.PNG" />
                </image>
             </ImageView>
-            <Pane layoutX="38.0" layoutY="384.0" prefHeight="275.0" prefWidth="300.0"
-                  style="-fx-background-color: #d1dbe0;">
+            <Pane layoutX="38.0" layoutY="384.0" prefHeight="275.0" prefWidth="300.0" style="-fx-background-color: #d1dbe0;">
                <children>
-                  <Label layoutX="82.0" layoutY="155.0" prefHeight="30.0" prefWidth="202.0"
-                         text="NSBM Green University Town,">
+                  <Label layoutX="82.0" layoutY="155.0" prefHeight="30.0" prefWidth="202.0" text="NSBM Green University Town,">
                      <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                   <Label layoutX="82.0" layoutY="176.0" prefHeight="30.0" prefWidth="202.0" text="Pitipana, Homagama">
                      <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="82.0" layoutY="206.0" prefHeight="30.0" prefWidth="202.0"
-                         text="Tel - +94 11 000 0000">
+                  <Label layoutX="82.0" layoutY="206.0" prefHeight="30.0" prefWidth="202.0" text="Tel - +94 11 000 0000">
                      <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                   <Label layoutX="16.0" layoutY="20.0" text="About">
                      <font>
-                        <Font name="System Bold" size="20.0"/>
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                </children>

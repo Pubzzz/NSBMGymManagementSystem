@@ -6,6 +6,7 @@ import GymSystem.entity.Instructor;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class InstructorDAOImpl implements InstructorDAO {
@@ -88,6 +89,16 @@ public class InstructorDAOImpl implements InstructorDAO {
             }
         }
         return recordExist;
+    }
+    public static String getidcount() throws Exception {
+        int count = 0;
+        ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from Instructor where NIC IS NOT NULL" );
+        while (rst.next()) {
+            count = rst.getInt(1);
+        }
+        String idcntM = Integer.toString(count);
+
+        return idcntM;
     }
 
 }

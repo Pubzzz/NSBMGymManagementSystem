@@ -1,5 +1,7 @@
 package GymSystem.controller;
 
+import GymSystem.dao.custom.impl.AttendanceDAOImpl;
+import GymSystem.dao.custom.impl.InstructorDAOImpl;
 import GymSystem.dao.custom.impl.MemberDAOImpl;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
@@ -94,8 +96,9 @@ public class DashboardMainViewController  implements  Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         getMemcount();
         getstaffcount();
-//        getAttendancecount();
-//        getInstructorcont();
+     getAttendencecount();
+     getInstructorcount();
+
 
     }
 
@@ -178,20 +181,18 @@ public class DashboardMainViewController  implements  Initializable {
         Stage stage = (Stage) btn_minimize.getScene().getWindow();
         stage.setIconified(true);
     }
-
-//    private void getAttendancecount(){
-//        try {
-//            lbl_attendance.setText(***********());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//    private void getInstructorcont(){
-//        try {
-//            lbl_instructor.setText(***********());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    private void getAttendencecount() {
+        try {
+            lbl_attendance.setText(AttendanceDAOImpl.getidcount());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void getInstructorcount() {
+        try {
+            lbl_instructor.setText(InstructorDAOImpl.getidcount());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

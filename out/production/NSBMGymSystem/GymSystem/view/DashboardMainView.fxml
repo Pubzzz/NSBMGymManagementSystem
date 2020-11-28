@@ -77,7 +77,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="main_panel" layoutX="226.0" layoutY="45.0" prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: white;">
+      <Pane fx:id="main_panel" layoutX="225.0" layoutY="45.0" prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: white;">
          <children>
             <Pane layoutX="2.0" layoutY="3.0" prefHeight="40.0" prefWidth="1116.0" style="-fx-background-color: #1b579f;">
                <children>
@@ -95,12 +95,12 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="40.0" layoutY="65.0" prefHeight="30.0" prefWidth="92.0" text="Student">
+                  <Label layoutX="40.0" layoutY="65.0" prefHeight="30.0" prefWidth="92.0" text="Student  -">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="40.0" layoutY="105.0" prefHeight="30.0" prefWidth="92.0" text="Staff">
+                  <Label layoutX="40.0" layoutY="105.0" prefHeight="30.0" prefWidth="92.0" text="Staff       -">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -124,7 +124,7 @@
             </Pane>
             <Pane layoutX="408.0" layoutY="78.0" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #d1dbe0;">
                <children>
-                  <Label layoutX="96.0" layoutY="14.0" text="Attendance">
+                  <Label layoutX="91.0" layoutY="14.0" text="Attendances">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -134,7 +134,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </JFXButton>
-                  <Label fx:id="lbl_attendance" layoutX="86.0" layoutY="68.0" prefHeight="32.0" prefWidth="128.0">
+                  <Label fx:id="lbl_attendance" layoutX="86.0" layoutY="69.0" prefHeight="32.0" prefWidth="128.0">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -202,6 +202,37 @@
             <Image url="@../../Images/nsbmn.png" />
          </image>
       </ImageView>
-      <JFXButton id="button" fx:id="btn_Signout" layoutX="1215.0" layoutY="13.0" onAction="#onaction_Signout" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="SIGN OUT" />
+      <JFXButton id="button" fx:id="btn_Signout" contentDisplay="RIGHT" layoutX="1199.0" layoutY="13.0" onAction="#onaction_Signout" prefHeight="25.0" prefWidth="86.0" stylesheets="@../css/Dashboard.css" text="SIGN OUT">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/icons8-export-48.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <JFXButton fx:id="btn_close" layoutX="1321.0" layoutY="2.0" onAction="#onaction_close" prefHeight="24.0" prefWidth="0.0">
+         <font>
+            <Font size="1.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/icons8_Close_Window_96px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btn_minimize" layoutX="1300.0" layoutY="2.0" onAction="#onaction_minimize" prefHeight="24.0" prefWidth="0.0">
+         <font>
+            <Font size="1.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/icons8_Minimize_Window_96px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

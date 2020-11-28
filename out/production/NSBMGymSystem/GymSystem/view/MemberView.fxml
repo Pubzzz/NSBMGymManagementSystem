@@ -58,20 +58,20 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txt_MemId" layoutX="265.0" layoutY="90.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_MemName" layoutX="265.0" layoutY="126.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_MemEmail" layoutX="265.0" layoutY="162.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_MemTelNo" layoutX="265.0" layoutY="198.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXRadioButton fx:id="radio_male" layoutX="265.0" layoutY="235.0" text="Male" />
-      <JFXRadioButton fx:id="radio_female" layoutX="393.0" layoutY="235.0" text="Female" />
-      <JFXRadioButton fx:id="radio_student" layoutX="265.0" layoutY="272.0" text="Student" />
-      <JFXRadioButton fx:id="radio_staff" layoutX="393.0" layoutY="272.0" text="Staff" />
-      <JFXTextField fx:id="txt_Batch" layoutX="265.0" layoutY="308.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_Degree" layoutX="265.0" layoutY="341.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXButton id="button" fx:id="btn_Register" layoutX="235.0" layoutY="391.0" onAction="#onaction_register" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="REGISTER" />
-      <JFXButton id="button" fx:id="btn_Update" layoutX="351.0" layoutY="391.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="UPDATE" />
-      <JFXButton id="button" fx:id="btn_Remove" layoutX="464.0" layoutY="391.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="REMOVE" />
-      <JFXButton id="button" fx:id="btn_Clear" layoutX="568.0" layoutY="391.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="CLEAR" />
+      <JFXTextField fx:id="txt_MemId" layoutX="265.0" layoutY="88.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_MemName" layoutX="265.0" layoutY="124.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_MemEmail" layoutX="265.0" layoutY="160.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_MemTelNo" layoutX="265.0" layoutY="196.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXRadioButton fx:id="radio_male" layoutX="265.0" layoutY="237.0" text="Male" />
+      <JFXRadioButton fx:id="radio_female" layoutX="393.0" layoutY="237.0" text="Female" />
+      <JFXRadioButton fx:id="radio_student" layoutX="265.0" layoutY="274.0" text="Student" />
+      <JFXRadioButton fx:id="radio_staff" layoutX="393.0" layoutY="274.0" text="Staff" />
+      <JFXTextField fx:id="txt_Batch" layoutX="265.0" layoutY="306.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_Degree" layoutX="265.0" layoutY="338.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXButton id="button" fx:id="btn_Register" layoutX="235.0" layoutY="390.0" onAction="#onaction_register" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="REGISTER" />
+      <JFXButton id="button" fx:id="btn_Update" layoutX="350.0" layoutY="390.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="UPDATE" />
+      <JFXButton id="button" fx:id="btn_Remove" layoutX="464.0" layoutY="390.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="REMOVE" />
+      <JFXButton id="button" fx:id="btn_Clear" layoutX="570.0" layoutY="390.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Member.css" text="CLEAR" />
       <Pane layoutX="655.0" layoutY="90.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #d1dbe0;">
          <children>
             <JFXTextField fx:id="txt_MemSearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="Member ID">
