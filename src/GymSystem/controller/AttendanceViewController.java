@@ -3,10 +3,7 @@ package GymSystem.controller;
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.AttendanceBO;
 import GymSystem.dao.custom.impl.AttendanceDAOImpl;
-import GymSystem.dao.custom.impl.MemberDAOImpl;
-import GymSystem.dao.custom.impl.TrackerDAOImpl;
 import GymSystem.dto.AttendanceDTO;
-import GymSystem.entity.Attendance;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
@@ -25,9 +22,9 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.time.format.DateTimeFormatter;
 
 public class AttendanceViewController implements Initializable {
 

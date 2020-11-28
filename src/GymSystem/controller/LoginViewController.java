@@ -24,6 +24,9 @@ public class LoginViewController {
     @FXML
     private JFXPasswordField txt_Password;
 
+    @FXML
+    private JFXButton btn_close;
+
     public void onaction_Login(ActionEvent actionEvent) throws IOException {
         String text = txt_Username.getText();
         String password=txt_Password.getText();
@@ -51,6 +54,10 @@ public class LoginViewController {
 
     public void onaction_Password(ActionEvent actionEvent) {
         txt_Password.requestFocus();
+    }
+
+    public void onaction_close(ActionEvent actionEvent) {
+        System.exit(0);
     }
 }
 

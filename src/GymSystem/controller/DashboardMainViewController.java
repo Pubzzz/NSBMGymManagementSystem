@@ -8,20 +8,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.scene.control.Label;
 import javafx.stage.StageStyle;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-
-import static com.sun.deploy.uitoolkit.ToolkitStore.dispose;
 
 public class DashboardMainViewController  implements  Initializable {
 
@@ -47,6 +42,9 @@ public class DashboardMainViewController  implements  Initializable {
     private JFXButton btn_Accessories;
 
     @FXML
+    private JFXButton btn_Tracker;
+
+    @FXML
     private JFXButton btn_Signout;
 
     @FXML
@@ -63,6 +61,18 @@ public class DashboardMainViewController  implements  Initializable {
 
     @FXML
     private Label lbl_MemStudent;
+
+    @FXML
+    private Label lbl_attendance;
+
+    @FXML
+    private Label lbl_instructor;
+
+    @FXML
+    private JFXButton btn_close;
+
+    @FXML
+    private JFXButton btn_minimize;
 
 
     public void action_register(ActionEvent actionEvent) throws IOException {
@@ -84,6 +94,8 @@ public class DashboardMainViewController  implements  Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         getMemcount();
         getstaffcount();
+//        getAttendancecount();
+//        getInstructorcont();
 
     }
 
@@ -157,4 +169,29 @@ public class DashboardMainViewController  implements  Initializable {
             e.printStackTrace();
         }
     }
+
+    public void onaction_close(ActionEvent actionEvent) {
+        System.exit(0);
+    }
+
+    public void onaction_minimize(ActionEvent actionEvent) {
+        Stage stage = (Stage) btn_minimize.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+//    private void getAttendancecount(){
+//        try {
+//            lbl_attendance.setText(***********());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+//    private void getInstructorcont(){
+//        try {
+//            lbl_instructor.setText(***********());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

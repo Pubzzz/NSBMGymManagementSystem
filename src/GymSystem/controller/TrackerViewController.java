@@ -2,11 +2,9 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.TrackerBO;
-import GymSystem.dao.custom.impl.MemberDAOImpl;
 import GymSystem.dao.custom.impl.TrackerDAOImpl;
 import GymSystem.dto.MemberDTO;
 import GymSystem.dto.TrackerDTO;
-import GymSystem.entity.Tracker;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;

@@ -2,9 +2,7 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.InstructorBO;
-import GymSystem.dao.CrudUtil;
 import GymSystem.dao.custom.impl.InstructorDAOImpl;
-import GymSystem.dao.custom.impl.TrackerDAOImpl;
 import GymSystem.dto.InstructorDTO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -21,7 +19,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;

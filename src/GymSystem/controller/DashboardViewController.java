@@ -1,15 +1,14 @@
 package GymSystem.controller;
 
-import GymSystem.dao.custom.impl.InstructorDAOImpl;
 import GymSystem.dao.custom.impl.MemberDAOImpl;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
@@ -36,6 +35,12 @@ public class DashboardViewController implements Initializable {
 
     @FXML
     private Label lbl_MemStudent;
+
+    @FXML
+    private Label lbl_attendance;
+
+    @FXML
+    private Label lbl_instructor;
 
 
     public void onaction_ViewMember(ActionEvent actionEvent) throws IOException {
@@ -81,4 +86,21 @@ public class DashboardViewController implements Initializable {
             e.printStackTrace();
         }
     }
+
+
+//    private void getAttendancecount(){
+//        try {
+//            lbl_attendance.setText(*******());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+//    private void getInstructorcont(){
+//        try {
+//            lbl_instructor.setText(********());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
