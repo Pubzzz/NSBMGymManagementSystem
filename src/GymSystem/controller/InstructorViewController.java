@@ -3,11 +3,6 @@ package GymSystem.controller;
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.InstructorBO;
 import GymSystem.dao.custom.impl.InstructorDAOImpl;
-<<<<<<< HEAD
-=======
-import GymSystem.dao.custom.impl.MemberDAOImpl;
-import GymSystem.dao.custom.impl.TrackerDAOImpl;
->>>>>>> ecf3c313fca613c1850538a2af372602082157be
 import GymSystem.dto.InstructorDTO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -27,6 +22,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 
 public class InstructorViewController implements Initializable {
 

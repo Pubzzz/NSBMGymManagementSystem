@@ -2,11 +2,6 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.TrackerBO;
-<<<<<<< HEAD
-=======
-import GymSystem.dao.custom.impl.AttendanceDAOImpl;
-import GymSystem.dao.custom.impl.MemberDAOImpl;
->>>>>>> ecf3c313fca613c1850538a2af372602082157be
 import GymSystem.dao.custom.impl.TrackerDAOImpl;
 import GymSystem.dto.MemberDTO;
 import GymSystem.dto.TrackerDTO;
@@ -30,6 +25,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 
 public class TrackerViewController extends MemberDTO implements Initializable, Serializable {
 
