@@ -114,10 +114,11 @@ public class DashboardMainViewController  implements  Initializable {
 
     public void onaction_Signout(ActionEvent actionEvent) throws Exception {
 
-        Parent parent = FXMLLoader.load(this.getClass().getResource("/GymSystem/view/LoginView.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage = new Stage();
+         Parent parent=FXMLLoader.load(this.getClass().getResource("/GymSystem/view/LoginView.fxml"));
+        Scene scene=new Scene(parent);
+        Stage stage= (Stage)this.btn_Signout.getScene().getWindow();
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
     }
