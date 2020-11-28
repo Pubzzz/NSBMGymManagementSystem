@@ -88,5 +88,17 @@ public class AttendanceDAOImpl implements AttendanceDAO{
         }
         return recordExist;
     }
+    public static boolean checkIfSearchExist(String id) throws Exception {
+        boolean recordExist = false;
+        ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from ATTENDENCE where ATTID=?",id);
+
+        while(rst.next()) {
+            if(rst.getInt(1) == 1) {
+                recordExist = true;
+                break;
+            }
+        }
+        return recordExist;
+    }
 
 }

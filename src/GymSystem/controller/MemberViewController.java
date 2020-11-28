@@ -101,28 +101,33 @@ public class MemberViewController implements Initializable {
     }
 
     public void onaction_search(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-
-        MemberDTO searchCustomer = bo.searchCustomer(txt_MemSearch.getText());
-        txt_MemId.setText(searchCustomer.getId());
-        txt_MemName.setText(searchCustomer.getName());
-        txt_MemEmail.setText(searchCustomer.getEmail());
-        txt_MemTelNo.setText(searchCustomer.getTel());
-        if (searchCustomer.getSex().contentEquals("Female")) {
-            radio_male.setSelected(false);
-            radio_female.setSelected(true);
-        } else {
-            radio_male.setSelected(true);
-            radio_female.setSelected(false);
+        if (ifSearchExists(txt_MemSearch.getText())) {
+            MemberDTO searchCustomer = bo.searchCustomer(txt_MemSearch.getText());
+            txt_MemId.setText(searchCustomer.getId());
+            txt_MemName.setText(searchCustomer.getName());
+            txt_MemEmail.setText(searchCustomer.getEmail());
+            txt_MemTelNo.setText(searchCustomer.getTel());
+            if (searchCustomer.getSex().contentEquals("Female")) {
+                radio_male.setSelected(false);
+                radio_female.setSelected(true);
+            } else {
+                radio_male.setSelected(true);
+                radio_female.setSelected(false);
+            }
+            if (searchCustomer.getPos().contentEquals("Student")) {
+                radio_student.setSelected(true);
+                radio_staff.setSelected(false);
+            } else {
+                radio_staff.setSelected(true);
+                radio_student.setSelected(false);
+            }
+            txt_Batch.setText(searchCustomer.getBatch());
+            txt_Degree.setText(searchCustomer.getDeg());
         }
-        if (searchCustomer.getPos().contentEquals("Student")) {
-            radio_student.setSelected(true);
-            radio_staff.setSelected(false);
-        } else {
-            radio_staff.setSelected(true);
-            radio_student.setSelected(false);
+        else{
+            Alert a = new Alert(Alert.AlertType.ERROR, "MEMBER CANNOT BE FOUND ", ButtonType.OK);
+            a.showAndWait();
         }
-        txt_Batch.setText(searchCustomer.getBatch());
-        txt_Degree.setText(searchCustomer.getDeg());
     }
 
     public void onaction_register(ActionEvent actionEvent) throws Exception {
@@ -161,7 +166,7 @@ public class MemberViewController implements Initializable {
             }
         }
             else{
-                Alert a = new Alert(Alert.AlertType.WARNING, "MEMBER ALREADY EXISTS ", ButtonType.OK);
+                Alert a = new Alert(Alert.AlertType.ERROR, "MEMBER ALREADY EXISTS ", ButtonType.OK);
                 a.showAndWait();
             }
         }
@@ -284,6 +289,15 @@ public class MemberViewController implements Initializable {
     private boolean ifMemberExists(String mid) {
         try {
             return TrackerDAOImpl.checkIfMemberExist(mid);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private boolean ifSearchExists(String mid) {
+        try {
+            return MemberDAOImpl.checkIfSearchExist(mid);
         } catch (Exception e) {
             e.printStackTrace();
             return false;

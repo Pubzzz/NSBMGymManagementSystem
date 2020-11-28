@@ -2,6 +2,8 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.AccessoriesBO;
+import GymSystem.dao.custom.impl.AccessoriesDAOImpl;
+import GymSystem.dao.custom.impl.MemberDAOImpl;
 import GymSystem.dto.AccessoriesDTO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -21,7 +23,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class AccessoriesViewController implements  Initializable{
+public class AccessoriesViewController implements Initializable {
 
     @FXML
     private JFXButton btn_Add;
@@ -55,11 +57,11 @@ public class AccessoriesViewController implements  Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-            try {
-                getAllAccessories();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        try {
+            getAllAccessories();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     static AccessoriesBO bo = (AccessoriesBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.ACCESSORIES);
@@ -83,23 +85,22 @@ public class AccessoriesViewController implements  Initializable{
     }
 
     public void onactione_register(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String id=txt_AccessoryId.getText();
-        String type=txt_AccessoryType.getText();
-        String brand=txt_AccessoryBrand.getText();
-        String qty=txt_AccessoryQty.getText();
+        String id = txt_AccessoryId.getText();
+        String type = txt_AccessoryType.getText();
+        String brand = txt_AccessoryBrand.getText();
+        String qty = txt_AccessoryQty.getText();
 
         AccessoriesDTO cusModel = new AccessoriesDTO(id, type, brand, qty);
         boolean addAccessory = AccessoriesViewController.addAccessories(cusModel);
 
-        if(addAccessory){
+        if (addAccessory) {
             Alert a = new Alert(Alert.AlertType.INFORMATION, "ADDED SUCCESSFULLY ", ButtonType.OK);
             a.showAndWait();
             setAllClear();
             getAllAccessories();
 
 
-
-        }else{
+        } else {
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
         }
@@ -132,20 +133,20 @@ public class AccessoriesViewController implements  Initializable{
 
     public void onaction_update(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
-        String id=txt_AccessoryId.getText();
-        String type=txt_AccessoryType.getText();
-        String brand=txt_AccessoryBrand.getText();
-        String qty=txt_AccessoryQty.getText();
+        String id = txt_AccessoryId.getText();
+        String type = txt_AccessoryType.getText();
+        String brand = txt_AccessoryBrand.getText();
+        String qty = txt_AccessoryQty.getText();
 
         AccessoriesDTO cusModel = new AccessoriesDTO(id, type, brand, qty);
         boolean updateAccessories = AccessoriesViewController.updateAccessories(cusModel);
 
-        if(updateAccessories){
+        if (updateAccessories) {
             Alert a = new Alert(Alert.AlertType.INFORMATION, "UPDATED SUCCESSFULLY", ButtonType.OK);
             a.showAndWait();
             setAllClear();
             getAllAccessories();
-        }else{
+        } else {
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
         }
@@ -156,12 +157,12 @@ public class AccessoriesViewController implements  Initializable{
         String id = txt_AccessoryId.getText();
 
         boolean removeAccessory = deleteAccessories(id);
-        if(removeAccessory){
+        if (removeAccessory) {
             Alert a = new Alert(Alert.AlertType.INFORMATION, "DELETED SUCCSESSFULLY ", ButtonType.OK);
             a.showAndWait();
             setAllClear();
             getAllAccessories();
-        }else{
+        } else {
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
         }
@@ -182,13 +183,25 @@ public class AccessoriesViewController implements  Initializable{
     }
 
     public void onaction_search(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        if (ifSearchExists(txt_AccessorySearch.getText())) {
+            AccessoriesDTO searchAccessory = bo.searchAccessory(txt_AccessorySearch.getText());
 
-        AccessoriesDTO searchAccessory = bo.searchAccessory(txt_AccessorySearch.getText());
-
-        txt_AccessoryId.setText(searchAccessory.getId());
-        txt_AccessoryType.setText(searchAccessory.getType());
-        txt_AccessoryBrand.setText(searchAccessory.getBrand());
-        txt_AccessoryQty.setText(searchAccessory.getQty());
+            txt_AccessoryId.setText(searchAccessory.getId());
+            txt_AccessoryType.setText(searchAccessory.getType());
+            txt_AccessoryBrand.setText(searchAccessory.getBrand());
+            txt_AccessoryQty.setText(searchAccessory.getQty());
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR, "ACCESSORY CANNOT BE FOUND ", ButtonType.OK);
+            a.showAndWait();
+        }
+    }
+    private boolean ifSearchExists(String mid) {
+        try {
+            return AccessoriesDAOImpl.checkIfSearchExist(mid);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 }

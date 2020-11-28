@@ -2,6 +2,11 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.TrackerBO;
+<<<<<<< HEAD
+=======
+import GymSystem.dao.custom.impl.AttendanceDAOImpl;
+import GymSystem.dao.custom.impl.MemberDAOImpl;
+>>>>>>> ecf3c313fca613c1850538a2af372602082157be
 import GymSystem.dao.custom.impl.TrackerDAOImpl;
 import GymSystem.dto.MemberDTO;
 import GymSystem.dto.TrackerDTO;
@@ -183,19 +188,25 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
     }
 
     public void onaction_search(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        TrackerDTO searchTracker = bo.searchTracker(txt_TrackerSearch.getText());
-        txt_TrackerID.setText(searchTracker.getId());
-        txt_MemberID.setText(searchTracker.getMid());
-        txt_TrackerDate.setText(searchTracker.getDate());
-        txt_Height.setText(String.valueOf(searchTracker.getHgt()));
-        txt_Weight.setText(String.valueOf(searchTracker.getWgt()));
-        txt_age.setText(String.valueOf(searchTracker.getAge()));
-        txt_BMI.setText(String.valueOf(searchTracker.getBMI()));
-        txt_Calories.setText(String.valueOf(searchTracker.getCal()));
-        radio_Type2.setSelected(false);
-        radio_Type1.setSelected(false);
-        radio_Type3.setSelected(false);
+        if (ifSearchExists(txt_TrackerSearch.getText())) {
+            TrackerDTO searchTracker = bo.searchTracker(txt_TrackerSearch.getText());
+            txt_TrackerID.setText(searchTracker.getId());
+            txt_MemberID.setText(searchTracker.getMid());
+            txt_TrackerDate.setText(searchTracker.getDate());
+            txt_Height.setText(String.valueOf(searchTracker.getHgt()));
+            txt_Weight.setText(String.valueOf(searchTracker.getWgt()));
+            txt_age.setText(String.valueOf(searchTracker.getAge()));
+            txt_BMI.setText(String.valueOf(searchTracker.getBMI()));
+            txt_Calories.setText(String.valueOf(searchTracker.getCal()));
+            radio_Type2.setSelected(false);
+            radio_Type1.setSelected(false);
+            radio_Type3.setSelected(false);
 
+        }
+        else{
+            Alert a = new Alert(Alert.AlertType.ERROR, "TRACKER RECORD CANNOT BE FOUND ", ButtonType.OK);
+            a.showAndWait();
+        }
     }
     private void setDate() {
         txt_TrackerDate.setText(LocalDate.now().toString());
@@ -247,6 +258,14 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
     private boolean ifMemberExists(String mid) {
         try {
             return TrackerDAOImpl.checkIfMemberExist(mid);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    private boolean ifSearchExists(String mid) {
+        try {
+            return TrackerDAOImpl.checkIfSearchExist(mid);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
