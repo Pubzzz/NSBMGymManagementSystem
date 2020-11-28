@@ -67,7 +67,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </JFXButton>
-                  <Label fx:id="lbl_attendance" layoutX="86.0" layoutY="69.0" prefHeight="32.0" prefWidth="128.0">
+                  <Label fx:id="lbl_attendance" alignment="CENTER" layoutX="86.0" layoutY="69.0" prefHeight="32.0" prefWidth="128.0">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -86,7 +86,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </JFXButton>
-                  <Label fx:id="lbl_instructor" layoutX="86.0" layoutY="68.0" prefHeight="32.0" prefWidth="128.0">
+                  <Label fx:id="lbl_instructor" alignment="CENTER" layoutX="86.0" layoutY="68.0" prefHeight="32.0" prefWidth="128.0">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
