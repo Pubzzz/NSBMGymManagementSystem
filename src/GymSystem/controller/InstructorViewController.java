@@ -4,6 +4,7 @@ import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.InstructorBO;
 import GymSystem.dao.CrudUtil;
 import GymSystem.dao.custom.impl.InstructorDAOImpl;
+import GymSystem.dao.custom.impl.MemberDAOImpl;
 import GymSystem.dao.custom.impl.TrackerDAOImpl;
 import GymSystem.dto.InstructorDTO;
 import com.jfoenix.controls.JFXButton;
@@ -88,10 +89,9 @@ public class InstructorViewController implements Initializable {
     }
 
 
-
     public void onaction_register(ActionEvent actionEvent) throws Exception {
 
-        String id=txt_InstructorId.getText();
+        String id = txt_InstructorId.getText();
         if (!(ifMemberExists(id))) {
             String name = txt_InstructorName.getText();
             String nic = txt_InstructorNIC.getText();
@@ -119,7 +119,7 @@ public class InstructorViewController implements Initializable {
                 Alert a = new Alert(Alert.AlertType.WARNING, "FAILED", ButtonType.OK);
                 a.showAndWait();
             }
-        }else{
+        } else {
             Alert a = new Alert(Alert.AlertType.WARNING, "INSTRUCTOR ALREADY EXISTS", ButtonType.OK);
             a.showAndWait();
         }
@@ -128,28 +128,28 @@ public class InstructorViewController implements Initializable {
 
     public void onaction_update(ActionEvent actionEvent) throws Exception {
 
-        String id=txt_InstructorId.getText();
-        String name=txt_InstructorName.getText();
-        String nic=txt_InstructorNIC.getText();
+        String id = txt_InstructorId.getText();
+        String name = txt_InstructorName.getText();
+        String nic = txt_InstructorNIC.getText();
         String gender;
         if (radio_Male.isSelected()) {
             gender = "Male";
         } else {
             gender = "Female";
         }
-        String email=txt_InstructorEmail.getText();
-        String tp=txt_InstructorTelNo.getText();
+        String email = txt_InstructorEmail.getText();
+        String tp = txt_InstructorTelNo.getText();
 
         InstructorDTO cusModel = new InstructorDTO(id, name, nic, gender, email, tp);
         boolean updateInstructor = InstructorViewController.updateInstructor(cusModel);
 
 
-        if(updateInstructor){
+        if (updateInstructor) {
             Alert a = new Alert(Alert.AlertType.INFORMATION, "UPDATED SUCCESSFULLY", ButtonType.OK);
             a.showAndWait();
             setAllClear();
             getAllInstructors();
-        }else{
+        } else {
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
         }
@@ -159,12 +159,12 @@ public class InstructorViewController implements Initializable {
         String id = txt_InstructorId.getText();
 
         boolean removeCustomer = deleteInstructor(id);
-        if(removeCustomer){
+        if (removeCustomer) {
             Alert a = new Alert(Alert.AlertType.INFORMATION, "DELETED SUCCSESSFULLY ", ButtonType.OK);
             a.showAndWait();
             setAllClear();
             getAllInstructors();
-        }else{
+        } else {
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
         }
@@ -175,90 +175,100 @@ public class InstructorViewController implements Initializable {
     }
 
     public void onaction_search(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        if (ifSearchExists(txt_InstructorSearch.getText())) {
+            InstructorDTO searchInstructor = bo.searchInstructor(txt_InstructorSearch.getText());
 
-        InstructorDTO searchInstructor = bo.searchInstructor(txt_InstructorSearch.getText());
+            txt_InstructorId.setText(searchInstructor.getId());
+            txt_InstructorName.setText(searchInstructor.getName());
+            txt_InstructorNIC.setText(searchInstructor.getNic());
+            if (searchInstructor.getGender().contentEquals("Female")) {
+                radio_Female.setSelected(true);
+                radio_Male.setSelected(false);
+            } else {
+                radio_Female.setSelected(false);
+                radio_Male.setSelected(true);
+            }
+            txt_InstructorEmail.setText(searchInstructor.getEmail());
+            txt_InstructorTelNo.setText(searchInstructor.getTp());
 
-        txt_InstructorId.setText(searchInstructor.getId());
-        txt_InstructorName.setText(searchInstructor.getName());
-        txt_InstructorNIC.setText(searchInstructor.getNic());
-        if(searchInstructor.getGender().contentEquals("Female")){
-            radio_Female.setSelected(true);
-            radio_Male.setSelected(false);
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR, "INSTRUCTOR CANNOT BE FOUND", ButtonType.OK);
+            a.showAndWait();
         }
-        else{
+    }
+
+        public void onaction_clicked (MouseEvent mouseEvent){
+
+            InstructorDTO selectedItem = table_Instructor.getSelectionModel().getSelectedItem();
+
+            txt_InstructorId.setText(selectedItem.getId());
+            txt_InstructorName.setText(selectedItem.getName());
+            txt_InstructorNIC.setText(selectedItem.getNic());
+            if (selectedItem.getGender().contentEquals("Female")) {
+                radio_Female.setSelected(true);
+                radio_Male.setSelected(false);
+            } else {
+                radio_Female.setSelected(false);
+                radio_Male.setSelected(true);
+            }
+            txt_InstructorEmail.setText(selectedItem.getEmail());
+            txt_InstructorTelNo.setText(selectedItem.getTp());
+        }
+
+
+        private void setAllClear () {
+            txt_InstructorId.clear();
+            txt_InstructorName.clear();
+            txt_InstructorNIC.clear();
             radio_Female.setSelected(false);
-            radio_Male.setSelected(true);
-        }
-        txt_InstructorEmail.setText(searchInstructor.getEmail());
-        txt_InstructorTelNo.setText(searchInstructor.getTp());
-    }
-
-    public void onaction_clicked(MouseEvent mouseEvent) {
-            
-        InstructorDTO selectedItem = table_Instructor.getSelectionModel().getSelectedItem();
-
-        txt_InstructorId.setText(selectedItem.getId());
-        txt_InstructorName.setText(selectedItem.getName());
-        txt_InstructorNIC.setText(selectedItem.getNic());
-        if(selectedItem.getGender().contentEquals("Female")){
-            radio_Female.setSelected(true);
             radio_Male.setSelected(false);
-        }
-        else{
-            radio_Female.setSelected(false);
-            radio_Male.setSelected(true);
-        }
-        txt_InstructorEmail.setText(selectedItem.getEmail());
-        txt_InstructorTelNo.setText(selectedItem.getTp());
-    }
+            txt_InstructorEmail.clear();
+            txt_InstructorTelNo.clear();
+            txt_InstructorSearch.clear();
 
 
-    private void setAllClear(){
-        txt_InstructorId.clear();
-        txt_InstructorName.clear();
-        txt_InstructorNIC.clear();
-        radio_Female.setSelected(false);
-        radio_Male.setSelected(false);
-        txt_InstructorEmail.clear();
-        txt_InstructorTelNo.clear();
-        txt_InstructorSearch.clear();
-
-
-
-    }
-
-    private void getAllInstructors() throws Exception {
-        ArrayList<InstructorDTO> instructorList;
-        try {
-            instructorList = bo.getAllInstructor();
-            ObservableList<InstructorDTO> Instructor = FXCollections.observableArrayList(instructorList);
-            table_Instructor.setItems(Instructor);
-            table_Instructor.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
-            table_Instructor.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
-            table_Instructor.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("nic"));
-            table_Instructor.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("gender"));
-            table_Instructor.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("email"));
-            table_Instructor.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("tp"));
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
 
-    }
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        try {
-            getAllInstructors();
-        } catch (Exception e) {
-            e.printStackTrace();
+        private void getAllInstructors () throws Exception {
+            ArrayList<InstructorDTO> instructorList;
+            try {
+                instructorList = bo.getAllInstructor();
+                ObservableList<InstructorDTO> Instructor = FXCollections.observableArrayList(instructorList);
+                table_Instructor.setItems(Instructor);
+                table_Instructor.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
+                table_Instructor.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
+                table_Instructor.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("nic"));
+                table_Instructor.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("gender"));
+                table_Instructor.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("email"));
+                table_Instructor.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("tp"));
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+        }
+        @Override
+        public void initialize (URL location, ResourceBundle resources){
+            try {
+                getAllInstructors();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        private boolean ifMemberExists (String mid){
+            try {
+                return InstructorDAOImpl.checkIfMemberExist(mid);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        private boolean ifSearchExists (String mid){
+            try {
+                return InstructorDAOImpl.checkIfSearchExist(mid);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
         }
     }
-    private boolean ifMemberExists(String mid) {
-        try {
-            return InstructorDAOImpl.checkIfMemberExist(mid);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-}

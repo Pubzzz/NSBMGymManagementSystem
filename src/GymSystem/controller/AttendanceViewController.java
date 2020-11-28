@@ -190,19 +190,23 @@ public class AttendanceViewController implements Initializable {
         }
     }
 
-    public void onaction_search(ActionEvent actionEvent) throws SQLException, ClassNotFoundException{
-
-        AttendanceDTO searchAttendance = bo.searchAttendance(txt_AttendanceSearch.getText());
-        txt_AttendanceId.setText(searchAttendance.getId());
-        txt_MemId.setText(searchAttendance.getMid());
-        txt_MemName.setText(searchAttendance.getName());
-        txt_AttendanceDate.setText(searchAttendance.getDate());
-        txt_AttendanceTime.setText(searchAttendance.getTime());
-        if(searchAttendance.getPayment().contentEquals("Done")){
-            radio_Payment.setSelected(true);
+    public void onaction_search(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        if (ifSearchExists(txt_AttendanceSearch.getText())) {
+            AttendanceDTO searchAttendance = bo.searchAttendance(txt_AttendanceSearch.getText());
+            txt_AttendanceId.setText(searchAttendance.getId());
+            txt_MemId.setText(searchAttendance.getMid());
+            txt_MemName.setText(searchAttendance.getName());
+            txt_AttendanceDate.setText(searchAttendance.getDate());
+            txt_AttendanceTime.setText(searchAttendance.getTime());
+            if (searchAttendance.getPayment().contentEquals("Done")) {
+                radio_Payment.setSelected(true);
+            } else {
+                radio_Payment.setSelected(false);
+            }
         }
         else{
-            radio_Payment.setSelected(false);
+            Alert a = new Alert(Alert.AlertType.ERROR, "ATTENDANCE RECORD CANNOT BE FOUND ", ButtonType.OK);
+            a.showAndWait();
         }
     }
     private void setAllClear() {
@@ -210,6 +214,7 @@ public class AttendanceViewController implements Initializable {
         txt_MemName.clear();
         txt_AttendanceId.clear();
         radio_Payment.setSelected(false);
+        txt_AttendanceSearch.clear();
 
     }
     private void getAllAttendance() throws Exception {
@@ -244,6 +249,14 @@ public class AttendanceViewController implements Initializable {
     private boolean ifMemberExists(String mid) {
         try {
             return AttendanceDAOImpl.checkIfMemberExist(mid);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    private boolean ifSearchExists(String mid) {
+        try {
+            return AttendanceDAOImpl.checkIfSearchExist(mid);
         } catch (Exception e) {
             e.printStackTrace();
             return false;

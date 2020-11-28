@@ -39,7 +39,7 @@ ATdate date not null,
 ATtime time(0) not null,
 Apay varchar(10) not null,
 PRIMARY KEY (ATTID),
-FOREIGN KEY (MID) REFERENCES MEMBER(MID)
+FOREIGN KEY (MID) REFERENCES MEMBER(MID) on delete cascade on update cascade
 );
 
 create table TRACKER(
@@ -52,5 +52,5 @@ Age int(3) not null,
 BMI varchar(50) not null,
 Cal varchar(50) not null,
 PRIMARY KEY (TID),
-FOREIGN KEY (MID) REFERENCES MEMBER(MID)
+FOREIGN KEY (MID) REFERENCES MEMBER(MID) on delete cascade on update cascade
 );

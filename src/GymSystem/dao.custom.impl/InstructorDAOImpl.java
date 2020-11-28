@@ -77,5 +77,17 @@ public class InstructorDAOImpl implements InstructorDAO {
         }
         return recordExist;
     }
+    public static boolean checkIfSearchExist(String id) throws Exception {
+        boolean recordExist = false;
+        ResultSet rst = CrudUtil.executeQuery("Select COUNT(*) from Instructor where IID=?",id);
+
+        while(rst.next()) {
+            if(rst.getInt(1) == 1) {
+                recordExist = true;
+                break;
+            }
+        }
+        return recordExist;
+    }
 
 }
