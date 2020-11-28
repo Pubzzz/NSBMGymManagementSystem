@@ -52,5 +52,17 @@
             <Image url="@../../Images/icons8-sign-in-form-password-50.png" />
          </image>
       </ImageView>
+      <JFXButton fx:id="btn_close" layoutX="570.0" layoutY="2.0" onAction="#onaction_close" prefHeight="24.0" prefWidth="0.0">
+         <font>
+            <Font size="1.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/icons8_Close_Window_96px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

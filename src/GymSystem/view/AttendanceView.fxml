@@ -23,46 +23,46 @@
             </Label>
          </children>
       </Pane>
-      <Label layoutX="80.0" layoutY="122.0" text="Attendace ID">
+      <Label layoutX="80.0" layoutY="90.0" text="Attendace ID">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="80.0" layoutY="156.0" text="Member ID">
+      <Label layoutX="80.0" layoutY="126.0" text="Member ID">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="80.0" layoutY="192.0" text="Name">
+      <Label layoutX="80.0" layoutY="162.0" text="Name">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="80.0" layoutY="228.0" text="Date">
+      <Label layoutX="80.0" layoutY="198.0" text="Date">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="80.0" layoutY="267.0" text="Time Arrived">
+      <Label layoutX="80.0" layoutY="235.0" text="Time Arrived">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="80.0" layoutY="307.0" text="Payment">
+      <Label layoutX="80.0" layoutY="272.0" text="Payment">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txt_AttendanceId" layoutX="288.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_MemId" layoutX="288.0" layoutY="154.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_MemName" layoutX="288.0" layoutY="190.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_AttendanceDate" layoutX="288.0" layoutY="226.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_AttendanceTime" layoutX="288.0" layoutY="265.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXRadioButton fx:id="radio_Payment" layoutX="288.0" layoutY="309.0" text="Done" />
-      <JFXButton id="button" fx:id="btn_Add" layoutX="285.0" layoutY="358.0" onAction="#onaction_add" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="ADD" />
-      <JFXButton id="button" fx:id="btn_Update" layoutX="398.0" layoutY="358.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="UPDATE" />
-      <JFXButton id="button" fx:id="btn_Remove" layoutX="502.0" layoutY="358.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="REMOVE" />
-      <JFXButton id="button" fx:id="btn_Clear" layoutX="613.0" layoutY="358.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="CLEAR" />
+      <JFXTextField fx:id="txt_AttendanceId" layoutX="265.0" layoutY="88.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_MemId" layoutX="265.0" layoutY="124.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_MemName" layoutX="265.0" layoutY="160.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_AttendanceDate" layoutX="265.0" layoutY="196.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_AttendanceTime" layoutX="265.0" layoutY="233.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXRadioButton fx:id="radio_Payment" layoutX="265.0" layoutY="274.0" text="Done" />
+      <JFXButton id="button" fx:id="btn_Add" layoutX="235.0" layoutY="390.0" onAction="#onaction_add" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="ADD" />
+      <JFXButton id="button" fx:id="btn_Update" layoutX="350.0" layoutY="390.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="UPDATE" />
+      <JFXButton id="button" fx:id="btn_Remove" layoutX="464.0" layoutY="390.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="REMOVE" />
+      <JFXButton id="button" fx:id="btn_Clear" layoutX="570.0" layoutY="390.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Attendance.css" text="CLEAR" />
       <Pane layoutX="655.0" layoutY="90.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #d1dbe0;">
          <children>
             <JFXTextField fx:id="txt_AttendanceSearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="Attendance ID">
@@ -70,7 +70,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXTextField>
-            <ImageView fitHeight="21.0" fitWidth="29.0" layoutX="360.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="21.0" fitWidth="29.0" layoutX="355.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/icons8_Search_96px.png" />
                </image>

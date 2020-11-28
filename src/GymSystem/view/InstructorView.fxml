@@ -23,42 +23,42 @@
             </Label>
          </children>
       </Pane>
-      <Label layoutX="80.0" layoutY="142.0" text="Instructor ID">
+      <Label layoutX="80.0" layoutY="90.0" text="Instructor ID">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="80.0" layoutY="176.0" text="Instructor Name">
+      <Label layoutX="80.0" layoutY="126.0" text="Instructor Name">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="80.0" layoutY="212.0" text="NIC">
+      <Label layoutX="80.0" layoutY="162.0" text="NIC">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="80.0" layoutY="277.0" text="E-mail">
+      <Label layoutX="80.0" layoutY="227.0" text="E-mail">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="80.0" layoutY="316.0" text="Tel.No">
+      <Label layoutX="80.0" layoutY="266.0" text="Tel.No">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txt_InstructorId" layoutX="265.0" layoutY="140.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_InstructorName" layoutX="265.0" layoutY="174.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_InstructorNIC" layoutX="265.0" layoutY="210.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXRadioButton fx:id="radio_Male" layoutX="265.0" layoutY="256.0" text="Male" />
-      <JFXRadioButton fx:id="radio_Female" layoutX="414.0" layoutY="256.0" text="Female" />
-      <JFXTextField fx:id="txt_InstructorEmail" layoutX="265.0" layoutY="275.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXTextField fx:id="txt_InstructorTelNo" layoutX="265.0" layoutY="314.0" prefHeight="25.0" prefWidth="300.0" />
-      <JFXButton id="button" fx:id="btn_Register" layoutX="288.0" layoutY="363.0" onAction="#onaction_register" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Instructor.css" text="REGISTER" />
-      <JFXButton id="button" fx:id="btn_Update" layoutX="401.0" layoutY="363.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Instructor.css" text="UPDATE" />
-      <JFXButton id="button" fx:id="btn_Remove" layoutX="511.0" layoutY="363.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Instructor.css" text="REMOVE" />
-      <JFXButton id="button" fx:id="btn_Clear" layoutX="616.0" layoutY="363.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Instructor.css" text="CLEAR" />
+      <JFXTextField fx:id="txt_InstructorId" layoutX="265.0" layoutY="88.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_InstructorName" layoutX="265.0" layoutY="124.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_InstructorNIC" layoutX="265.0" layoutY="160.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXRadioButton fx:id="radio_Male" layoutX="265.0" layoutY="199.0" text="Male" />
+      <JFXRadioButton fx:id="radio_Female" layoutX="415.0" layoutY="199.0" text="Female" />
+      <JFXTextField fx:id="txt_InstructorEmail" layoutX="265.0" layoutY="225.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXTextField fx:id="txt_InstructorTelNo" layoutX="265.0" layoutY="264.0" prefHeight="25.0" prefWidth="300.0" />
+      <JFXButton id="button" fx:id="btn_Register" layoutX="235.0" layoutY="390.0" onAction="#onaction_register" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Instructor.css" text="REGISTER" />
+      <JFXButton id="button" fx:id="btn_Update" layoutX="350.0" layoutY="390.0" onAction="#onaction_update" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Instructor.css" text="UPDATE" />
+      <JFXButton id="button" fx:id="btn_Remove" layoutX="464.0" layoutY="390.0" onAction="#onaction_remove" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Instructor.css" text="REMOVE" />
+      <JFXButton id="button" fx:id="btn_Clear" layoutX="570.0" layoutY="390.0" onAction="#onaction_clear" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/Instructor.css" text="CLEAR" />
       <Pane layoutX="655.0" layoutY="90.0" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #d1dbe0;">
          <children>
             <JFXTextField fx:id="txt_InstructorSearch" layoutX="16.0" layoutY="21.0" onAction="#onaction_search" prefHeight="31.0" prefWidth="364.0" promptText="Instructor ID">
@@ -66,7 +66,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXTextField>
-            <ImageView fitHeight="21.0" fitWidth="29.0" layoutX="360.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="21.0" fitWidth="29.0" layoutX="355.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/icons8_Search_96px.png" />
                </image>
@@ -88,7 +88,7 @@
             <TableColumn minWidth="3.0" prefWidth="156.0" text="Tel.No" />
         </columns>
       </TableView>
-      <Label layoutX="80.0" layoutY="247.0" text="Gender">
+      <Label layoutX="80.0" layoutY="197.0" text="Gender">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
