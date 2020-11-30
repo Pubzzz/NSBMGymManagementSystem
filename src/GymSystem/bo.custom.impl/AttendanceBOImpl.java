@@ -6,7 +6,6 @@ import GymSystem.dao.custom.AttendanceDAO;
 import GymSystem.dto.AttendanceDTO;
 import GymSystem.entity.Attendance;
 
-import javax.naming.Name;
 import java.sql.SQLException;
 import java.util.ArrayList;
 

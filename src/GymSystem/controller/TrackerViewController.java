@@ -2,7 +2,6 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.TrackerBO;
-import GymSystem.dao.custom.impl.AttendanceDAOImpl;
 import GymSystem.dao.custom.impl.TrackerDAOImpl;
 import GymSystem.dto.MemberDTO;
 import GymSystem.dto.TrackerDTO;

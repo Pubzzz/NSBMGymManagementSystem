@@ -2,7 +2,6 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.AttendanceBO;
-import GymSystem.dao.custom.impl.AccessoriesDAOImpl;
 import GymSystem.dao.custom.impl.AttendanceDAOImpl;
 import GymSystem.dto.AttendanceDTO;
 import com.jfoenix.controls.JFXButton;

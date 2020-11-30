@@ -3,7 +3,6 @@ package GymSystem.controller;
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.AccessoriesBO;
 import GymSystem.dao.custom.impl.AccessoriesDAOImpl;
-import GymSystem.dao.custom.impl.MemberDAOImpl;
 import GymSystem.dto.AccessoriesDTO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
