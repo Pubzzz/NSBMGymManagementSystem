@@ -2,6 +2,7 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.AttendanceBO;
+import GymSystem.dao.custom.impl.AccessoriesDAOImpl;
 import GymSystem.dao.custom.impl.AttendanceDAOImpl;
 import GymSystem.dto.AttendanceDTO;
 import com.jfoenix.controls.JFXButton;
@@ -109,6 +110,7 @@ public class AttendanceViewController implements Initializable {
                 a.showAndWait();
                 setAllClear();
                 getAllAttendance();
+                GenerateID();
             }
             else {
                 Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
@@ -145,6 +147,7 @@ public class AttendanceViewController implements Initializable {
             a.showAndWait();
             setAllClear();
             getAllAttendance();
+            GenerateID();
         }else{
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
@@ -161,6 +164,7 @@ public class AttendanceViewController implements Initializable {
             a.showAndWait();
             setAllClear();
             getAllAttendance();
+            GenerateID();
         }else{
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
@@ -209,7 +213,7 @@ public class AttendanceViewController implements Initializable {
     private void setAllClear() {
         txt_MemId.clear();
         txt_MemName.clear();
-        txt_AttendanceId.clear();
+        GenerateID();
         radio_Payment.setSelected(false);
         txt_AttendanceSearch.clear();
 
@@ -266,6 +270,14 @@ public class AttendanceViewController implements Initializable {
             getAllAttendance();
             setDate();
             setTime();
+            GenerateID();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void GenerateID() {
+        try {
+            txt_AttendanceId.setText(AttendanceDAOImpl.getMaxID());
         } catch (Exception e) {
             e.printStackTrace();
         }

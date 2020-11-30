@@ -112,5 +112,15 @@ public class AttendanceDAOImpl implements AttendanceDAO{
 
         return idcntM;
     }
+    public static String getMaxID() throws Exception {
+        int count = 0;
+        ResultSet rst = CrudUtil.executeQuery("Select MAX(ATTID) from ATTENDENCE ");
+        while (rst.next()) {
+            count = rst.getInt(1);
+            count+=1;
+        }
+        String idcntM = Integer.toString(count);
+        return idcntM;
+    }
 
 }

@@ -59,6 +59,7 @@ public class AccessoriesViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             getAllAccessories();
+            GenerateID();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -98,6 +99,7 @@ public class AccessoriesViewController implements Initializable {
             a.showAndWait();
             setAllClear();
             getAllAccessories();
+            GenerateID();
 
 
         } else {
@@ -125,7 +127,7 @@ public class AccessoriesViewController implements Initializable {
     }
 
     private void setAllClear() {
-        txt_AccessoryId.clear();
+        GenerateID();
         txt_AccessoryType.clear();
         txt_AccessoryBrand.clear();
         txt_AccessoryQty.clear();
@@ -146,6 +148,7 @@ public class AccessoriesViewController implements Initializable {
             a.showAndWait();
             setAllClear();
             getAllAccessories();
+            GenerateID();
         } else {
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
@@ -162,6 +165,7 @@ public class AccessoriesViewController implements Initializable {
             a.showAndWait();
             setAllClear();
             getAllAccessories();
+            GenerateID();
         } else {
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
@@ -201,6 +205,13 @@ public class AccessoriesViewController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+    private void GenerateID() {
+        try {
+            txt_AccessoryId.setText(AccessoriesDAOImpl.getMaxID());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

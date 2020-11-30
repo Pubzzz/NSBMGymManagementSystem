@@ -2,6 +2,7 @@ package GymSystem.controller;
 
 import GymSystem.bo.BOFactory;
 import GymSystem.bo.custom.TrackerBO;
+import GymSystem.dao.custom.impl.AttendanceDAOImpl;
 import GymSystem.dao.custom.impl.TrackerDAOImpl;
 import GymSystem.dto.MemberDTO;
 import GymSystem.dto.TrackerDTO;
@@ -137,6 +138,7 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
                 setAllClear();
                 getAllTracker();
                 setAllClear();
+                GenerateID();
 
             } else {
                 Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
@@ -157,6 +159,7 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
             a.showAndWait();
             setAllClear();
             getAllTracker();
+            GenerateID();
         }else{
             Alert a = new Alert(Alert.AlertType.WARNING, "FAILED ", ButtonType.OK);
             a.showAndWait();
@@ -228,7 +231,7 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         }
     }
     private void setAllClear(){
-        txt_TrackerID.clear();
+        GenerateID();
         txt_MemberID.clear();
         txt_Height.clear();
         txt_Weight.clear();
@@ -273,6 +276,14 @@ public class TrackerViewController extends MemberDTO implements Initializable, S
         try {
             getAllTracker();
             setDate();
+            GenerateID();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void GenerateID() {
+        try {
+            txt_TrackerID.setText(TrackerDAOImpl.getMaxID());
         } catch (Exception e) {
             e.printStackTrace();
         }
